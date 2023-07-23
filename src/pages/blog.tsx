@@ -8,9 +8,10 @@ import { Entertaiment } from "../components/Entertaiment";
 import { Vibe } from "../components/Vibe";
 import { Footer } from "../components/Footer";
 import { MainHead } from "../components/MainHead";
-import { useEffect, useState } from "react";
+import { RefObject, useEffect, useRef, useState } from "react";
+import { Article } from "../components/Article";
 
-const IndexPage: React.FC<PageProps> = () => {
+const BlogPage: React.FC<PageProps> = () => {
     const [sticky, setSticky] = useState(false);
 
     useEffect(() => {
@@ -28,17 +29,13 @@ const IndexPage: React.FC<PageProps> = () => {
         <>
             <Header isSticky={sticky} />
             <Main>
-                <MainHead />
-                <InfoBlock />
-                <People />
-                <Entertaiment />
-                <Vibe />
+                <Article />
             </Main>
             <Footer />
         </>
     );
 };
 
-export default IndexPage;
+export default BlogPage;
 
-export const Head: HeadFC = () => <title>FunVibe Surf</title>;
+export const Head: HeadFC = () => <title>Article</title>;
