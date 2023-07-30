@@ -1,4 +1,6 @@
-import styled from "styled-components";
+import { Link } from "gatsby";
+import styled, { css } from "styled-components";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 export const NavWrapperSC = styled.nav`
     display: flex;
@@ -7,7 +9,7 @@ export const NavWrapperSC = styled.nav`
     gap: 10px;
 `;
 
-export const MenuItemSC = styled.a`
+const menuItemStyles = css`
     font-family: "Inter", sans-serif;
     font-size: 16px;
     line-height: 1.5;
@@ -17,4 +19,11 @@ export const MenuItemSC = styled.a`
     text-align: center;
     cursor: pointer;
     color: #000;
+`;
+export const MenuItemBtnSC = styled(AnchorLink)`
+    ${menuItemStyles}
+`;
+
+export const MenuItemLinkSC = styled(Link)`
+    ${menuItemStyles}
 `;

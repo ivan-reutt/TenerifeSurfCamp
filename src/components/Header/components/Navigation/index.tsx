@@ -1,13 +1,13 @@
 import React from "react";
-import { MenuItemSC, NavWrapperSC } from "./styled";
+import { MenuItemLinkSC, NavWrapperSC, MenuItemBtnSC } from "./styled";
 
 export const Navigation = () => {
     return (
         <NavWrapperSC>
-            <MenuItemSC href="#about">О нас</MenuItemSC>
-            <MenuItemSC href="#entertainment">Развлечения</MenuItemSC>
-            <MenuItemSC href="#vibe">Вайб</MenuItemSC>
-            <MenuItemSC href="/news">Новости</MenuItemSC>
+            <MenuItemBtnSC to="/#about">О нас</MenuItemBtnSC>
+            <MenuItemBtnSC to="/#entertainment">Развлечения</MenuItemBtnSC>
+            <MenuItemBtnSC to="/#vibe">Вайб</MenuItemBtnSC>
+            <MenuItemLinkSC to="/news">Новости</MenuItemLinkSC>
         </NavWrapperSC>
     );
 };

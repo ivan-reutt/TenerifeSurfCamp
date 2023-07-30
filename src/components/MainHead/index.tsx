@@ -1,6 +1,6 @@
 import React from "react";
-import { ActionButton } from "../ActionButton";
-import { VideoButton } from "../VideoButton";
+import { ActionButton } from "components/ActionButton";
+import { VideoButton } from "components/VideoButton";
 import { HeadSC, TitleSC, WrapperSC } from "./styled";
 
 export const MainHead = () => {

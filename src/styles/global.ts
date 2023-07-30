@@ -8,6 +8,9 @@ export const GlobalStyle = createGlobalStyle`
     body {
       background: #FAF8F4;
       font-family: "GothamPro", sans-serif;
+      &.modal-open {
+        overflow: hidden;
+      }
     }
     html {
       scroll-behavior: smooth;

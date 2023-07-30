@@ -1,13 +1,13 @@
 import React from "react";
-import "./src/styles/fonts.css";
 import "normalize-css";
-import { GlobalStyle } from "./src/styles/global";
+import "./src/styles/fonts.css";
+import { GatsbyBrowser } from "gatsby";
+import Layout from "./src/components/Layout/index";
 
-export const wrapPageElement = ({ element }) => {
-    return (
-        <>
-            <GlobalStyle />
-            {element}
-        </>
-    );
+export const wrapPageElement: GatsbyBrowser["wrapPageElement"] = ({
+    element,
+}) => {
+    return <Layout>{element}</Layout>;
 };
+// export const shouldUpdateScroll: GatsbyBrowser["shouldUpdateScroll"] = () => {
+// };

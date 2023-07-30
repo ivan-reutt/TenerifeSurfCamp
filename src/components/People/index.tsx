@@ -1,5 +1,5 @@
 import React from "react";
-import { ActionButton, ColorTypes } from "../ActionButton";
+import { ActionButton, ColorTypes } from "components/ActionButton";
 import {
     PeolpeSC,
     SubTitleSC,

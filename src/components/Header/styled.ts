@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import styled, { css } from "styled-components";
 
 export const HeaderSC = styled.header<{ isSticky: boolean }>`
@@ -21,7 +22,7 @@ export const HeaderSC = styled.header<{ isSticky: boolean }>`
         `};
 `;
 
-export const LogoLinkSC = styled.a`
+export const LogoLinkSC = styled(Link)`
     max-width: 115px;
     width: 100%;
 `;

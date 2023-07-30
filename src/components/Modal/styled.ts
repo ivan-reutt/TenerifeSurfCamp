@@ -11,6 +11,10 @@ export const OverlaySC = styled.div`
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+
+    body & {
+        overflow: hidden;
+    }
 `;
 
 export const ModalSC = styled.div`

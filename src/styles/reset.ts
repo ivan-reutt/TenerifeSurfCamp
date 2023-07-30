@@ -23,6 +23,7 @@ export const reset = css`
     a:link,
     a:visited {
         text-decoration: none;
+        outline: none;
     }
 
     a:hover {

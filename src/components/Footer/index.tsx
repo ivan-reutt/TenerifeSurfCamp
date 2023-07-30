@@ -1,56 +1,61 @@
 import React from "react";
-import { Layout } from "../Layout";
-import { Form } from "./Form";
+import { Form } from "components/Form";
+import { Logo } from "components/icons/Logo";
+import Instagram from "src/icons/Instagram.svg";
+import Telegram from "src/icons/Telegram.svg";
+import Facebook from "src/icons/Facebook.svg";
+import Whatsapp from "src/icons/Whatsapp.svg";
 import {
     FooterSC,
     LinksSC,
-    IconSC,
+    IconLinkSC,
     TitleSC,
     WrapperSC,
     BlankTextSC,
     ContactItemSC,
     ContactsSC,
     ContactTextSC,
-    LogoSC,
+    LogoLinkSC,
+    ContainerSC,
 } from "./styled";
 
 export const Footer: React.FC = () => {
     return (
         <FooterSC id="footer">
-            <Layout>
-                <LogoSC>
-                    <img src="/images/logo.svg" alt="logo" />
-                </LogoSC>
+            <ContainerSC>
+                <LogoLinkSC to="/">
+                    <Logo color="#fff" />
+                </LogoLinkSC>
                 <WrapperSC>
                     <TitleSC>
                         Записаться <br /> в лагерь
                     </TitleSC>
                     <Form />
                     <LinksSC>
-                        <IconSC
+                        <IconLinkSC
                             href="https://www.instagram.com/alex.croot/"
                             target="_blank"
                         >
-                            <img src="/images/Instagram.svg" alt="Instagram" />
-                        </IconSC>
-                        <IconSC
+                            <Instagram />
+                        </IconLinkSC>
+                        <IconLinkSC
                             href="https://www.instagram.com/alex.croot/"
                             target="_blank"
                         >
-                            <img src="/images/Telegram.svg" alt="Telegram" />
-                        </IconSC>
-                        <IconSC
+                            <Telegram />
+                        </IconLinkSC>
+                        <IconLinkSC
                             href="https://www.facebook.com/alexandr.dodul/"
                             target="_blank"
                         >
-                            <img src="/images/Facebook.svg" alt="Facebook" />
-                        </IconSC>
-                        <IconSC
+                            <Facebook />
+                        </IconLinkSC>
+                        <IconLinkSC
                             target="_blank"
                             href="https://api.whatsapp.com/send/?phone=34655354404&text&type=phone_number&app_absent=0"
                         >
-                            <img src="/images/Viber.svg" alt="Viber" />
-                        </IconSC>
+                            <Whatsapp />
+                        </IconLinkSC>
                     </LinksSC>
                 </WrapperSC>
                 <ContactsSC>
@@ -67,7 +72,7 @@ export const Footer: React.FC = () => {
                         </ContactTextSC>
                     </ContactItemSC>
                 </ContactsSC>
-            </Layout>
+            </ContainerSC>
         </FooterSC>
     );
 };

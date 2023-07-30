@@ -1,7 +1,7 @@
 import type { GatsbyConfig } from "gatsby";
-require("dotenv").config({
-    path: `.env.${process.env.NODE_ENV}`,
-});
+import { config as doteenvConfig } from "dotenv";
+
+doteenvConfig({ path: `.env.${process.env.NODE_ENV}` });
 
 const config: GatsbyConfig = {
     siteMetadata: {
@@ -13,20 +13,39 @@ const config: GatsbyConfig = {
     // Learn more at: https://gatsby.dev/graphql-typegen
     graphqlTypegen: true,
     plugins: [
-        // {
-        //     resolve: "gatsby-source-contentful",
-        //     options: {
-        //         accessToken:
-        //             process.env.CONTENTFUL_TOKEN ||
-        //             "y4ExW8xW22u7-QesLb7PcYsCgTAGVMZt47NrDlLpW_8",
-        //         spaceId: process.env.CONTENTFUL_SPACE_ID || "kz5hr8i8acsm",
-        //     },
-        // },
+        {
+            resolve: "gatsby-source-contentful",
+            options: {
+                accessToken: process.env.CONTENTFUL_TOKEN,
+                spaceId: process.env.CONTENTFUL_SPACE_ID,
+            },
+        },
+        {
+            resolve: `gatsby-source-filesystem`,
+            options: {
+                name: `images`,
+                path: `${__dirname}/src/images`,
+            },
+        },
         "gatsby-plugin-image",
         "gatsby-plugin-sharp",
         "gatsby-transformer-sharp",
         "gatsby-plugin-styled-components",
         "gatsby-plugin-sitemap",
+        {
+            resolve: "gatsby-plugin-anchor-links",
+            options: {
+                duration: 50,
+            },
+        },
+        {
+            resolve: "gatsby-plugin-react-svg",
+            options: {
+                rule: {
+                    include: /icons/, // See below to configure properly
+                },
+            },
+        },
     ],
 };
 

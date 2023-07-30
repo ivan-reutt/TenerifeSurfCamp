@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Modal } from "../Modal";
+import { Modal } from "src/components/Modal";
+import { ArrowRight } from "components/icons/ArrowRight";
 import { SURF_TITLE, PRICE_TITLE, SURF_TEXT, PRICE_TEXT } from "./constants";
 import {
     InfoBlockSC,
@@ -9,6 +10,7 @@ import {
     ModalTextSC,
     ModalTitleSC,
     ModalContentSC,
+    IconSC,
 } from "./styled";
 
 enum ModalType {
@@ -39,10 +41,12 @@ export const InfoBlock = () => {
 
     const handleClickPrice = () => {
         setModalType(ModalType.PRICE);
+        document.body.classList.add("modal-open");
     };
 
     const handleClickSurf = () => {
         setModalType(ModalType.SURF);
+        document.body.classList.add("modal-open");
     };
     const renderModalContent = () => {
         switch (modalType) {
@@ -61,11 +65,15 @@ export const InfoBlock = () => {
                 <InfoItemsWrapperSC>
                     <InfoItemSC onClick={handleClickPrice}>
                         <ItemTextSC>Цены на Тенерифе</ItemTextSC>
-                        <img src="/images/arrowright.svg" alt="arrow-right" />
+                        <IconSC>
+                            <ArrowRight color="#000" />
+                        </IconSC>
                     </InfoItemSC>
                     <InfoItemSC onClick={handleClickSurf}>
                         <ItemTextSC>Серфинг на Тенерифе</ItemTextSC>
-                        <img src="/images/arrowright.svg" alt="arrow-right" />
+                        <IconSC>
+                            <ArrowRight color="#000" />
+                        </IconSC>
                     </InfoItemSC>
                 </InfoItemsWrapperSC>
             </InfoBlockSC>

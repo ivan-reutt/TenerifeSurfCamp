@@ -1,3 +1,4 @@
+import { Link } from "gatsby";
 import styled from "styled-components";
 
 export const FooterSC = styled.footer`
@@ -8,6 +9,14 @@ export const FooterSC = styled.footer`
     background-size: 175% 300%;
     background-position: 50% 88%;
     margin-top: 180px;
+`;
+
+export const ContainerSC = styled.div`
+    max-width: 1180px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
 `;
 
 export const WrapperSC = styled.div`
@@ -22,13 +31,12 @@ export const LinksSC = styled.div`
     align-self: flex-end;
 `;
 
-export const LogoSC = styled.div`
-    width: 153px;
-    height: 32px;
-    cursor: pointer;
+export const LogoLinkSC = styled(Link)`
+    max-width: 153px;
+    width: 100%;
 `;
 
-export const IconSC = styled.a`
+export const IconLinkSC = styled.a`
     width: 64px;
     height: 64px;
     border-radius: 16px;

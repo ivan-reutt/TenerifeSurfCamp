@@ -54,3 +54,8 @@ export const ModalContentSC = styled.div`
         background: rgba(0, 0, 0, 0.5);
     }
 `;
+
+export const IconSC = styled.div`
+    width: 40px;
+    height: 40px;
+`;
