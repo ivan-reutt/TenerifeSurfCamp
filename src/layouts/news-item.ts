@@ -33,17 +33,8 @@ export const AddInfoSC = styled.div`
     gap: 32px;
 `;
 
-export const CardPhotoSC = styled.div`
-    border-radius: 8px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+export const MainPhotoSC = styled.div`
     align-self: stretch;
-`;
-
-export const MainPhotoSC = styled(CardPhotoSC)`
-    align-self: stretch;
-    & > img {
-        width: 100%;
-    }
 `;
 
 export const HeadingSC = styled.h4``;

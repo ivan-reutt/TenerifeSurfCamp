@@ -39,7 +39,7 @@ export const TextSC = styled.div`
 `;
 
 export const PeopleCardBlueSC = styled(PeopleCardSC)`
-    background-image: url("/images/15.jpg");
+    background-image: url("/images/blue-bg.jpg");
     background-position: bottom;
     color: #fff;
 `;

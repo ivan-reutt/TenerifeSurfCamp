@@ -1,5 +1,5 @@
-import { Link } from "gatsby";
 import styled from "styled-components";
+import { Link } from "gatsby-plugin-react-i18next";
 
 export const CardSC = styled.div`
     position: relative;
@@ -10,7 +10,13 @@ export const CardSC = styled.div`
     background-color: #fff;
 `;
 
-export const CardPhotoSC = styled.div``;
+export const CardPhotoSC = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 260px;
+    overflow: hidden;
+`;
 
 export const PricesWrapperSC = styled.div`
     display: flex;

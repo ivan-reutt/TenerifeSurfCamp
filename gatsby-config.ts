@@ -23,8 +23,25 @@ const config: GatsbyConfig = {
         {
             resolve: `gatsby-source-filesystem`,
             options: {
-                name: `images`,
-                path: `${__dirname}/src/images`,
+                path: `${__dirname}/locales`,
+                name: `locale`,
+            },
+        },
+        {
+            resolve: "gatsby-plugin-react-i18next",
+            options: {
+                languages: ["uk", "ru", "en"],
+                defaultLanguage: "ru",
+                siteUrl: `https://www.yourdomain.tld`,
+                i18nextOptions: {
+                    // debug: true,
+                    fallbackLng: "uk",
+                    supportedLngs: ["uk", "ru", "en"],
+                    defaultNS: "common",
+                    interpolation: {
+                        escapeValue: false, // not needed for react as it escapes by default
+                    },
+                },
             },
         },
         "gatsby-plugin-image",
@@ -35,7 +52,7 @@ const config: GatsbyConfig = {
         {
             resolve: "gatsby-plugin-anchor-links",
             options: {
-                duration: 50,
+                duration: 0,
             },
         },
         {

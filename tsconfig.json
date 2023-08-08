@@ -108,7 +108,7 @@
         "./src/**/*",
         "./gatsby-node.ts",
         "./gatsby-config.ts",
-        "./plugins/**/*",
+        // "./plugins/**/*",
         "./cutom-types.ts"
     ],
     "exclude": ["./node_modules", "./public", "./.cache"]

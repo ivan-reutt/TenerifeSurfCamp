@@ -1,16 +1,7 @@
 import React from "react";
-import {
-    OptionSC,
-    OptionTextSC,
-    OptionTextGreySC,
-    IconWrapperSmallSC,
-} from "./styled";
-
-export interface IOption {
-    name: string;
-    code: string;
-    iconPath: string;
-}
+import { IOption } from "..";
+import { IconContainerSC } from "../styled";
+import { OptionSC, OptionTextSC, OptionTextGreySC } from "./styled";
 
 type Props = {
     optionValue: IOption;
@@ -26,9 +17,7 @@ export const SelectOption: React.FC<Props> = ({
     };
     return (
         <OptionSC onClick={handleClickOption}>
-            <IconWrapperSmallSC>
-                <img src={optionValue.iconPath} alt={optionValue.name} />
-            </IconWrapperSmallSC>
+            <IconContainerSC className={`ff-md fflag-${optionValue.country}`} />
             <OptionTextSC>{optionValue.name}</OptionTextSC>
             <OptionTextGreySC>{optionValue.code}</OptionTextGreySC>
         </OptionSC>

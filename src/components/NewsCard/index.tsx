@@ -1,5 +1,5 @@
 import React from "react";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import {
     NewsCardSC,
     CardPhotoSC,
@@ -22,11 +22,11 @@ const NewsCard: React.FC<IProps> = ({
     title,
     contentful_id,
 }) => {
-    const image = getImage(preview);
+    const image = getImage(preview) as IGatsbyImageData;
     return (
         <NewsCardSC to={`/news/${contentful_id}`}>
             <CardPhotoSC>
-                <GatsbyImage image={image} alt={title} />
+                <GatsbyImage image={image} alt={title || "Photo"} />
             </CardPhotoSC>
             <CardInfoSC>
                 <DateSC>{date}</DateSC>

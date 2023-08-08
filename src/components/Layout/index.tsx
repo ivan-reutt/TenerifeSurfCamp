@@ -9,11 +9,11 @@ type Props = {
 };
 
 const Layout: React.FC<Props> = ({ children }) => {
-    const [sticky, setSticky] = useState(false);
+    const [isStickyHeader, setIsStickyHeader] = useState(false);
 
     useEffect(() => {
         const handleScrollEvent = () => {
-            setSticky(window.pageYOffset > 0 ? true : false);
+            setIsStickyHeader(window.pageYOffset > 0 ? true : false);
         };
 
         window.addEventListener("scroll", handleScrollEvent);
@@ -25,7 +25,7 @@ const Layout: React.FC<Props> = ({ children }) => {
     return (
         <>
             <GlobalStyle />
-            <Header isSticky={sticky} />
+            <Header isSticky={isStickyHeader} />
             <Main>{children}</Main>
             <Footer />
         </>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { MenuContent } from "./MenuContent";
 import { MenuTab } from "./MenuTab";
 import { ServicesSC, SubTitleSC, MenuSC, TabsWrapperSC } from "./styled";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 export enum TabsEnum {
     SURFING = "Surfing",
@@ -9,9 +10,27 @@ export enum TabsEnum {
     REST = "Rest",
 }
 
-const tabsArray = [TabsEnum.SURFING, TabsEnum.TOUR, TabsEnum.REST];
+interface ITab {
+    type: TabsEnum;
+    name: string;
+}
 
-export const Entertaiment = () => {
+const tabsItems: ITab[] = [
+    {
+        type: TabsEnum.SURFING,
+        name: "Серфинг",
+    },
+    {
+        type: TabsEnum.TOUR,
+        name: "Экскурсии на Тенерифе",
+    },
+    {
+        type: TabsEnum.REST,
+        name: "Отдых на Тенерифе",
+    },
+];
+
+export const Services = () => {
     const [activeTab, setActiveTab] = useState<TabsEnum>(TabsEnum.SURFING);
 
     const handleChange = (selectedTab: TabsEnum) => {
@@ -19,14 +38,18 @@ export const Entertaiment = () => {
     };
     return (
         <ServicesSC id="entertainment">
-            <SubTitleSC>Развлечения по душе</SubTitleSC>
+            <SubTitleSC>
+                <Trans i18nKey="entertainmentTitle">Развлечения по душе</Trans>
+            </SubTitleSC>
             <MenuSC>
                 <TabsWrapperSC>
-                    {tabsArray.map((item: TabsEnum) => (
+                    {tabsItems.map((item) => (
                         <MenuTab
+                            key={item.type}
                             onClick={handleChange}
-                            isActive={item === activeTab}
-                            type={item}
+                            isActive={item.type === activeTab}
+                            type={item.type}
+                            name={item.name}
                         />
                     ))}
                 </TabsWrapperSC>

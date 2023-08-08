@@ -2,14 +2,19 @@ import React, { useState } from "react";
 import { ActionButton } from "components/ActionButton";
 import { countries, SelectCountryCode } from "./SelectCountryCode";
 import { FormSC, InputSC, SubmitTextSC, InputWrapperSC } from "./styled";
+import { useTranslation } from "gatsby-plugin-react-i18next";
 
 interface IFormValues {
     name: string;
     phone: string;
     code: string;
 }
+interface IProps {
+    isOrder?: boolean;
+}
 
-export const Form: React.FC = () => {
+export const Form: React.FC<IProps> = ({ isOrder }) => {
+    const { t } = useTranslation();
     const [isSubmited, setIsSubmited] = useState<boolean>(false);
     const handleSubmit = () => {
         setIsSubmited(true);
@@ -22,7 +27,7 @@ export const Form: React.FC = () => {
     });
 
     const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const name = event.target.value.replace(/[^a-z]/gi, "");
+        const name = event.target.value.replace(/[^a-zA-Zа-яА-Я]/gi, "");
         setFormValues((prev) => ({ ...prev, name }));
     };
 
@@ -37,14 +42,12 @@ export const Form: React.FC = () => {
     return (
         <FormSC>
             {isSubmited ? (
-                <SubmitTextSC>
-                    Готово! Мы очень скоро свяжемся с вами.
-                </SubmitTextSC>
+                <SubmitTextSC>{t("isReady")}</SubmitTextSC>
             ) : (
                 <>
                     <InputWrapperSC>
                         <InputSC
-                            placeholder="Имя"
+                            placeholder={t("name")}
                             type="text"
                             onChange={handleChangeName}
                             value={formValues.name}
@@ -56,13 +59,20 @@ export const Form: React.FC = () => {
                             value={formValues.code}
                         />
                         <InputSC
-                            placeholder="Номер телефона"
+                            placeholder={t("numberPhone")}
                             type="text"
                             onChange={handleChangePhone}
                             value={formValues.phone}
                         />
                     </InputWrapperSC>
-                    <ActionButton onClick={handleSubmit} />
+                    <ActionButton
+                        onClick={handleSubmit}
+                        style={{
+                            alignSelf: isOrder ? "center" : "flex-start",
+                        }}
+                    >
+                        {isOrder ? t("orderText") : ""}
+                    </ActionButton>
                 </>
             )}
         </FormSC>

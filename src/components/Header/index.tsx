@@ -1,26 +1,21 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
-import { Navigation } from "./components/Navigation";
+import { Navigation } from "./Navigation";
 import { HeaderSC, LogoLinkSC } from "./styled";
 import { Logo } from "components/icons/Logo";
+import LanguageSwitcher from "components/LanguageSwitcher";
 
-type Props = {
+interface IProps {
     isSticky: boolean;
-};
+}
 
-export const Header: React.FC<Props> = ({ isSticky }) => {
+export const Header: React.FC<IProps> = ({ isSticky }) => {
     return (
-        <HeaderSC isSticky={isSticky}>
+        <HeaderSC $isSticky={isSticky}>
             <LogoLinkSC to="/">
                 <Logo color="#000" />
             </LogoLinkSC>
             <Navigation />
-            <div>
-                <StaticImage
-                    src="../../../static/images/flags/UA.svg"
-                    alt="Ukraine"
-                />
-            </div>
+            <LanguageSwitcher />
         </HeaderSC>
     );
 };

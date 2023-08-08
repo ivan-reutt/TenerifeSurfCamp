@@ -1,6 +1,4 @@
-import { GatsbySSR } from "gatsby";
 import React from "react";
-import Layout from "./src/components/Layout/index";
 
 const fontsPath = "/fonts/";
 
@@ -24,18 +22,3 @@ export const onRenderBody = ({ setHeadComponents }) => {
         />,
     ]);
 };
-
-export const wrapPageElement: GatsbySSR["wrapPageElement"] = ({ element }) => {
-    return <Layout>{element}</Layout>;
-};
-
-// export const wrapRootElement: GatsbySSR["wrapRootElement"] = ({
-//     element,
-// }) => {
-//     return (
-//         <>
-//             <GlobalStyle />
-//             {element}
-//         </>
-//     );
-// };

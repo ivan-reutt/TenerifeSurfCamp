@@ -1,54 +1,175 @@
-import React, { useState } from "react";
-import { IOption, SelectOption } from "./Option";
+import React, { useRef, useCallback, useEffect, useState } from "react";
+import { SelectOption } from "./Option";
 import {
     SelectValueSC,
-    IconWrapperSC,
+    IconContainerSC,
     OptionWrapperSC,
     SelectSC,
     PhoneCodeSC,
 } from "./styled";
 
+export interface IOption {
+    name: string;
+    code: string;
+    country: string;
+}
+
 export const countries: IOption[] = [
-    { name: "Spain", code: "+34", iconPath: "/images/flags/esp.svg" },
-    { name: "Australia", code: "+61", iconPath: "/images/flags/australia.svg" },
-    { name: "Germany", code: "+49", iconPath: "/images/flags/ger.svg" },
-    { name: "Ukraine", code: "+380", iconPath: "/images/flags/ua.svg" },
-    { name: "Poland", code: "+48", iconPath: "/images/flags/pol.svg" },
-    { name: "Spain", code: "+34", iconPath: "/images/flags/esp.svg" },
+    {
+        name: "Spain",
+        code: "+34",
+        country: "ES",
+    },
+    {
+        name: "Australia",
+        code: "+61",
+        country: "AU",
+    },
+    {
+        name: "Germany",
+        code: "+49",
+        country: "DE",
+    },
+    {
+        name: "Ukraine",
+        code: "+380",
+        country: "UA",
+    },
+    {
+        name: "Poland",
+        code: "+48",
+        country: "PL",
+    },
     {
         name: "United Kingdom",
         code: "+44",
-        iconPath: "/images/flags/uk.svg",
+        country: "GB",
     },
-    { name: "Mexico", code: "+52", iconPath: "/images/flags/mxc.svg" },
-    { name: "United States", code: "+1", iconPath: "/images/flags/usa.svg" },
-    { name: "Kazakhstan", code: "+7", iconPath: "/images/flags/kz.svg" },
-    { name: "Italy", code: "+39", iconPath: "/images/flags/ita.svg" },
-    { name: "Turkey", code: "+90", iconPath: "/images/flags/tur.svg" },
-    { name: "Austria", code: "+43", iconPath: "/images/flags/aus.svg" },
-    { name: "Finland", code: "+358", iconPath: "/images/flags/fin.svg" },
-    { name: "France", code: "+33", iconPath: "/images/flags/fr.svg" },
-    { name: "Japan", code: "+81", iconPath: "/images/flags/jpn.svg" },
-    { name: "Jamaica", code: "+1", iconPath: "/images/flags/jam.svg" },
-    { name: "Norway", code: "+47", iconPath: "/images/flags/nor.svg" },
-    { name: "Iceland", code: "+354", iconPath: "/images/flags/ice.svg" },
-    { name: "Sweden", code: "+46", iconPath: "/images/flags/swd.svg" },
-    { name: "Netherlands", code: "+31", iconPath: "/images/flags/nth.svg" },
-    { name: "Canada", code: "+1", iconPath: "/images/flags/cnd.svg" },
-    { name: "Brazil", code: "+55", iconPath: "/images/flags/brz.svg" },
-    { name: "Ireland", code: "+353", iconPath: "/images/flags/irl.svg" },
-    { name: "Romania", code: "+40", iconPath: "/images/flags/rom.svg" },
+    {
+        name: "Mexico",
+        code: "+52",
+        country: "MX",
+    },
+    {
+        name: "United States",
+        code: "+1",
+        country: "US",
+    },
+    {
+        name: "Kazakhstan",
+        country: "KZ",
+        code: "+7",
+    },
+    {
+        name: "Italy",
+        code: "+39",
+        country: "IT",
+    },
+    {
+        name: "Turkey",
+        code: "+90",
+        country: "TR",
+    },
+    {
+        name: "Austria",
+        code: "+43",
+        country: "AT",
+    },
+    {
+        name: "Finland",
+        code: "+358",
+        country: "FI",
+    },
+    {
+        name: "France",
+        code: "+33",
+        country: "FR",
+    },
+    {
+        name: "Japan",
+        code: "+81",
+        country: "JP",
+    },
+    {
+        name: "Jamaica",
+        code: "+1",
+        country: "JM",
+    },
+    {
+        name: "Norway",
+        code: "+47",
+        country: "NO",
+    },
+    {
+        name: "Iceland",
+        code: "+354",
+        country: "IS",
+    },
+    {
+        name: "Sweden",
+        code: "+46",
+        country: "SE",
+    },
+    {
+        name: "Netherlands",
+        code: "+31",
+        country: "NL",
+    },
+    {
+        name: "Canada",
+        code: "+1",
+        country: "CA",
+    },
+    {
+        name: "Brazil",
+        code: "+55",
+        country: "BR",
+    },
+    {
+        name: "Ireland",
+        code: "+353",
+        country: "IE",
+    },
+    {
+        name: "Romania",
+        code: "+40",
+        country: "RO",
+    },
     {
         name: "Marshall Islands",
         code: "+692",
-        iconPath: "/images/flags/mi.svg",
+        country: "MH",
     },
-    { name: "Singapore", code: "+65", iconPath: "/images/flags/sing.svg" },
-    { name: "India", code: "+91", iconPath: "/images/flags/ind.svg" },
-    { name: "Hong Kong", code: "+852", iconPath: "/images/flags/honkgong.svg" },
-    { name: "Israel", code: "+972", iconPath: "/images/flags/isr.svg" },
-    { name: "Belgium", code: "+32", iconPath: "/images/flags/belg.svg" },
-    { name: "Argentina", code: "+54", iconPath: "/images/flags/arg.svg" },
+    {
+        name: "Singapore",
+        code: "+65",
+        country: "SG",
+    },
+    {
+        name: "India",
+        code: "+91",
+        country: "IN",
+    },
+    {
+        name: "Hong Kong",
+        code: "+852",
+        country: "HK",
+    },
+    {
+        name: "Israel",
+        code: "+972",
+        country: "IL",
+    },
+    {
+        name: "Belgium",
+        code: "+32",
+        country: "BE",
+    },
+    {
+        name: "Argentina",
+        country: "AR",
+        code: "+54",
+    },
 ];
 
 type Props = {
@@ -57,26 +178,42 @@ type Props = {
 };
 
 export const SelectCountryCode: React.FC<Props> = ({ value, onChange }) => {
+    const ref = useRef<HTMLDivElement>(null);
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const selectedValue = countries.filter(
-        (country) => country.code === value,
-    )[0];
+    const selectedValue = countries.find((country) => country.code === value);
 
-    const handleClick = () => {
+    const handleSelectClick = () => {
         setIsOpen((prev) => !prev);
     };
 
+    const handleClickOutside = useCallback(
+        (event: MouseEvent) => {
+            if (
+                isOpen &&
+                ref.current &&
+                !ref.current.contains(event.target as Node)
+            ) {
+                setIsOpen(false);
+            }
+        },
+        [isOpen],
+    );
+
+    useEffect(() => {
+        document.addEventListener("click", handleClickOutside);
+        return () => {
+            document.removeEventListener("click", handleClickOutside);
+        };
+    }, [handleClickOutside]);
+
     return (
-        <SelectSC onClick={handleClick}>
+        <SelectSC onClick={handleSelectClick} ref={ref}>
             <SelectValueSC>
-                <IconWrapperSC>
-                    <img
-                        src={selectedValue.iconPath}
-                        alt={selectedValue.name}
-                    />
-                </IconWrapperSC>
-                <PhoneCodeSC>{selectedValue.code}</PhoneCodeSC>
+                <IconContainerSC
+                    className={`ff-lg fflag-${selectedValue?.country}`}
+                />
+                <PhoneCodeSC>{selectedValue?.code}</PhoneCodeSC>
             </SelectValueSC>
             {isOpen && (
                 <OptionWrapperSC>

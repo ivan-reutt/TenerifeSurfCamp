@@ -5,9 +5,10 @@ import Close from "src/icons/close.svg";
 type Props = {
     children?: React.ReactNode;
     onClose: () => void;
+    style?: React.CSSProperties;
 };
 
-export const Modal: React.FC<Props> = ({ children, onClose }) => {
+export const Modal: React.FC<Props> = ({ children, onClose, style }) => {
     const handleClose = () => {
         document.body.classList.remove("modal-open");
         onClose();
@@ -20,7 +21,7 @@ export const Modal: React.FC<Props> = ({ children, onClose }) => {
     };
     return (
         <OverlaySC onClick={handleClickOutside}>
-            <ModalSC>
+            <ModalSC style={style}>
                 <CloseSC onClick={handleClose}>
                     <Close />
                 </CloseSC>

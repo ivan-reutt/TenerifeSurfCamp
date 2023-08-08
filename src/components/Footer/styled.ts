@@ -4,7 +4,7 @@ import styled from "styled-components";
 export const FooterSC = styled.footer`
     border-radius: 32px 32px 0 0;
     padding: 60px 0;
-    background-image: url("/images/15.jpg");
+    background-image: url("/images/blue-bg.jpg");
     background-repeat: no-repeat;
     background-size: 175% 300%;
     background-position: 50% 88%;

@@ -1,6 +1,7 @@
 import React from "react";
 import { Form } from "components/Form";
 import { Logo } from "components/icons/Logo";
+import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 import Instagram from "src/icons/Instagram.svg";
 import Telegram from "src/icons/Telegram.svg";
 import Facebook from "src/icons/Facebook.svg";
@@ -20,6 +21,7 @@ import {
 } from "./styled";
 
 export const Footer: React.FC = () => {
+    const { t } = useTranslation();
     return (
         <FooterSC id="footer">
             <ContainerSC>
@@ -28,7 +30,9 @@ export const Footer: React.FC = () => {
                 </LogoLinkSC>
                 <WrapperSC>
                     <TitleSC>
-                        Записаться <br /> в лагерь
+                        <Trans i18nKey={"actionBtn"}>
+                            Записаться <br /> в лагерь
+                        </Trans>
                     </TitleSC>
                     <Form />
                     <LinksSC>
@@ -60,13 +64,13 @@ export const Footer: React.FC = () => {
                 </WrapperSC>
                 <ContactsSC>
                     <ContactItemSC>
-                        <BlankTextSC>Телефон:</BlankTextSC>
+                        <BlankTextSC>{t("phone")}</BlankTextSC>
                         <ContactTextSC href="tel:+34-655-35-44-04">
                             +34 655 35 44 04
                         </ContactTextSC>
                     </ContactItemSC>
                     <ContactItemSC>
-                        <BlankTextSC>Почта:</BlankTextSC>
+                        <BlankTextSC>{t("mail")}</BlankTextSC>
                         <ContactTextSC href="mailto:videokeepcalm@gmail.com">
                             videokeepcalm@gmail.com
                         </ContactTextSC>

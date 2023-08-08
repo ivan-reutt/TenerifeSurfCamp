@@ -1,8 +1,22 @@
 import styled from "styled-components";
+import Play from "src/icons/play.svg";
 
 export const GreyTextSC = styled.span`
     color: rgba(255, 255, 255, 0.5);
     margin-left: 8px;
+`;
+
+export const PlayIconSC = styled.div`
+    position: absolute;
+    left: 8px;
+    top: 0%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    transition: transform 0.2s;
+    transform-origin: center;
 `;
 
 export const ButtonSC = styled.button`
@@ -30,7 +44,7 @@ export const ButtonSC = styled.button`
         width: 64px;
         height: 64px;
         border-radius: 50%;
-        background-image: url("/images/button-bg.jpg");
+        background-image: url("/images/video-btn-bg.jpg");
         background-position: 0% 50%;
         display: flex;
         align-items: center;
@@ -39,19 +53,6 @@ export const ButtonSC = styled.button`
         transition: all 0.2s;
     }
 
-    &::after {
-        content: url("/images/play.svg");
-        position: absolute;
-        left: 8px;
-        top: 8%;
-        bottom: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 64px;
-        transition: transform 0.2s;
-        transform-origin: center;
-    }
     &:hover {
         ${GreyTextSC} {
             color: #fff;
@@ -64,8 +65,8 @@ export const ButtonSC = styled.button`
             justify-content: flex-start;
             padding: 40px;
         }
-        &::after {
-            transform: scale(2, 2) translateY(2%);
+        ${PlayIconSC} {
+            transform: scale(2, 2);
         }
     }
 `;

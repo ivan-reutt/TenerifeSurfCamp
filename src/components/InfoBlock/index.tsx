@@ -12,6 +12,7 @@ import {
     ModalContentSC,
     IconSC,
 } from "./styled";
+import { Trans } from "gatsby-plugin-react-i18next";
 
 enum ModalType {
     PRICE = "Price",
@@ -58,19 +59,31 @@ export const InfoBlock = () => {
                 return null;
         }
     };
+
+    const handleClose = () => {
+        setModalType(undefined);
+    };
     return (
         <>
             <InfoBlockSC>
-                <InfoItemSC>Погода на Тенерифе </InfoItemSC>
+                <InfoItemSC>
+                    <Trans i18nKey={"weather"}>Погода на Тенерифе</Trans>
+                </InfoItemSC>
                 <InfoItemsWrapperSC>
                     <InfoItemSC onClick={handleClickPrice}>
-                        <ItemTextSC>Цены на Тенерифе</ItemTextSC>
+                        <ItemTextSC>
+                            <Trans i18nKey={"prices"}>Цены на Тенерифе</Trans>
+                        </ItemTextSC>
                         <IconSC>
                             <ArrowRight color="#000" />
                         </IconSC>
                     </InfoItemSC>
                     <InfoItemSC onClick={handleClickSurf}>
-                        <ItemTextSC>Серфинг на Тенерифе</ItemTextSC>
+                        <ItemTextSC>
+                            <Trans i18nKey={"surfing"}>
+                                Серфинг на Тенерифе
+                            </Trans>
+                        </ItemTextSC>
                         <IconSC>
                             <ArrowRight color="#000" />
                         </IconSC>
@@ -78,7 +91,7 @@ export const InfoBlock = () => {
                 </InfoItemsWrapperSC>
             </InfoBlockSC>
             {modalType && (
-                <Modal onClose={() => setModalType(undefined)}>
+                <Modal onClose={handleClose}>
                     <ModalContentSC>{renderModalContent()}</ModalContentSC>
                 </Modal>
             )}

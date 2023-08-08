@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 
-export const TabSC = styled.div<{ isActive: boolean }>`
+export const TabSC = styled.div<{ $isActive: boolean }>`
     display: flex;
     padding: 24px 32px;
     justify-content: center;
@@ -17,8 +17,8 @@ export const TabSC = styled.div<{ isActive: boolean }>`
         color: #fff;
     }
 
-    ${({ isActive }) =>
-        isActive &&
+    ${({ $isActive }) =>
+        $isActive &&
         css`
             background-color: #000;
             color: #fff;
