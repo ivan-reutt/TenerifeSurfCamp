@@ -97,6 +97,7 @@ export const ContactsSC = styled.div`
 
 export const ContactItemSC = styled.div`
     display: flex;
+    align-items: center;
     gap: 8px;
 
     @media ${devices.sm} {

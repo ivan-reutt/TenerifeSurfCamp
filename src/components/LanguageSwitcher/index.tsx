@@ -20,11 +20,6 @@ interface IOption {
 
 const languagesData: IOption[] = [
     {
-        lng: "ru",
-        name: "Русский язык",
-        icon: <RU />,
-    },
-    {
         lng: "uk",
         name: "Українська мова",
         icon: <UA />,
@@ -33,6 +28,11 @@ const languagesData: IOption[] = [
         lng: "en",
         name: "English language",
         icon: <UK />,
+    },
+    {
+        lng: "ru",
+        name: "Русский язык",
+        icon: <RU />,
     },
 ];
 

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { VibeSC, VideoSlider, PlaySC } from "./styled";
+import { VibeSC, VideoSlider, PlaySC, SlideWrapperSC } from "./styled";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { SectionTitleSC } from "src/layouts/common";
 import Slider, { Settings } from "react-slick";
@@ -14,6 +14,21 @@ export const Vibe = () => {
         speed: 500,
         slidesToShow: 3,
         infinite: false,
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,
+                },
+            },
+            {
+                breakpoint: 640,
+                settings: {
+                    slidesToShow: 1,
+                    dots: true,
+                },
+            },
+        ],
     };
 
     const videoArray = [
@@ -61,7 +76,7 @@ export const Vibe = () => {
             <VideoSlider>
                 <Slider {...settings}>
                     {videoArray.map((video, index) => (
-                        <div onClick={handleVideoClick}>
+                        <SlideWrapperSC onClick={handleVideoClick}>
                             <PlaySC
                                 $isShow={
                                     isPlaying && playingVideoIndex === index
@@ -76,12 +91,17 @@ export const Vibe = () => {
                                 url={video}
                                 width="100%"
                                 height="auto"
+                                // style={{
+                                //     position: "absolute",
+                                //     top: 0,
+                                //     left: 0,
+                                // }}
                                 playing={
                                     isPlaying && playingVideoIndex === index
                                 }
                                 className={`${index}`}
                             />
-                        </div>
+                        </SlideWrapperSC>
                     ))}
                 </Slider>
             </VideoSlider>

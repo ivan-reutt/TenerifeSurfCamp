@@ -51,7 +51,13 @@ export const VideoButton: React.FC = () => {
             {isOpen && (
                 <VideoOverlaySC>
                     <VideoWrapperSC>
-                        <VideoSC controls autoPlay ref={ref}>
+                        <VideoSC
+                            controls
+                            autoPlay
+                            ref={ref}
+                            playsInline
+                            webkit-playsInline
+                        >
                             <source
                                 src="https://dl.dropboxusercontent.com/s/6rfkiz5p9z4z132/IMG_0988.mp4?dl=0"
                                 type="video/mp4"

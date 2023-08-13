@@ -36,6 +36,7 @@ export const MainInfoSC = styled.div`
 
 export const PricesWrapperSC = styled.div`
     display: flex;
+    align-items: center;
     gap: 8px;
     margin-bottom: 10px;
 `;

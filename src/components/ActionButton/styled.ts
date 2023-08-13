@@ -1,9 +1,10 @@
 import styled from "styled-components";
 import { ColorTypes } from ".";
-import { buttonProps } from "src/layouts/common";
+import { buttonProps, bigBtn } from "src/layouts/common";
 
 export const ActionButtonSC = styled.a<{ $colorType: ColorTypes }>`
     ${buttonProps};
+    ${bigBtn};
     background-color: ${({ $colorType }) =>
         $colorType === ColorTypes.GREEN ? "#9DFBBA" : "#fff"};
     color: #000;

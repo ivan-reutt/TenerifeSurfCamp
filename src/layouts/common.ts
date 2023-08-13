@@ -32,12 +32,9 @@ export const scrollStyles = css`
 `;
 
 export const buttonProps = css`
-    padding: 24px 32px;
     border: 1px solid;
     border-radius: 40px;
-    font-size: 24px;
     font-weight: 500;
-    letter-spacing: -1px;
     white-space: nowrap;
     align-self: center;
     transition: all 0.3s;
@@ -49,6 +46,12 @@ export const buttonProps = css`
     }
 `;
 
+export const bigBtn = css`
+    padding: 24px 32px;
+    font-size: 24px;
+    letter-spacing: -1px;
+`;
+
 export const smallBtn = css`
     font-size: 16px;
     letter-spacing: -0.64px;
@@ -56,7 +59,8 @@ export const smallBtn = css`
 `;
 
 export const MoreButtonSC = styled.button`
-    ${buttonProps}
+    ${buttonProps};
+    ${bigBtn};
     border-color: #000;
     align-self: center;
 `;

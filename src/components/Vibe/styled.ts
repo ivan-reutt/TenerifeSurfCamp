@@ -1,11 +1,12 @@
 import styled, { css } from "styled-components";
+import { devices } from "src/styles/media";
 
 export const VibeSC = styled.section``;
 
 export const VideoSlider = styled.div`
     border-radius: 32px;
     max-width: 1180px;
-    height: 720px;
+    margin: 0 auto;
 
     .slick-slide > div {
         position: relative;
@@ -41,6 +42,15 @@ export const VideoSlider = styled.div`
             right: -30px;
             left: 85%;
         }
+    }
+    @media ${devices.xl} {
+        max-width: 960px;
+    }
+    @media ${devices.lg} {
+        max-width: 600px;
+    }
+    @media ${devices.sm} {
+        max-width: 320px;
     }
 `;
 
