@@ -1,15 +1,17 @@
-import { Link } from "gatsby";
 import styled from "styled-components";
+import { devices } from "src/styles/media";
 
 export const NewsSC = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 60px;
+    @media ${devices.sm} {
+        gap: 40px;
+    }
 `;
 
 export const SubTitleSC = styled.h2`
-    margin-top: 80px;
     align-self: flex-start;
 `;
 
@@ -17,6 +19,14 @@ export const NewsWrapperSC = styled.div`
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 40px;
+
+    @media ${devices.lg} {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media ${devices.sm} {
+        grid-template-columns: 1fr;
+    }
 `;
 
 export const HeadingSC = styled.span`

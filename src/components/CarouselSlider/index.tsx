@@ -4,12 +4,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { SliderWrapperSC, ArrowWrapperSC } from "./styled";
 import { ArrowRight } from "components/icons/ArrowRight";
-import {
-    GatsbyImage,
-    getImage,
-    IGatsbyImageData,
-    ImageDataLike,
-} from "gatsby-plugin-image";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 interface IArrow {
     alignLeft?: boolean;
@@ -25,7 +20,11 @@ const SliderArrow = ({ alignLeft, onClick }: IArrow) => {
 };
 
 interface ISlideProps {
-    slides?: ImageDataLike[] | null;
+    slides?:
+        | readonly ({
+              readonly gatsbyImageData: IGatsbyImageData | null;
+          } | null)[]
+        | null;
 }
 
 const CarouselSlider: React.FC<ISlideProps> = ({ slides }) => {
@@ -38,7 +37,6 @@ const CarouselSlider: React.FC<ISlideProps> = ({ slides }) => {
         arrows: true,
         className: "main-slider",
         fade: true,
-        infinite: true,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -49,6 +47,7 @@ const CarouselSlider: React.FC<ISlideProps> = ({ slides }) => {
     const navSettings: Settings = {
         asNavFor: mainSliderRef.current || undefined,
         slidesToShow: slidesInNav,
+        slidesToScroll: 1,
         swipeToSlide: true,
         focusOnSelect: true,
         className: "nav-slider",
@@ -61,18 +60,23 @@ const CarouselSlider: React.FC<ISlideProps> = ({ slides }) => {
                 asNavFor={navSliderRef.current || undefined}
                 ref={mainSliderRef}
             >
-                {slides?.map((slide) => (
+                {slides?.map((slide, index) => (
                     <GatsbyImage
+                        key={index}
                         image={getImage(slide) as IGatsbyImageData}
                         alt={"News Photo"}
+                        backgroundColor="transparent"
+                        objectFit="contain"
                     />
                 ))}
             </Slider>
             <Slider {...navSettings} ref={navSliderRef}>
-                {slides?.map((slide) => (
+                {slides?.map((slide, index) => (
                     <GatsbyImage
+                        key={index}
                         image={getImage(slide) as IGatsbyImageData}
                         alt={"News Photo"}
+                        backgroundColor="transparent"
                     />
                 ))}
             </Slider>

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Play from "src/icons/play.svg";
 
 export const GreyTextSC = styled.span`
     color: rgba(255, 255, 255, 0.5);
@@ -69,4 +68,34 @@ export const ButtonSC = styled.button`
             transform: scale(2, 2);
         }
     }
+`;
+
+export const VideoOverlaySC = styled.div`
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    z-index: 1001;
+`;
+
+export const VideoWrapperSC = styled.div`
+    max-width: 1180px;
+    max-height: calc(100% - 80px);
+    height: 100%;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    align-items: center;
+`;
+
+export const VideoSC = styled.video`
+    width: 100%;
+    height: auto;
+    border-radius: 32px;
+    overflow: hidden;
 `;

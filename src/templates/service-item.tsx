@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useEffect, useState } from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import {
     ServiceItemSC,
@@ -10,28 +10,42 @@ import {
     PriceSC,
     OldPriceSC,
     ModalTitleSC,
-    ModalAgreementSC,
+    StickyOrderBtnSC,
+    TooltipOrderBtnSC,
+    OrderTooltipSC,
 } from "src/layouts/service-item";
 import {
     ContentfulRichTextGatsbyReference,
     renderRichText,
     RenderRichTextData,
 } from "gatsby-source-contentful/rich-text";
-import { ActionButton } from "components/ActionButton";
+import { ActionButton, ColorTypes } from "components/ActionButton";
 import CarouselSlider from "components/CarouselSlider";
 import { Modal } from "components/Modal";
-import { useState } from "react";
 import { Form } from "components/Form";
 import Layout from "components/Layout";
-import { Trans } from "gatsby-plugin-react-i18next";
+import { Trans, I18nContext } from "gatsby-plugin-react-i18next";
+import { capitalize } from "src/utils/makeFirstLetterUppercase";
+import HotSaleTag from "components/HotSaleTag";
+import { devices } from "src/styles/media";
 
 const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
+    const [isBtnShowed, setIsBtnShowed] = useState<boolean>(false);
+    const [isMobile, setIsMobile] = useState<boolean>();
+    const { i18n } = React.useContext(I18nContext);
+    const langCode = capitalize(i18n.language);
+    const usedDescription =
+        `description${langCode}` as keyof typeof data.contentfulServices;
+    const usedName = `name${langCode}` as keyof typeof data.contentfulServices;
 
-    const richText = renderRichText(
-        data?.contentfulServices
-            ?.description as RenderRichTextData<ContentfulRichTextGatsbyReference>,
-    );
+    const richText =
+        data.contentfulServices?.[usedDescription] &&
+        renderRichText(
+            data.contentfulServices[
+                usedDescription
+            ] as RenderRichTextData<ContentfulRichTextGatsbyReference>,
+        );
     const salePrice = data.contentfulServices?.salePrice;
     const price = data.contentfulServices?.price;
 
@@ -40,15 +54,53 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
         setIsOpen(true);
     };
 
+    const handleClose = () => {
+        setIsOpen(false);
+    };
+
+    useEffect(() => {
+        const handleScrollEvent = () => {
+            setIsBtnShowed(window.pageYOffset > 300 ? true : false);
+        };
+        const handleMediaEvent = (event: MediaQueryListEvent) => {
+            setIsMobile(event.matches);
+        };
+
+        window.addEventListener("scroll", handleScrollEvent);
+        window
+            .matchMedia(devices.lg)
+            .addEventListener("change", handleMediaEvent);
+
+        return () => {
+            window.removeEventListener("scroll", handleScrollEvent);
+            window.removeEventListener("change", handleScrollEvent);
+        };
+    }, []);
+
     return (
         <Layout>
             <ServiceItemSC>
+                {isBtnShowed && (
+                    <OrderTooltipSC>
+                        {data.contentfulServices?.[usedName]}
+                        <TooltipOrderBtnSC
+                            onClick={handleClickOrder}
+                            $colorType={ColorTypes.GREEN}
+                        >
+                            <Trans i18nKey={"orderTextMin"}>
+                                Оформить заявку
+                            </Trans>
+                        </TooltipOrderBtnSC>
+                    </OrderTooltipSC>
+                )}
+
                 <TopInfoWrapperSC>
                     <PricesWrapperSC>
+                        {salePrice && <HotSaleTag />}
                         <PriceSC>{salePrice ? salePrice : price} €</PriceSC>
                         {salePrice && <OldPriceSC>{price} €</OldPriceSC>}
                     </PricesWrapperSC>
-                    <TitleSC>{data.contentfulServices?.name}</TitleSC>
+                    <TitleSC>{data.contentfulServices?.[usedName]}</TitleSC>
                     <ActionButton onClick={handleClickOrder}>
                         <Trans i18nKey={"actionBtn"}>Записаться в лагерь</Trans>
                     </ActionButton>
@@ -60,20 +112,26 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
             </ServiceItemSC>
             {isOpen && (
                 <Modal
-                    onClose={() => setIsOpen(false)}
+                    onClose={handleClose}
                     style={{
                         width: "780px",
                         paddingLeft: "100px",
                         paddingRight: "100px",
                     }}
                 >
-                    <ModalTitleSC>{data.contentfulServices?.name}</ModalTitleSC>
-                    <Form isOrder={true} />
-                    <ModalAgreementSC>
-                        *Нажимая кнопку “Оформить заяку на заказ”, вы
-                        соглашаетесь с политикой конфиденциальности
-                    </ModalAgreementSC>
+                    <ModalTitleSC>
+                        {data.contentfulServices?.[usedName]}
+                    </ModalTitleSC>
+                    <Form isOrder />
                 </Modal>
+            )}
+            {isBtnShowed && isMobile && (
+                <StickyOrderBtnSC
+                    onClick={handleClickOrder}
+                    $colorType={ColorTypes.GREEN}
+                >
+                    <Trans i18nKey={"orderTextMin"}>Оформить заявку</Trans>
+                </StickyOrderBtnSC>
             )}
         </Layout>
     );
@@ -83,16 +141,35 @@ export default ServiceItem;
 export const Head: HeadFC = () => <title>FunVibe Surf</title>;
 
 export const query = graphql`
-    query ServiceItem($id: String) {
+    query ServiceItem($id: String, $language: String!) {
         contentfulServices(contentful_id: { eq: $id }) {
             salePrice
             price
-            name
-            description {
+            nameEn
+            nameRu
+            nameUk
+            descriptionEn {
+                raw
+            }
+            descriptionRu {
+                raw
+            }
+            descriptionUk {
                 raw
             }
             sliderPhoto {
-                gatsbyImageData
+                gatsbyImageData(height: 420)
+            }
+        }
+        locales: allLocale(
+            filter: { ns: { in: ["index"] }, language: { eq: $language } }
+        ) {
+            edges {
+                node {
+                    ns
+                    data
+                    language
+                }
             }
         }
     }

@@ -1,10 +1,10 @@
 import React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
 import { InfoBlock } from "components/InfoBlock";
-import { People } from "components/People";
+import { About } from "components/About";
 import { Services } from "components/Services";
 import { Vibe } from "components/Vibe";
-import { MainHead } from "components/MainHead";
+import { MainView } from "components/MainView";
 import Layout from "components/Layout";
 import LayoutBg from "components/LayoutBg";
 
@@ -12,9 +12,9 @@ const IndexPage: React.FC<PageProps> = () => {
     return (
         <Layout>
             <LayoutBg />
-            <MainHead />
+            <MainView />
             <InfoBlock />
-            <People />
+            <About />
             <Services />
             <Vibe />
         </Layout>

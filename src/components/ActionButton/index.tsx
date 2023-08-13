@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonSC } from "./styled";
+import { ActionButtonSC } from "./styled";
 import { Trans } from "gatsby-plugin-react-i18next";
 
 export enum ColorTypes {
@@ -12,6 +12,7 @@ type Props = {
     colorType?: ColorTypes;
     onClick?: (event: React.MouseEvent<HTMLElement>) => void;
     style?: React.CSSProperties;
+    href?: string;
 };
 
 export const ActionButton: React.FC<Props> = ({
@@ -19,19 +20,18 @@ export const ActionButton: React.FC<Props> = ({
     colorType = ColorTypes.GREEN,
     onClick,
     style,
+    href,
 }) => {
     return (
-        <ButtonSC
+        <ActionButtonSC
             onClick={onClick}
             $colorType={colorType}
-            href="#footer"
+            href={href}
             style={style}
         >
-            {children ? (
-                children
-            ) : (
+            {children || (
                 <Trans i18nKey={"actionBtn"}>Записаться в лагерь</Trans>
             )}
-        </ButtonSC>
+        </ActionButtonSC>
     );
 };

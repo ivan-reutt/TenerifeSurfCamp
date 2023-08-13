@@ -9,11 +9,13 @@ const LayoutBg: React.FC = () => {
                 src="../../images/vector-bg-1.png"
                 alt=""
                 layout="fullWidth"
+                formats={["auto", "webp", "avif"]}
             />
             <StaticImage
                 src="../../images/vector-bg-2.png"
                 alt=""
                 layout="fullWidth"
+                formats={["auto", "webp", "avif"]}
             />
         </LayoutBgSC>
     );

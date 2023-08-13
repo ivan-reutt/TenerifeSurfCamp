@@ -1,3 +1,4 @@
+import { devices } from "src/styles/media";
 import styled from "styled-components";
 
 export const OverlaySC = styled.div`
@@ -11,6 +12,7 @@ export const OverlaySC = styled.div`
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+    padding: 0 20px;
 
     body & {
         overflow: hidden;
@@ -26,6 +28,10 @@ export const ModalSC = styled.div`
     border-radius: 32px;
     box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.02);
     padding: 80px 40px 40px 40px;
+
+    @media ${devices.sm} {
+        padding: 40px 20px 20px;
+    }
 `;
 
 export const CloseSC = styled.div`

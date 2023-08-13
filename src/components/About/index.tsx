@@ -1,36 +1,36 @@
 import React from "react";
 import { ActionButton, ColorTypes } from "components/ActionButton";
 import {
-    PeolpeSC,
-    SubTitleSC,
-    PeopleCardWrapperSC,
-    PeopleCardSC,
-    PeopleCardBlueSC,
+    AboutSC,
+    AboutCardWrapperSC,
+    AboutCardSC,
+    AboutCardBlueSC,
     CardTitleSC,
     BigCardTextSC,
     TextSC,
 } from "./styled";
+import { SectionTitleSC } from "src/layouts/common";
 import { Trans } from "gatsby-plugin-react-i18next";
 
-export const People = () => {
+export const About = () => {
     return (
-        <PeolpeSC id="about">
-            <SubTitleSC>
+        <AboutSC id="about">
+            <SectionTitleSC>
                 <Trans i18nKey={"aboutTitle"}>
                     Классные люди собираются вместе
                 </Trans>
-            </SubTitleSC>
-            <PeopleCardWrapperSC>
-                <PeopleCardBlueSC>
+            </SectionTitleSC>
+            <AboutCardWrapperSC>
+                <AboutCardBlueSC>
                     <CardTitleSC>
                         <Trans i18nKey={"aboutLeftCard"}>
                             Количество людей, посетившие лагерь
                         </Trans>
                     </CardTitleSC>
                     <BigCardTextSC>2000+</BigCardTextSC>
-                    <ActionButton colorType={ColorTypes.WHITE} />
-                </PeopleCardBlueSC>
-                <PeopleCardSC>
+                    <ActionButton href="#footer" colorType={ColorTypes.WHITE} />
+                </AboutCardBlueSC>
+                <AboutCardSC>
                     <CardTitleSC>
                         <Trans i18nKey={"aboutRightCard"}>Что мы делаем?</Trans>
                     </CardTitleSC>
@@ -43,8 +43,8 @@ export const People = () => {
                             качественно и безопасно.
                         </Trans>
                     </TextSC>
-                </PeopleCardSC>
-            </PeopleCardWrapperSC>
-        </PeolpeSC>
+                </AboutCardSC>
+            </AboutCardWrapperSC>
+        </AboutSC>
     );
 };

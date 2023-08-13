@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { devices } from "src/styles/media";
+import { scrollStyles } from "src/layouts/common";
 
 export const SelectSC = styled.div`
     display: flex;
@@ -132,7 +134,12 @@ export const SelectValueSC = styled.div`
     align-items: center;
     gap: 10px;
     font-size: 24px;
+    line-height: 1;
     cursor: pointer;
+
+    @media ${devices.sm} {
+        font-size: 16px;
+    }
 `;
 
 export const OptionWrapperSC = styled.div`
@@ -149,8 +156,16 @@ export const OptionWrapperSC = styled.div`
     box-shadow: 0px 4px 56px 0px rgba(41, 47, 61, 0.16);
     top: calc(100% + 25px);
     z-index: 1;
+    ${scrollStyles};
+
+    @media ${devices.sm} {
+        width: 270px;
+    }
 `;
 
 export const PhoneCodeSC = styled.span`
     width: 60px;
+    @media ${devices.sm} {
+        width: 30px;
+    }
 `;

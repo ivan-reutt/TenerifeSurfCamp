@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "gatsby-plugin-react-i18next";
+import { devices } from "src/styles/media";
 
 export const CardSC = styled.div`
     position: relative;
@@ -40,12 +41,13 @@ export const CardInfoSC = styled.div`
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+
+    @media ${devices.sm} {
+        padding: 24px;
+    }
 `;
 
-export const CardNameSC = styled.div`
-    font-size: 32px;
-    font-weight: 500;
-    letter-spacing: -1.28px;
+export const CardNameSC = styled.h4`
     margin-bottom: 40px;
 `;
 

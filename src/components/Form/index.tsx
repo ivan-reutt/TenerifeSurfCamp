@@ -1,7 +1,13 @@
 import React, { useState } from "react";
 import { ActionButton } from "components/ActionButton";
 import { countries, SelectCountryCode } from "./SelectCountryCode";
-import { FormSC, InputSC, SubmitTextSC, InputWrapperSC } from "./styled";
+import {
+    FormSC,
+    InputSC,
+    SubmitTextSC,
+    InputWrapperSC,
+    AgreementTextSC,
+} from "./styled";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
 interface IFormValues {
@@ -42,7 +48,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
     return (
         <FormSC>
             {isSubmited ? (
-                <SubmitTextSC>{t("isReady")}</SubmitTextSC>
+                <SubmitTextSC $isOrder={isOrder}>{t("isReady")}</SubmitTextSC>
             ) : (
                 <>
                     <InputWrapperSC>
@@ -73,6 +79,9 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
                     >
                         {isOrder ? t("orderText") : ""}
                     </ActionButton>
+                    {isOrder && (
+                        <AgreementTextSC>{t("agreement")}</AgreementTextSC>
+                    )}
                 </>
             )}
         </FormSC>

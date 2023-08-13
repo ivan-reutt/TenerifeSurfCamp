@@ -1,10 +1,9 @@
 import React, { useRef, useCallback, useEffect, useState } from "react";
 import {
-    SelectValueSC,
+    SwitcherValueSC,
     IconWrapperSC,
     OptionWrapperSC,
-    SelectSC,
-    PhoneCodeSC,
+    LanguageSwitcherSC,
     OptionItemSC,
     LinkSC,
 } from "./styled";
@@ -39,8 +38,7 @@ const languagesData: IOption[] = [
 
 const LanguageSwitcher: React.FC = () => {
     const ref = useRef<HTMLDivElement>(null);
-    const { languages, originalPath, language } = useI18next();
-    console.log(languages);
+    const { originalPath, language } = useI18next();
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
     const handleClick = () => {
@@ -69,11 +67,10 @@ const LanguageSwitcher: React.FC = () => {
     }, [handleClickOutside]);
 
     return (
-        <SelectSC onClick={handleClick} ref={ref}>
-            <SelectValueSC>
+        <LanguageSwitcherSC onClick={handleClick} ref={ref}>
+            <SwitcherValueSC>
                 <IconWrapperSC>{selectedLng?.icon}</IconWrapperSC>
-                <PhoneCodeSC></PhoneCodeSC>
-            </SelectValueSC>
+            </SwitcherValueSC>
             {isOpen && (
                 <OptionWrapperSC>
                     {languagesData.map((lng) => (
@@ -86,7 +83,7 @@ const LanguageSwitcher: React.FC = () => {
                     ))}
                 </OptionWrapperSC>
             )}
-        </SelectSC>
+        </LanguageSwitcherSC>
     );
 };
 export default LanguageSwitcher;

@@ -1,9 +1,13 @@
 import styled from "styled-components";
 import { Link } from "gatsby-plugin-react-i18next";
+import { devices } from "src/styles/media";
 
-export const SelectSC = styled.div`
+export const LanguageSwitcherSC = styled.div`
     display: flex;
     position: relative;
+    @media ${devices.lg} {
+        order: 1;
+    }
 `;
 
 export const IconWrapperSC = styled.div<{ small?: boolean }>`
@@ -13,7 +17,7 @@ export const IconWrapperSC = styled.div<{ small?: boolean }>`
     box-shadow: 0 0 8px 0 rgba(41, 47, 61, 0.16);
 `;
 
-export const SelectValueSC = styled.div`
+export const SwitcherValueSC = styled.div`
     display: flex;
     align-items: center;
     gap: 10px;
@@ -30,6 +34,11 @@ export const OptionWrapperSC = styled.ul`
     top: calc(100% + 5px);
     z-index: 1;
     right: calc(100% - 30px);
+
+    @media ${devices.lg} {
+        right: auto;
+        left: 0;
+    }
 `;
 
 export const OptionItemSC = styled.li`
@@ -39,10 +48,6 @@ export const OptionItemSC = styled.li`
     a {
         color: #000;
     }
-`;
-
-export const PhoneCodeSC = styled.span`
-    width: 60px;
 `;
 
 export const LinkSC = styled(Link)`

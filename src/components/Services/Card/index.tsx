@@ -19,37 +19,49 @@ import {
     ImageDataLike,
     IGatsbyImageData,
 } from "gatsby-plugin-image";
-import { Trans } from "gatsby-plugin-react-i18next";
+import { Trans, I18nContext } from "gatsby-plugin-react-i18next";
 
 type Props = {
-    price?: number | null;
-    salePrice?: number | null;
-    name?: string | null;
-    contentful_id?: string;
-    serviceCardPhoto?: { gatsbyImageData: IGatsbyImageData | null } | null;
+    price: number | null;
+    salePrice: number | null;
+    nameRu: string | null;
+    nameUk: string | null;
+    nameEn: string | null;
+    contentful_id: string;
+    serviceCardPhoto: any;
 };
 
 export const Card = ({
     price,
     salePrice,
-    name,
+    nameRu,
+    nameUk,
+    nameEn,
     contentful_id,
     serviceCardPhoto,
 }: Props) => {
+    const { i18n } = React.useContext(I18nContext);
+    const names: Record<string, string | null> = {
+        ru: nameRu,
+        uk: nameUk,
+        en: nameEn,
+    };
+    const usedName = names[i18n.language];
     const image = getImage(
         serviceCardPhoto as ImageDataLike,
     ) as IGatsbyImageData;
+
     return (
         <CardSC>
             <CardPhotoSC>
-                <GatsbyImage image={image} alt={"Service Photo"} />
+                <GatsbyImage image={image} alt="Service Photo" />
             </CardPhotoSC>
             <CardInfoSC>
                 <PricesWrapperSC>
                     <PriceSC>{salePrice ? salePrice : price} €</PriceSC>
                     {salePrice && <OldPriceSC>{price} €</OldPriceSC>}
                 </PricesWrapperSC>
-                <CardNameSC>{name}</CardNameSC>
+                <CardNameSC>{usedName}</CardNameSC>
                 <CardLinkSC to={`/service/${contentful_id}`}>
                     <Trans i18nKey={"detailed"}>Подробнее</Trans>
                     <IconWrapperSC>

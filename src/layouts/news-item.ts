@@ -4,7 +4,6 @@ export const NewsItemSC = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 80px;
     gap: 64px;
     width: 100%;
 `;

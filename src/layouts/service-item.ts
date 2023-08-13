@@ -1,8 +1,11 @@
 import styled from "styled-components";
+import { smallBtn, TooltipSC } from "src/layouts/common";
+import { ActionButtonSC } from "components/ActionButton/styled";
+import { devices } from "src/styles/media";
 
 export const ServiceItemSC = styled.section`
-    padding-top: 80px;
     width: 100%;
+    position: relative;
 `;
 
 export const TopInfoWrapperSC = styled.div`
@@ -53,9 +56,29 @@ export const ModalTitleSC = styled.h4`
     margin-bottom: 40px;
 `;
 
-export const ModalAgreementSC = styled.p`
-    font-size: 16px;
-    opacity: 0.5;
-    margin-top: 20px;
-    text-align: center;
+export const StickyOrderBtnSC = styled(ActionButtonSC)`
+    ${smallBtn};
+    position: fixed;
+    bottom: 20px;
+    left: 12px;
+    padding: 16px 24px;
+`;
+
+export const TooltipOrderBtnSC = styled(ActionButtonSC)`
+    ${smallBtn};
+    padding: 4px 16px;
+`;
+
+export const OrderTooltipSC = styled(TooltipSC)`
+    position: fixed;
+    z-index: 10;
+    top: 120px;
+    max-width: 1180px;
+    left: 50%;
+    transform: translateX(-50%);
+    cursor: auto;
+
+    @media ${devices.lg} {
+        max-width: calc(100% - 60px);
+    }
 `;

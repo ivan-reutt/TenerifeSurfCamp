@@ -1,17 +1,19 @@
-import styled from "styled-components";
+import { devices } from "src/styles/media";
+import styled, { css } from "styled-components";
 
 export const FormSC = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     gap: 20px;
-
     grid-row-start: 1;
     grid-row-end: 3;
     grid-column-start: 2;
+    max-width: 100%;
 `;
 
 export const InputWrapperSC = styled.div`
+    position: relative;
     display: flex;
     gap: 5px;
     border-radius: 40px;
@@ -26,9 +28,30 @@ export const InputWrapperSC = styled.div`
 export const InputSC = styled.input`
     font-size: 24px;
     line-height: 1.5;
+    width: 100%;
+
+    @media ${devices.sm} {
+        line-height: 1;
+        font-size: 16px;
+    }
 `;
 
-export const SubmitTextSC = styled.div`
-    font-size: 32px;
-    color: #fff;
+export const SubmitTextSC = styled.h4<{ $isOrder?: boolean }>`
+    color: ${({ $isOrder }) => ($isOrder ? "#000" : "#fff")};
+    ${({ $isOrder }) =>
+        $isOrder &&
+        css`
+            padding: 30px 0;
+
+            @media ${devices.sm} {
+                padding: 0 0 30px;
+            }
+        `}
+`;
+
+export const AgreementTextSC = styled.p`
+    font-size: 16px;
+    opacity: 0.5;
+    margin-top: 20px;
+    text-align: center;
 `;

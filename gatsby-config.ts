@@ -50,12 +50,6 @@ const config: GatsbyConfig = {
         "gatsby-plugin-styled-components",
         "gatsby-plugin-sitemap",
         {
-            resolve: "gatsby-plugin-anchor-links",
-            options: {
-                duration: 0,
-            },
-        },
-        {
             resolve: "gatsby-plugin-react-svg",
             options: {
                 rule: {

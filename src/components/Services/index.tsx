@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { MenuContent } from "./MenuContent";
 import { MenuTab } from "./MenuTab";
-import { ServicesSC, SubTitleSC, MenuSC, TabsWrapperSC } from "./styled";
+import { ServicesSC, MenuSC, TabsWrapperSC } from "./styled";
+import { SectionTitleSC } from "src/layouts/common";
 import { Trans } from "gatsby-plugin-react-i18next";
 
 export enum TabsEnum {
@@ -38,9 +39,9 @@ export const Services = () => {
     };
     return (
         <ServicesSC id="entertainment">
-            <SubTitleSC>
+            <SectionTitleSC>
                 <Trans i18nKey="entertainmentTitle">Развлечения по душе</Trans>
-            </SubTitleSC>
+            </SectionTitleSC>
             <MenuSC>
                 <TabsWrapperSC>
                     {tabsItems.map((item) => (

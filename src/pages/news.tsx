@@ -1,16 +1,18 @@
 import React, { useCallback } from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
-import { Button } from "components/Button";
 import { NewsSC, SubTitleSC, NewsWrapperSC } from "src/layouts/news";
 import NewsCard from "components/NewsCard";
 import Layout from "components/Layout";
 import { Trans } from "gatsby-plugin-react-i18next";
+import { capitalize } from "src/utils/makeFirstLetterUppercase";
+import { MoreButtonSC } from "src/layouts/common";
 
 const News: React.FC<PageProps<Queries.AllNewsPageQuery>> = ({ data }) => {
-    const currentLocalize = data.locales.edges[0].node.language || "uk";
-    const langCode =
-        currentLocalize.charAt(0).toUpperCase() + currentLocalize.slice(1);
     const [isShowAll, setIsShowAll] = React.useState<boolean>(false);
+
+    const currentLocalize = data.locales.edges[0].node.language || "uk";
+    const langCode = capitalize(currentLocalize);
+
     const newsList = isShowAll
         ? data.allContentfulNews.nodes
         : data.allContentfulNews.nodes.slice(0, 9);
@@ -38,9 +40,9 @@ const News: React.FC<PageProps<Queries.AllNewsPageQuery>> = ({ data }) => {
                     ))}
                 </NewsWrapperSC>
                 {data.allContentfulNews.nodes.length > 8 && !isShowAll && (
-                    <Button onClick={handleClickMore}>
+                    <MoreButtonSC onClick={handleClickMore}>
                         <Trans i18nKey="showMore">Показать больше</Trans>
-                    </Button>
+                    </MoreButtonSC>
                 )}
             </NewsSC>
         </Layout>

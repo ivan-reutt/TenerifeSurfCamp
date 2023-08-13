@@ -8,6 +8,7 @@
     "title-1": "Surfing Week",
     "title-2": "in the Canary Islands",
     "actionBtn": "Sign up for a camp",
+    "waterTemp": "Water temperature in Tenerife",
     "weather": "Weather in Tenerife",
     "prices": "Prices in Tenerife",
     "surfing": "Surfing in Tenerife",
@@ -28,6 +29,8 @@
     "numberPhone": "Phone number",
     "isReady": "Great! We will get in touch with you very soon.",
     "orderText": "Make a request for an order.",
+    "orderTextMin": "Make a order",
     "newsTitle": "Surf Camp News",
-    "hot-btn": "Hot tour on a VIP yacht"
+    "hot-btn": "Hot tour on a VIP yacht",
+    "agreement": "*By clicking the “Make a request for an order” button, you agree to the privacy policy"
 }

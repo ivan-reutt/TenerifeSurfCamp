@@ -17,3 +17,6 @@ export const PRICE_TEXT: string[] = [
 стейк из средиземноморской акулы — 23€;
 бокал сангрии — 2,5€.`,
 ];
+
+export const meteoDataUrl =
+    "https://api.weatherapi.com/v1/marine.json?key=1466b248355f4c7b8fb91022231008&q=los cristianos&days=1&aqi=no";

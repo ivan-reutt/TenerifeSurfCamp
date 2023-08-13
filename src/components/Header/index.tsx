@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Navigation } from "./Navigation";
 import { HeaderSC, LogoLinkSC } from "./styled";
 import { Logo } from "components/icons/Logo";
 import LanguageSwitcher from "components/LanguageSwitcher";
 
-interface IProps {
-    isSticky: boolean;
-}
+export const Header: React.FC = () => {
+    const [isStickyHeader, setIsStickyHeader] = useState(false);
 
-export const Header: React.FC<IProps> = ({ isSticky }) => {
+    useEffect(() => {
+        const handleScrollEvent = () => {
+            setIsStickyHeader(window.pageYOffset > 0 ? true : false);
+        };
+
+        window.addEventListener("scroll", handleScrollEvent);
+
+        return () => {
+            window.removeEventListener("scroll", handleScrollEvent);
+        };
+    }, []);
     return (
-        <HeaderSC $isSticky={isSticky}>
+        <HeaderSC $isSticky={isStickyHeader}>
             <LogoLinkSC to="/">
                 <Logo color="#000" />
             </LogoLinkSC>
