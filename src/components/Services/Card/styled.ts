@@ -69,6 +69,7 @@ export const CardLinkSC = styled(Link)`
     gap: 10px;
     cursor: pointer;
     margin-top: auto;
+    color: inherit;
 `;
 
 export const SaleIconSC = styled.div`

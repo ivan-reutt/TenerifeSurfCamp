@@ -76,7 +76,7 @@ export const Vibe = () => {
             <VideoSlider>
                 <Slider {...settings}>
                     {videoArray.map((video, index) => (
-                        <SlideWrapperSC onClick={handleVideoClick}>
+                        <SlideWrapperSC key={index} onClick={handleVideoClick}>
                             <PlaySC
                                 $isShow={
                                     isPlaying && playingVideoIndex === index
@@ -91,11 +91,7 @@ export const Vibe = () => {
                                 url={video}
                                 width="100%"
                                 height="auto"
-                                // style={{
-                                //     position: "absolute",
-                                //     top: 0,
-                                //     left: 0,
-                                // }}
+                                playsinline
                                 playing={
                                     isPlaying && playingVideoIndex === index
                                 }

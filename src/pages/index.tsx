@@ -14,9 +14,9 @@ const IndexPage: React.FC<PageProps> = () => {
             <LayoutBg />
             <MainView />
             <InfoBlock />
-            <About />
             <Services />
             <Vibe />
+            <About />
         </Layout>
     );
 };

@@ -5,11 +5,11 @@ import { Logo } from "components/icons/Logo";
 import LanguageSwitcher from "components/LanguageSwitcher";
 
 export const Header: React.FC = () => {
-    const [isStickyHeader, setIsStickyHeader] = useState(false);
+    const [isFixedHeader, setIsFixedHeader] = useState(false);
 
     useEffect(() => {
         const handleScrollEvent = () => {
-            setIsStickyHeader(window.pageYOffset > 0 ? true : false);
+            setIsFixedHeader(window.pageYOffset > 0 ? true : false);
         };
 
         window.addEventListener("scroll", handleScrollEvent);
@@ -19,7 +19,7 @@ export const Header: React.FC = () => {
         };
     }, []);
     return (
-        <HeaderSC $isSticky={isStickyHeader}>
+        <HeaderSC $isFixed={isFixedHeader}>
             <LogoLinkSC to="/">
                 <Logo color="#000" />
             </LogoLinkSC>

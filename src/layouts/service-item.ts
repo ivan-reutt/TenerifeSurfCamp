@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { smallBtn, TooltipSC } from "src/layouts/common";
+import { smallBtn, tooltipStyles } from "src/layouts/common";
 import { ActionButtonSC } from "components/ActionButton/styled";
 import { devices } from "src/styles/media";
 
@@ -70,7 +70,8 @@ export const TooltipOrderBtnSC = styled(ActionButtonSC)`
     padding: 4px 16px;
 `;
 
-export const OrderTooltipSC = styled(TooltipSC)`
+export const OrderTooltipSC = styled.div`
+    ${tooltipStyles};
     position: fixed;
     z-index: 10;
     top: 120px;

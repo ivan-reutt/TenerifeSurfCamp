@@ -65,7 +65,7 @@ export const MoreButtonSC = styled.button`
     align-self: center;
 `;
 
-export const TooltipSC = styled.div`
+export const tooltipStyles = css`
     display: flex;
     justify-content: space-between;
     align-items: center;

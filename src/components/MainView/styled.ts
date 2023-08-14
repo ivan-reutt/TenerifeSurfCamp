@@ -1,6 +1,5 @@
 import { devices } from "src/styles/media";
 import styled from "styled-components";
-import { TooltipSC } from "src/layouts/common";
 
 export const MainSectionSC = styled.section`
     position: relative;
@@ -44,14 +43,4 @@ export const BtnWrapperSC = styled.span`
     @media ${devices.sm} {
         display: block;
     }
-`;
-
-export const IconSC = styled.span`
-    width: 24px;
-    height: 24px;
-`;
-
-export const HotSaleTooltipSC = styled(TooltipSC)`
-    position: absolute;
-    top: -60px;
 `;

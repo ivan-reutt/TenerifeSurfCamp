@@ -16,6 +16,7 @@ interface IOption {
     name: string;
     icon: any;
     lng: string;
+    displayValue: string;
 }
 
 const languagesData: IOption[] = [
@@ -23,16 +24,19 @@ const languagesData: IOption[] = [
         lng: "uk",
         name: "Українська мова",
         icon: <UA />,
+        displayValue: "ua",
     },
     {
         lng: "en",
         name: "English language",
         icon: <UK />,
+        displayValue: "eng",
     },
     {
         lng: "ru",
         name: "Русский язык",
         icon: <RU />,
+        displayValue: "rus",
     },
 ];
 
@@ -68,9 +72,7 @@ const LanguageSwitcher: React.FC = () => {
 
     return (
         <LanguageSwitcherSC onClick={handleClick} ref={ref}>
-            <SwitcherValueSC>
-                <IconWrapperSC>{selectedLng?.icon}</IconWrapperSC>
-            </SwitcherValueSC>
+            <SwitcherValueSC>{selectedLng?.displayValue}</SwitcherValueSC>
             {isOpen && (
                 <OptionWrapperSC>
                     {languagesData.map((lng) => (

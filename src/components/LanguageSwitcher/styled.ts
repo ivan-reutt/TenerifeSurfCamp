@@ -18,11 +18,12 @@ export const IconWrapperSC = styled.div<{ small?: boolean }>`
 `;
 
 export const SwitcherValueSC = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 24px;
     cursor: pointer;
+    width: 40px;
+    text-align: right;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
 `;
 
 export const OptionWrapperSC = styled.ul`

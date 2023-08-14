@@ -5,6 +5,7 @@ import styled, { css } from "styled-components";
 export const NavWrapperSC = styled.nav<{ $isOpen: boolean }>`
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     gap: 10px;
 
