@@ -56,7 +56,7 @@ export const VideoButton: React.FC = () => {
                             autoPlay
                             ref={ref}
                             playsInline
-                            webkit-playsInline
+                            webkit-playsinline
                         >
                             <source
                                 src="https://dl.dropboxusercontent.com/s/6rfkiz5p9z4z132/IMG_0988.mp4?dl=0"

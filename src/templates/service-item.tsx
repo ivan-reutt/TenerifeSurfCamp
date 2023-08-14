@@ -19,7 +19,7 @@ import {
     renderRichText,
     RenderRichTextData,
 } from "gatsby-source-contentful/rich-text";
-import { ActionButton, ColorTypes } from "components/ActionButton";
+import { ActionButton } from "components/ActionButton";
 import CarouselSlider from "components/CarouselSlider";
 import { Modal } from "components/Modal";
 import { Form } from "components/Form";
@@ -83,10 +83,7 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
                 {isBtnShowed && (
                     <OrderTooltipSC>
                         {data.contentfulServices?.[usedName]}
-                        <TooltipOrderBtnSC
-                            onClick={handleClickOrder}
-                            $colorType={ColorTypes.GREEN}
-                        >
+                        <TooltipOrderBtnSC onClick={handleClickOrder}>
                             <Trans i18nKey={"orderTextMin"}>
                                 Оформить заявку
                             </Trans>
@@ -102,7 +99,7 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
                     </PricesWrapperSC>
                     <TitleSC>{data.contentfulServices?.[usedName]}</TitleSC>
                     <ActionButton onClick={handleClickOrder}>
-                        <Trans i18nKey={"actionBtn"}>Записаться в лагерь</Trans>
+                        <Trans i18nKey={"orderTextMin"}>Оформить заявку</Trans>
                     </ActionButton>
                 </TopInfoWrapperSC>
                 <CarouselSlider slides={data.contentfulServices?.sliderPhoto} />
@@ -126,10 +123,7 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
                 </Modal>
             )}
             {isBtnShowed && isMobile && (
-                <StickyOrderBtnSC
-                    onClick={handleClickOrder}
-                    $colorType={ColorTypes.GREEN}
-                >
+                <StickyOrderBtnSC onClick={handleClickOrder}>
                     <Trans i18nKey={"orderTextMin"}>Оформить заявку</Trans>
                 </StickyOrderBtnSC>
             )}

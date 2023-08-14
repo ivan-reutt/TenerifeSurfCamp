@@ -12,7 +12,7 @@ export const WrapperSC = styled.div`
     flex-direction: column;
     align-items: center;
     gap: 60px;
-    padding: 80px 0;
+    padding: 80px 0 40px;
     max-width: 100%;
     @media ${devices.lg} {
         padding: 40px 0 60px;
@@ -44,3 +44,11 @@ export const BtnWrapperSC = styled.span`
         display: block;
     }
 `;
+
+export const PriceWrapperSC = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+`;
+
+export const PriceSC = styled.h3``;

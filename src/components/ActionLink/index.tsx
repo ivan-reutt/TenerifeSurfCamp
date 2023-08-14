@@ -1,25 +1,37 @@
 import React from "react";
-import { ActionButtonSC } from "./styled";
+import { ActionLinkSC } from "./styled";
 import { Trans } from "gatsby-plugin-react-i18next";
+
+export enum ColorTypes {
+    GREEN,
+    WHITE,
+}
 
 type Props = {
     children?: React.ReactNode;
+    colorType?: ColorTypes;
     onClick?: (event: React.MouseEvent<HTMLElement>) => void;
     style?: React.CSSProperties;
-    href?: string;
+    to: string;
 };
 
-export const ActionButton: React.FC<Props> = ({
+export const ActionLink: React.FC<Props> = ({
     children,
+    colorType = ColorTypes.GREEN,
     onClick,
     style,
-    href,
+    to,
 }) => {
     return (
-        <ActionButtonSC onClick={onClick} href={href} style={style}>
+        <ActionLinkSC
+            onClick={onClick}
+            $colorType={colorType}
+            to={to}
+            style={style}
+        >
             {children || (
                 <Trans i18nKey={"actionBtn"}>Записаться в лагерь</Trans>
             )}
-        </ActionButtonSC>
+        </ActionLinkSC>
     );
 };

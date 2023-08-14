@@ -1,11 +1,13 @@
 import styled from "styled-components";
+import { ColorTypes } from ".";
 import { buttonProps, bigBtn } from "src/layouts/common";
 import { Link } from "gatsby";
 
-export const ActionButtonSC = styled.a`
+export const ActionLinkSC = styled(Link)<{ $colorType: ColorTypes }>`
     ${buttonProps};
     ${bigBtn};
-    background-color: #9DFBBA;
+    background-color: ${({ $colorType }) =>
+        $colorType === ColorTypes.GREEN ? "#9DFBBA" : "#fff"};
     color: #000;
     border-color: rgba(0, 0, 0, 0.05);
     }

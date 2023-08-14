@@ -6,7 +6,7 @@ const LayoutBg: React.FC = () => {
     return (
         <LayoutBgSC>
             <StaticImage
-                src="../../images/main-bg.jpeg"
+                src="../../images/main-bg.webp"
                 alt=""
                 layout="fullWidth"
                 formats={["auto", "webp", "avif"]}

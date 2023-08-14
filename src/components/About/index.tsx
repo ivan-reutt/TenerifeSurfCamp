@@ -1,5 +1,5 @@
 import React from "react";
-import { ActionButton, ColorTypes } from "components/ActionButton";
+import { ActionLink, ColorTypes } from "components/ActionLink";
 import {
     AboutSC,
     AboutCardWrapperSC,
@@ -11,8 +11,21 @@ import {
 } from "./styled";
 import { SectionTitleSC } from "src/layouts/common";
 import { Trans } from "gatsby-plugin-react-i18next";
+import { graphql, useStaticQuery } from "gatsby";
 
 export const About = () => {
+    const { contentfulServices } = useStaticQuery(graphql`
+        query SurfService {
+            contentfulServices(nameEn: { ne: "Surfcamp" }) {
+                nameEn
+                nameRu
+                nameUk
+                price
+                salePrice
+                contentful_id
+            }
+        }
+    `);
     return (
         <AboutSC id="about">
             <SectionTitleSC>
@@ -28,7 +41,10 @@ export const About = () => {
                         </Trans>
                     </CardTitleSC>
                     <BigCardTextSC>2000+</BigCardTextSC>
-                    <ActionButton href="#footer" colorType={ColorTypes.WHITE} />
+                    <ActionLink
+                        to={`/service/${contentfulServices.contentful_id}`}
+                        colorType={ColorTypes.WHITE}
+                    />
                 </AboutCardBlueSC>
                 <AboutCardSC>
                     <CardTitleSC>
