@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState, useRef } from "react";
+import React from "react";
 import { Trans } from "gatsby-plugin-react-i18next";
 import {
     MenuItemLinkSC,
@@ -8,40 +8,10 @@ import {
 } from "./styled";
 import Menu from "src/icons/menu.svg";
 import CloseCircle from "src/icons/close-circle.svg";
+import { useModal } from "src/hooks/useModalProps";
 
 export const Navigation: React.FC = () => {
-    const ref = useRef<HTMLDivElement>(null);
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handleOpenMenu = (event: any) => {
-        event.stopPropagation();
-        setIsOpen(true);
-        document.body.classList.add("modal-open");
-    };
-
-    const handleClose = () => {
-        setIsOpen(false);
-        document.body.classList.remove("modal-open");
-    };
-    const handleClickOutside = useCallback(
-        (event: MouseEvent) => {
-            if (
-                isOpen &&
-                ref.current &&
-                !ref.current.contains(event.target as Node)
-            ) {
-                handleClose();
-            }
-        },
-        [isOpen],
-    );
-
-    useEffect(() => {
-        document.addEventListener("click", handleClickOutside);
-        return () => {
-            document.removeEventListener("click", handleClickOutside);
-        };
-    }, [handleClickOutside]);
+    const { ref, isOpen, handleOpenMenu, handleClose } = useModal(true);
     return (
         <>
             <NavWrapperSC $isOpen={isOpen} ref={ref}>

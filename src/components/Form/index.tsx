@@ -10,27 +10,28 @@ import {
 } from "./styled";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 
+interface IProps {
+    isOrder?: boolean;
+}
+
 interface IFormValues {
     name: string;
     phone: string;
     code: string;
 }
-interface IProps {
-    isOrder?: boolean;
-}
 
 export const Form: React.FC<IProps> = ({ isOrder }) => {
     const { t } = useTranslation();
     const [isSubmited, setIsSubmited] = useState<boolean>(false);
-    const handleSubmit = () => {
-        setIsSubmited(true);
-    };
 
     const [formValues, setFormValues] = useState<IFormValues>({
         name: "",
         phone: "",
         code: countries[0].code,
     });
+    const handleSubmit = () => {
+        setIsSubmited(true);
+    };
 
     const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
         const name = event.target.value.replace(/[^a-zA-Zа-яА-Я]/gi, "");

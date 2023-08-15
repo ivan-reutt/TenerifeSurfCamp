@@ -21,7 +21,7 @@ const infoItemStyles = css`
     background-color: #fff;
     cursor: pointer;
     @media ${devices.sm} {
-        padding: 40px 24px;
+        padding: 24px;
     }
 `;
 
@@ -30,7 +30,7 @@ export const InfoItemSC = styled.div`
 `;
 
 export const WeatherItemWrapperSC = styled.a`
-    ${infoItemStyles}
+    ${infoItemStyles};
     flex-direction: column;
     color: inherit;
 `;

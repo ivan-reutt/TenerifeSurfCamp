@@ -2,17 +2,9 @@ import React, { useEffect, useState, useMemo } from "react";
 import { Card } from "../Card";
 import { MenuContentSC, CardsWrapperSC } from "./styled";
 import { TabsEnum } from "..";
-import { IGatsbyImageData } from "gatsby-plugin-image";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { useStaticQuery, graphql } from "gatsby";
 import { MoreButtonSC } from "src/layouts/common";
-
-// type ServiceItem = Pick<
-//     Queries.ContentfulServices,
-//     "price" | "salePrice" | "contentful_id" | "name" | "type"
-// > & {
-//     serviceCardPhoto: { gatsbyImageData: IGatsbyImageData | null } | null;
-// };
 
 interface IProps {
     activeTab: TabsEnum;

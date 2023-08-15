@@ -17,11 +17,10 @@ import {
 import { BLOCKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Layout from "components/Layout";
+import { useCurrentLang } from "src/hooks/useCurrentLang";
 
 const NewsItem = ({ data }: PageProps<Queries.NewsItemQuery>) => {
-    const currentLocalize = data.locales.edges[0].node.language || "uk";
-    const langCode =
-        currentLocalize.charAt(0).toUpperCase() + currentLocalize.slice(1);
+    const currentLang = useCurrentLang();
     const options: Options = {
         renderNode: {
             [BLOCKS.EMBEDDED_ASSET]: (node) => {
@@ -35,13 +34,14 @@ const NewsItem = ({ data }: PageProps<Queries.NewsItemQuery>) => {
             },
         },
     };
-    const titleField = `title${langCode}`;
-    const contentField = `content${langCode}`;
+    const titleField =
+        `title${currentLang}` as keyof typeof data.contentfulNews;
+    const contentField =
+        `content${currentLang}` as keyof typeof data.contentfulNews;
 
-    const richText = renderRichText(
-        data?.contentfulNews?.[contentField],
-        options,
-    );
+    const richText =
+        data.contentfulNews?.[contentField] &&
+        renderRichText(data.contentfulNews[contentField], options);
     const image = getImage(
         data?.contentfulNews?.preview as ImageDataLike,
     ) as IGatsbyImageData;

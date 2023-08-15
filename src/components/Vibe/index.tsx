@@ -52,18 +52,18 @@ export const Vibe = () => {
         const slideIndex = Number(
             e.currentTarget.classList.value
                 .split(" ")
-                .find((item) => !isNaN(item)),
+                .find((item) => !isNaN(+item)),
         );
         setPlaying(slideIndex);
     };
 
     const setPlaying = (index: number) => {
-        if (+index !== playingVideoIndex) {
+        if (index !== playingVideoIndex) {
             setPlayingVideoIndex(index);
             setIsPlaying(true);
         }
 
-        if (+index === playingVideoIndex) {
+        if (index === playingVideoIndex) {
             setIsPlaying((prev) => !prev);
         }
     };

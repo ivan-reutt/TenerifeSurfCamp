@@ -2,22 +2,9 @@ import React, { useRef } from "react";
 import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { SliderWrapperSC, ArrowWrapperSC } from "./styled";
-import { ArrowRight } from "components/icons/ArrowRight";
+import { SliderWrapperSC } from "./styled";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
-
-interface IArrow {
-    alignLeft?: boolean;
-    onClick?: () => void;
-}
-
-const SliderArrow = ({ alignLeft, onClick }: IArrow) => {
-    return (
-        <ArrowWrapperSC onClick={onClick} $alignLeft={alignLeft}>
-            <ArrowRight />
-        </ArrowWrapperSC>
-    );
-};
+import { SliderArrow } from "./SliderArrow";
 
 interface ISlideProps {
     slides?:

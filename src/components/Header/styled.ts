@@ -43,6 +43,7 @@ export const HeaderSC = styled.header<{ $isFixed: boolean }>`
                     position: fixed;
                     max-width: 178px;
                     padding: 16px 32px;
+                    max-height: none;
                     background-color: #fff;
                     border-radius: 40px;
                     box-shadow: 0 0 0 8px rgba(0, 0, 0, 0.02);
@@ -54,7 +55,7 @@ export const HeaderSC = styled.header<{ $isFixed: boolean }>`
                 ${BurgerWrapperSC} {
                     position: fixed;
                     right: 20px;
-                    bottom: 20px;
+                    top: calc(100vh - 80px);
                     background-color: #fff;
                     border-radius: 50%;
                     padding: 16px;

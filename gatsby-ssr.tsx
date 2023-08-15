@@ -5,7 +5,7 @@ const fontsPath = "/fonts/";
 export const onRenderBody = ({ setHeadComponents }) => {
     setHeadComponents([
         <link
-            key="GothamPro"
+            key="gothampro-woff"
             rel="preload"
             href={`${fontsPath}GothamPro.woff`}
             as="font"
@@ -13,11 +13,43 @@ export const onRenderBody = ({ setHeadComponents }) => {
             crossOrigin="anonymous"
         />,
         <link
-            key="GothamPro"
+            key="gothampro-woff2"
             rel="preload"
-            href={`${fontsPath}GothamPro.ttf`}
+            href={`${fontsPath}GothamPro.woff2`}
             as="font"
-            type="font/ttf"
+            type="font/woff2"
+            crossOrigin="anonymous"
+        />,
+        <link
+            key="gothampro-medium-woff2"
+            rel="preload"
+            href={`${fontsPath}GothamPro-Medium.woff2`}
+            as="font"
+            type="font/woff2"
+            crossOrigin="anonymous"
+        />,
+        <link
+            key="gothampro-medium-woff"
+            rel="preload"
+            href={`${fontsPath}GothamPro-Medium.woff`}
+            as="font"
+            type="font/woff"
+            crossOrigin="anonymous"
+        />,
+        <link
+            key="gothampro-bold-woff"
+            rel="preload"
+            href={`${fontsPath}GothamPro-Bold.woff`}
+            as="font"
+            type="font/woff"
+            crossOrigin="anonymous"
+        />,
+        <link
+            key="gothampro-bold-woff2"
+            rel="preload"
+            href={`${fontsPath}GothamPro-Bold.woff2`}
+            as="font"
+            type="font/woff2"
             crossOrigin="anonymous"
         />,
     ]);

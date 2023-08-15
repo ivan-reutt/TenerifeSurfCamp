@@ -14,38 +14,31 @@ import {
     TooltipOrderBtnSC,
     OrderTooltipSC,
 } from "src/layouts/service-item";
-import {
-    ContentfulRichTextGatsbyReference,
-    renderRichText,
-    RenderRichTextData,
-} from "gatsby-source-contentful/rich-text";
+import { renderRichText } from "gatsby-source-contentful/rich-text";
 import { ActionButton } from "components/ActionButton";
 import CarouselSlider from "components/CarouselSlider";
 import { Modal } from "components/Modal";
 import { Form } from "components/Form";
 import Layout from "components/Layout";
-import { Trans, I18nContext } from "gatsby-plugin-react-i18next";
-import { capitalize } from "src/utils/makeFirstLetterUppercase";
+import { Trans } from "gatsby-plugin-react-i18next";
 import HotSaleTag from "components/HotSaleTag";
 import { devices } from "src/styles/media";
+import { useCurrentLang } from "src/hooks/useCurrentLang";
 
 const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isBtnShowed, setIsBtnShowed] = useState<boolean>(false);
     const [isMobile, setIsMobile] = useState<boolean>();
-    const { i18n } = React.useContext(I18nContext);
-    const langCode = capitalize(i18n.language);
+    const currentLang = useCurrentLang();
+
     const usedDescription =
-        `description${langCode}` as keyof typeof data.contentfulServices;
-    const usedName = `name${langCode}` as keyof typeof data.contentfulServices;
+        `description${currentLang}` as keyof typeof data.contentfulServices;
+    const usedName =
+        `name${currentLang}` as keyof typeof data.contentfulServices;
 
     const richText =
         data.contentfulServices?.[usedDescription] &&
-        renderRichText(
-            data.contentfulServices[
-                usedDescription
-            ] as RenderRichTextData<ContentfulRichTextGatsbyReference>,
-        );
+        renderRichText(data.contentfulServices[usedDescription]);
     const salePrice = data.contentfulServices?.salePrice;
     const price = data.contentfulServices?.price;
 
@@ -110,6 +103,7 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
             {isOpen && (
                 <Modal
                     onClose={handleClose}
+                    withPadding={true}
                     style={{
                         width: "780px",
                         paddingLeft: "100px",

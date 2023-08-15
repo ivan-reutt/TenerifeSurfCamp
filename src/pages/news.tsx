@@ -4,14 +4,13 @@ import { NewsSC, SubTitleSC, NewsWrapperSC } from "src/layouts/news";
 import NewsCard from "components/NewsCard";
 import Layout from "components/Layout";
 import { Trans } from "gatsby-plugin-react-i18next";
-import { capitalize } from "src/utils/makeFirstLetterUppercase";
 import { MoreButtonSC } from "src/layouts/common";
+import { useCurrentLang } from "src/hooks/useCurrentLang";
 
 const News: React.FC<PageProps<Queries.AllNewsPageQuery>> = ({ data }) => {
     const [isShowAll, setIsShowAll] = React.useState<boolean>(false);
 
-    const currentLocalize = data.locales.edges[0].node.language || "uk";
-    const langCode = capitalize(currentLocalize);
+    const currentLang = useCurrentLang();
 
     const newsList = isShowAll
         ? data.allContentfulNews.nodes
@@ -20,7 +19,7 @@ const News: React.FC<PageProps<Queries.AllNewsPageQuery>> = ({ data }) => {
     const handleClickMore = useCallback(() => {
         setIsShowAll(true);
     }, []);
-    const titleField = `title${langCode}`;
+    const titleField = `title${currentLang}`;
 
     return (
         <Layout>

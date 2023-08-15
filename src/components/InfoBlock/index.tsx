@@ -109,7 +109,7 @@ export const InfoBlock: React.FC = () => {
                 </InfoItemsWrapperSC>
             </InfoBlockSC>
             {modalType && (
-                <Modal onClose={handleClose}>
+                <Modal onClose={handleClose} withPadding={true}>
                     <ModalContent modalType={modalType} />
                 </Modal>
             )}

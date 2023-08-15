@@ -1,4 +1,4 @@
-import React, { useRef, useCallback, useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { SelectOption } from "./Option";
 import {
     SelectValueSC,
@@ -7,6 +7,7 @@ import {
     SelectSC,
     PhoneCodeSC,
 } from "./styled";
+import { useModal } from "src/hooks/useModalProps";
 
 export interface IOption {
     name: string;
@@ -178,37 +179,20 @@ type Props = {
 };
 
 export const SelectCountryCode: React.FC<Props> = ({ value, onChange }) => {
-    const ref = useRef<HTMLDivElement>(null);
-    const [isOpen, setIsOpen] = useState<boolean>(false);
+    const { ref, handleOpenMenu, handleClose } = useModal();
+    const [isOpen, setIsOpen] = useState(false);
 
     const selectedValue = countries.find((country) => country.code === value);
 
-    const handleSelectClick = () => {
-        setIsOpen((prev) => !prev);
-    };
-
-    const handleClickOutside = useCallback(
-        (event: MouseEvent) => {
-            if (
-                isOpen &&
-                ref.current &&
-                !ref.current.contains(event.target as Node)
-            ) {
-                setIsOpen(false);
-            }
+    const handleSelect = useCallback(
+        (code: string) => {
+            setIsOpen(false);
+            onChange(code);
         },
-        [isOpen],
+        [onChange, handleClose],
     );
-
-    useEffect(() => {
-        document.addEventListener("click", handleClickOutside);
-        return () => {
-            document.removeEventListener("click", handleClickOutside);
-        };
-    }, [handleClickOutside]);
-
     return (
-        <SelectSC onClick={handleSelectClick} ref={ref}>
+        <SelectSC onClick={handleOpenMenu} ref={ref}>
             <SelectValueSC>
                 <IconContainerSC
                     className={`ff-lg fflag-${selectedValue?.country}`}
@@ -220,7 +204,7 @@ export const SelectCountryCode: React.FC<Props> = ({ value, onChange }) => {
                     {countries.map((item, index) => (
                         <SelectOption
                             key={`${item.name}_${index}`}
-                            onClickOption={onChange}
+                            onClickOption={handleSelect}
                             optionValue={item}
                         />
                     ))}

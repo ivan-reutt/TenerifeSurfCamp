@@ -1,17 +1,19 @@
 import React from "react";
 import { StaticImage } from "gatsby-plugin-image";
-import { LayoutBgSC } from "./styled";
+import { LayoutBgSC, MainBgWrapperSC } from "./styled";
 
 const LayoutBg: React.FC = () => {
     return (
         <LayoutBgSC>
-            <StaticImage
-                src="../../images/main-bg.webp"
-                alt=""
-                layout="fullWidth"
-                formats={["auto", "webp", "avif"]}
-                placeholder="blurred"
-            />
+            <MainBgWrapperSC>
+                <StaticImage
+                    src="../../images/main-bg.webp"
+                    alt=""
+                    formats={["auto", "webp", "avif"]}
+                    placeholder="blurred"
+                    style={{ height: "100%" }}
+                />
+            </MainBgWrapperSC>
             <StaticImage
                 src="../../images/vector-bg-1.png"
                 alt=""

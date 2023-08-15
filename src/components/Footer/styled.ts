@@ -102,6 +102,7 @@ export const ContactItemSC = styled.div`
 
     @media ${devices.sm} {
         flex-direction: column;
+        align-items: flex-start;
     }
 `;
 

@@ -7,5 +7,9 @@ export const LayoutBgSC = styled.div`
     width: 100%;
     height: 100%;
     z-index: -1;
-    margin-top: -60px;
+`;
+
+export const MainBgWrapperSC = styled.div`
+    height: 100vh;
+    box-shadow: 0 60px 100px 100px rgba(107, 139, 161, 1);
 `;

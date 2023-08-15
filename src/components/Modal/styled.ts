@@ -1,5 +1,5 @@
 import { devices } from "src/styles/media";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const OverlaySC = styled.div`
     position: fixed;
@@ -19,24 +19,31 @@ export const OverlaySC = styled.div`
     }
 `;
 
-export const ModalSC = styled.div`
+export const ModalSC = styled.div<{ $withPadding?: boolean }>`
     position: relative;
     max-width: 1180px;
     width: 100%;
     margin: 0 auto;
-    background-color: #fff;
     border-radius: 32px;
     box-shadow: 0px 0px 0px 4px rgba(0, 0, 0, 0.02);
-    padding: 80px 40px 40px 40px;
 
-    @media ${devices.sm} {
-        padding: 40px 20px 20px;
-    }
+    ${({ $withPadding }) =>
+        $withPadding &&
+        css`
+            padding: 80px 40px 40px 40px;
+            background-color: #fff;
+
+            @media ${devices.sm} {
+                padding: 40px 20px 20px;
+            }
+        `}
 `;
 
 export const CloseSC = styled.div`
     position: absolute;
+    display: flex;
     top: 24px;
     right: 24px;
     cursor: pointer;
+    z-index: 1;
 `;

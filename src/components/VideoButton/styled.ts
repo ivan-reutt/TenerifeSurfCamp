@@ -70,18 +70,6 @@ export const ButtonSC = styled.button`
     }
 `;
 
-export const VideoOverlaySC = styled.div`
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    display: flex;
-    align-items: center;
-    z-index: 1001;
-`;
-
 export const VideoWrapperSC = styled.div`
     max-width: 1180px;
     max-height: calc(100% - 80px);

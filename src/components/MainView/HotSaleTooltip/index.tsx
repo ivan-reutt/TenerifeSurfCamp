@@ -1,14 +1,13 @@
 import React from "react";
 import { IconSC, HotSaleTooltipSC } from "./styled";
-import { Trans, I18nContext } from "gatsby-plugin-react-i18next";
+import { Trans } from "gatsby-plugin-react-i18next";
 import { ArrowRight } from "components/icons/ArrowRight";
 import HotSaleTag from "components/HotSaleTag";
 import { graphql, useStaticQuery } from "gatsby";
-import { capitalize } from "src/utils/makeFirstLetterUppercase";
+import { useCurrentLang } from "src/hooks/useCurrentLang";
 
 export const HotSaleTooltip = () => {
-    const { i18n } = React.useContext(I18nContext);
-    const langCode = capitalize(i18n.language);
+    const currentLang = useCurrentLang();
 
     const { contentfulServices } = useStaticQuery(graphql`
         query SaleService {
@@ -21,7 +20,7 @@ export const HotSaleTooltip = () => {
             }
         }
     `);
-    const nameField = `name${langCode}` as keyof typeof contentfulServices;
+    const nameField = `name${currentLang}` as keyof typeof contentfulServices;
     return (
         <HotSaleTooltipSC to={`/service/${contentfulServices.contentful_id}`}>
             <HotSaleTag />
