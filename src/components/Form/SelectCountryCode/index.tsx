@@ -174,23 +174,23 @@ export const countries: IOption[] = [
 ];
 
 type Props = {
-    value: string;
     onChange: (code: string) => void;
 };
 
-export const SelectCountryCode: React.FC<Props> = ({ value, onChange }) => {
-    const { ref, handleOpenMenu, handleClose } = useModal();
-    const [isOpen, setIsOpen] = useState(false);
+export const SelectCountryCode: React.FC<Props> = ({ onChange }) => {
+    const [code, setCode] = useState(countries[0].code);
+    const { isOpen, ref, handleOpenMenu } = useModal();
 
-    const selectedValue = countries.find((country) => country.code === value);
+    const selectedValue = countries.find((country) => country.code === code);
 
     const handleSelect = useCallback(
         (code: string) => {
-            setIsOpen(false);
+            setCode(code);
             onChange(code);
         },
-        [onChange, handleClose],
+        [onChange],
     );
+
     return (
         <SelectSC onClick={handleOpenMenu} ref={ref}>
             <SelectValueSC>

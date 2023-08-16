@@ -32,8 +32,8 @@ const config: GatsbyConfig = {
             options: {
                 languages: ["uk", "ru", "en"],
                 defaultLanguage: "uk",
+                redirect: false,
                 siteUrl: `https://www.yourdomain.tld`,
-                localStorage: false,
                 i18nextOptions: {
                     // debug: true,
                     fallbackLng: "uk",

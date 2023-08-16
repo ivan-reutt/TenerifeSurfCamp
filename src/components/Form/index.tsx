@@ -61,10 +61,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
                         />
                     </InputWrapperSC>
                     <InputWrapperSC>
-                        <SelectCountryCode
-                            onChange={handleChangeCode}
-                            value={formValues.code}
-                        />
+                        <SelectCountryCode onChange={handleChangeCode} />
                         <InputSC
                             placeholder={t("numberPhone")}
                             type="text"
