@@ -1,7 +1,5 @@
 import React, { useRef } from "react";
 import Slider, { Settings } from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 import { SliderWrapperSC } from "./styled";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 import { SliderArrow } from "./SliderArrow";
