@@ -104,3 +104,8 @@ export const SmallCelsiusSC = styled(CelsiusSC)`
         }
     }
 `;
+
+export const WeatherIconWrapperSC = styled.div`
+    height: 64px;
+    width: 64px;
+`;

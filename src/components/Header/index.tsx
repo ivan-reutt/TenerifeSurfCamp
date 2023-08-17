@@ -20,7 +20,7 @@ export const Header: React.FC = () => {
     }, []);
     return (
         <HeaderSC $isFixed={isFixedHeader}>
-            <LogoLinkSC to="/">
+            <LogoLinkSC to="/" aria-label="logo">
                 <Logo color="#000" />
             </LogoLinkSC>
             <Navigation />

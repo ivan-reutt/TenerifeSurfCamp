@@ -25,7 +25,7 @@ export const Footer: React.FC = () => {
     return (
         <FooterSC id="footer">
             <ContainerSC>
-                <LogoLinkSC to="/">
+                <LogoLinkSC to="/" aria-label="logo">
                     <Logo color="#fff" />
                 </LogoLinkSC>
                 <WrapperSC>
@@ -39,23 +39,27 @@ export const Footer: React.FC = () => {
                         <IconLinkSC
                             href="https://www.instagram.com/alex.croot/"
                             target="_blank"
+                            aria-label="instagram"
                         >
                             <Instagram />
                         </IconLinkSC>
                         <IconLinkSC
-                            href="https://www.instagram.com/alex.croot/"
+                            href="https://t.me/AlexCroot"
                             target="_blank"
+                            aria-label="telegram"
                         >
                             <Telegram />
                         </IconLinkSC>
                         <IconLinkSC
                             href="https://www.facebook.com/alexandr.dodul/"
                             target="_blank"
+                            aria-label="facebook"
                         >
                             <Facebook />
                         </IconLinkSC>
                         <IconLinkSC
                             target="_blank"
+                            aria-label="whatsapp"
                             href="https://api.whatsapp.com/send/?phone=34655354404&text&type=phone_number&app_absent=0"
                         >
                             <Whatsapp />

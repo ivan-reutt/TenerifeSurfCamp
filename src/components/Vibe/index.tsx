@@ -74,7 +74,7 @@ export const Vibe = () => {
                 <Trans i18nKey={"vibeTitle"}>Вайб вашего отдыха</Trans>
             </SectionTitleSC>
             <VideoSlider>
-                <Slider {...settings}>
+                {/* <Slider {...settings}>
                     {videoArray.map((video, index) => (
                         <SlideWrapperSC key={index} onClick={handleVideoClick}>
                             <PlaySC
@@ -83,6 +83,7 @@ export const Vibe = () => {
                                 }
                                 onClick={handlePlayClick}
                                 className={`${index}`}
+                                 aria-label="play"
                             >
                                 <Videoplay />
                             </PlaySC>
@@ -99,7 +100,7 @@ export const Vibe = () => {
                             />
                         </SlideWrapperSC>
                     ))}
-                </Slider>
+                </Slider> */}
             </VideoSlider>
         </VibeSC>
     );

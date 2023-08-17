@@ -13,6 +13,7 @@ import {
     WeatherTextSC,
     BigCelsiusSC,
     SmallCelsiusSC,
+    WeatherIconWrapperSC,
 } from "./styled";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { ModalContent } from "./ModalContent";
@@ -72,10 +73,12 @@ export const InfoBlock: React.FC = () => {
                         <Trans i18nKey={"weather"}>Погода на Тенерифе</Trans>
                     </ItemTextSC>
                     <WeatherItemSC>
-                        <img
-                            src={meteoData?.conditionIconPath}
-                            alt="weather condition"
-                        />
+                        <WeatherIconWrapperSC>
+                            <img
+                                src={meteoData?.conditionIconPath}
+                                alt="weather condition"
+                            />
+                        </WeatherIconWrapperSC>
                         <TemparatureSC>{meteoData?.temperature}</TemparatureSC>
                         <BigCelsiusSC>C</BigCelsiusSC>
                     </WeatherItemSC>
