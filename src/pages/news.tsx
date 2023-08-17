@@ -6,6 +6,9 @@ import Layout from "components/Layout";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { MoreButtonSC } from "src/layouts/common";
 import { useCurrentLang } from "src/hooks/useCurrentLang";
+import { SEO } from "components/Seo";
+
+type TitleInt = "titleEn" | "titleRu" | "titleUk";
 
 const News: React.FC<PageProps<Queries.AllNewsPageQuery>> = ({ data }) => {
     const [isShowAll, setIsShowAll] = React.useState<boolean>(false);
@@ -19,7 +22,7 @@ const News: React.FC<PageProps<Queries.AllNewsPageQuery>> = ({ data }) => {
     const handleClickMore = useCallback(() => {
         setIsShowAll(true);
     }, []);
-    const titleField = `title${currentLang}`;
+    const titleField = `title${currentLang}` as TitleInt;
 
     return (
         <Layout>
@@ -50,7 +53,7 @@ const News: React.FC<PageProps<Queries.AllNewsPageQuery>> = ({ data }) => {
 
 export default News;
 
-export const Head: HeadFC = () => <title>FunVibe News</title>;
+export const Head: HeadFC = () => <SEO />;
 
 export const pageQuery = graphql`
     query AllNewsPage($language: String!) {

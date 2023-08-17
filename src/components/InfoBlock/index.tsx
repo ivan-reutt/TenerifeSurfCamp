@@ -81,7 +81,9 @@ export const InfoBlock: React.FC = () => {
                     </WeatherItemSC>
                     <WeatherItemSC>
                         <WeatherTextSC>
-                            Температура воды на Тенерифе
+                            <Trans i18nKey={"waterTemp"}>
+                                Температура воды на Тенерифе
+                            </Trans>
                         </WeatherTextSC>
                         <p>{meteoData?.waterTemp}C</p>
                         <SmallCelsiusSC>C</SmallCelsiusSC>

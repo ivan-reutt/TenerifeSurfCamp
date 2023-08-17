@@ -5,8 +5,12 @@ require("dotenv").config({
 
 const config: GatsbyConfig = {
     siteMetadata: {
-        title: `tenereife_surf`,
-        siteUrl: `https://www.yourdomain.tld`,
+        title: `Серфкемп Тенерифе - полный курс серфинга в лагере на Канарских островах `,
+        siteUrl: `https://funvibe.me/`,
+        keywords:
+            "Серфинг, Серф кемп, серфинг лагерь, серфкемп, Тенерифе, остров тенерифе, тенерифе канарские острова, де тенерифе, уроки серфинга, Серф, Канарские острова,купить экскурсию, лучшие экскурсии, обзорная экскурсия, сайт экскурсии, цены +на экскурсии, экскурсии",
+        description:
+            "Серфкемп на Канарских островах - Тенерифе! Где научиться серфингу в Европе? Обучаем и даем уроки серфинга в теплом океане зимой и летом. Серфкемп от 690 евро неделя.",
     },
     // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
     // If you use VSCode you can also use the GraphQL plugin

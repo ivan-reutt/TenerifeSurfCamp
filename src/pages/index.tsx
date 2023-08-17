@@ -7,6 +7,7 @@ import { Vibe } from "components/Vibe";
 import { MainView } from "components/MainView";
 import Layout from "components/Layout";
 import LayoutBg from "components/LayoutBg";
+import { SEO } from "components/Seo";
 
 const IndexPage: React.FC<PageProps> = () => {
     return (
@@ -23,7 +24,7 @@ const IndexPage: React.FC<PageProps> = () => {
 
 export default IndexPage;
 
-export const Head: HeadFC = () => <title>FunVibe Surf</title>;
+export const Head: HeadFC = () => <SEO />;
 
 export const query = graphql`
     query ($language: String!) {

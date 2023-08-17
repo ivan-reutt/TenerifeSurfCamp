@@ -24,6 +24,7 @@ import { Trans } from "gatsby-plugin-react-i18next";
 import HotSaleTag from "components/HotSaleTag";
 import { devices } from "src/styles/media";
 import { useCurrentLang } from "src/hooks/useCurrentLang";
+import { SEO } from "components/Seo";
 
 const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -126,7 +127,7 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
 };
 export default ServiceItem;
 
-export const Head: HeadFC = () => <title>FunVibe Surf</title>;
+export const Head: HeadFC = () => <SEO />;
 
 export const query = graphql`
     query ServiceItem($id: String, $language: String!) {

@@ -18,6 +18,7 @@ import { BLOCKS } from "@contentful/rich-text-types";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
 import Layout from "components/Layout";
 import { useCurrentLang } from "src/hooks/useCurrentLang";
+import { SEO } from "components/Seo";
 
 const NewsItem = ({ data }: PageProps<Queries.NewsItemQuery>) => {
     const currentLang = useCurrentLang();
@@ -62,7 +63,7 @@ const NewsItem = ({ data }: PageProps<Queries.NewsItemQuery>) => {
 };
 export default NewsItem;
 
-export const Head: HeadFC = () => <title>FunVibe Surf</title>;
+export const Head: HeadFC = () => <SEO />;
 
 export const query = graphql`
     query NewsItem($id: String, $language: String!) {
