@@ -3,7 +3,7 @@ import { VibeSC, VideoSliderSC, PlaySC, SlideWrapperSC } from "./styled";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { SectionTitleSC } from "src/layouts/common";
 import Slider, { Settings } from "react-slick";
-import ReactPlayer from "react-player/lazy";
+import ReactPlayer from "react-player";
 import Videoplay from "src/icons/videoplay.svg";
 
 export const Vibe = () => {
