@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { buttonProps, bigBtn } from "src/layouts/common";
 
-export const ActionButtonSC = styled.a`
+export const ActionButtonSC = styled.button`
     ${buttonProps};
     ${bigBtn};
     background-color: #9dfbba;
