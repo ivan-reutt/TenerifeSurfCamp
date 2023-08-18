@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { VibeSC, VideoSlider, PlaySC, SlideWrapperSC } from "./styled";
+import { VibeSC, VideoSliderSC, PlaySC, SlideWrapperSC } from "./styled";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { SectionTitleSC } from "src/layouts/common";
 import Slider, { Settings } from "react-slick";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 import Videoplay from "src/icons/videoplay.svg";
 
 export const Vibe = () => {
@@ -43,7 +43,9 @@ export const Vibe = () => {
     ];
 
     const handleVideoClick = (e: React.MouseEvent<HTMLElement>) => {
-        const slideIndex = Number(e.target.parentNode.classList.value);
+        const slideIndex = Number(
+            (e.target as HTMLElement).parentElement?.classList.value,
+        );
         setPlaying(slideIndex);
     };
 
@@ -73,8 +75,8 @@ export const Vibe = () => {
             <SectionTitleSC>
                 <Trans i18nKey={"vibeTitle"}>Вайб вашего отдыха</Trans>
             </SectionTitleSC>
-            <VideoSlider>
-                {/* <Slider {...settings}>
+            <VideoSliderSC>
+                <Slider {...settings}>
                     {videoArray.map((video, index) => (
                         <SlideWrapperSC key={index} onClick={handleVideoClick}>
                             <PlaySC
@@ -83,7 +85,7 @@ export const Vibe = () => {
                                 }
                                 onClick={handlePlayClick}
                                 className={`${index}`}
-                                 aria-label="play"
+                                aria-label="play"
                             >
                                 <Videoplay />
                             </PlaySC>
@@ -100,8 +102,8 @@ export const Vibe = () => {
                             />
                         </SlideWrapperSC>
                     ))}
-                </Slider> */}
-            </VideoSlider>
+                </Slider>
+            </VideoSliderSC>
         </VibeSC>
     );
 };

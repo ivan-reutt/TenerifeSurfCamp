@@ -65,7 +65,7 @@ export const pageQuery = graphql`
                 titleUk
                 titleRu
                 preview {
-                    gatsbyImageData
+                    gatsbyImageData(width: 360)
                 }
             }
         }

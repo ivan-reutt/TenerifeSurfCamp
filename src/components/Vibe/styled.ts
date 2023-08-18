@@ -3,7 +3,7 @@ import { devices } from "src/styles/media";
 
 export const VibeSC = styled.section``;
 
-export const VideoSlider = styled.div`
+export const VideoSliderSC = styled.div`
     border-radius: 32px;
     max-width: 1180px;
     margin: 0 auto;

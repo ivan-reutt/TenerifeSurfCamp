@@ -52,18 +52,5 @@ export const onRenderBody = ({ setHeadComponents }) => {
             type="font/woff2"
             crossOrigin="anonymous"
         />,
-        <link
-            key="slick.min.css"
-            rel="stylesheet"
-            type="text/css"
-            charSet="UTF-8"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css"
-        />,
-        <link
-            key="slick-theme.min.css"
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css"
-        />,
     ]);
 };

@@ -34,8 +34,9 @@ export const VideoButton: React.FC = () => {
             {isOpen && (
                 <Modal onClose={handleClose}>
                     <VideoWrapperSC>
-                        {/* <VideoSC
+                        <VideoSC
                             controls
+                            preload="none"
                             autoPlay
                             playsInline
                             webkit-playsinline
@@ -44,7 +45,7 @@ export const VideoButton: React.FC = () => {
                                 src="https://dl.dropboxusercontent.com/s/6rfkiz5p9z4z132/IMG_0988.mp4?dl=0"
                                 type="video/mp4"
                             />
-                        </VideoSC> */}
+                        </VideoSC>
                     </VideoWrapperSC>
                 </Modal>
             )}
