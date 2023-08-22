@@ -1,8 +1,11 @@
 import React from "react";
+import type { GatsbySSR } from "gatsby";
 
 const fontsPath = "/fonts/";
 
-export const onRenderBody = ({ setHeadComponents }) => {
+export const onRenderBody: GatsbySSR["onRenderBody"] = ({
+    setHeadComponents,
+}) => {
     setHeadComponents([
         <link
             key="gothampro-woff"

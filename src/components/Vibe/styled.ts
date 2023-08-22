@@ -35,12 +35,14 @@ export const VideoSliderSC = styled.div`
             }
         }
         .slick-prev {
-            left: -30px;
+            left: 0;
             right: 85%;
+            border-radius: 40px 0 0 40px;
         }
         .slick-next {
-            right: -30px;
+            right: 0;
             left: 85%;
+            border-radius: 0 40px 40px 0;
         }
     }
     @media ${devices.xl} {

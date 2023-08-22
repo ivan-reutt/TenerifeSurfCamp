@@ -7,7 +7,7 @@ const LayoutBg: React.FC = () => {
         <LayoutBgSC>
             <MainBgWrapperSC>
                 <StaticImage
-                    src="../../images/main-bg.webp"
+                    src="../../images/IMG_2217.jpeg"
                     alt=""
                     formats={["auto", "webp", "avif"]}
                     placeholder="blurred"

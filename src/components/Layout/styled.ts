@@ -9,13 +9,12 @@ export const MainSC = styled.main`
     gap: 60px;
     padding: 0 20px 80px;
     align-items: center;
-    margin-top: 180px;
 
     @media ${devices.lg} {
-        margin-top: 160px;
+        padding: 0 20px 60px;
     }
 
     @media ${devices.sm} {
-        margin-top: 140px;
+        padding: 0 20px 40px;
     }
 `;

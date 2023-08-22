@@ -25,11 +25,11 @@ const NewsItem = ({ data }: PageProps<Queries.NewsItemQuery>) => {
     const options: Options = {
         renderNode: {
             [BLOCKS.EMBEDDED_ASSET]: (node) => {
-                const { gatsbyImageData, description } = node.data.target;
+                const { gatsbyImageData } = node.data.target;
                 return (
                     <GatsbyImage
                         image={getImage(gatsbyImageData) as IGatsbyImageData}
-                        alt={description}
+                        alt={"news photo"}
                     />
                 );
             },
@@ -52,7 +52,7 @@ const NewsItem = ({ data }: PageProps<Queries.NewsItemQuery>) => {
             <NewsItemSC>
                 <TitleSC>{data.contentfulNews?.[titleField]}</TitleSC>
                 <MainPhotoSC>
-                    <GatsbyImage image={image} alt={"News Photo"} />
+                    <GatsbyImage image={image} alt={"News Main Photo"} />
                 </MainPhotoSC>
                 <DescriptionWrapperSC>
                     <MainInfoSC>{richText}</MainInfoSC>

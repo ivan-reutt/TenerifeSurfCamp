@@ -15,14 +15,14 @@ export const Navigation: React.FC = () => {
     return (
         <>
             <NavWrapperSC $isOpen={isOpen} ref={ref}>
-                <MenuItemLinkSC to="/#about" onClick={handleClose}>
-                    <Trans i18nKey={"nav-about"}>О нас</Trans>
-                </MenuItemLinkSC>
                 <MenuItemLinkSC to="/#entertainment" onClick={handleClose}>
                     <Trans i18nKey={"nav-rest"}>Развлечения</Trans>
                 </MenuItemLinkSC>
                 <MenuItemLinkSC to="/#vibe" onClick={handleClose}>
                     <Trans i18nKey={"nav-vibe"}>Вайб</Trans>
+                </MenuItemLinkSC>
+                <MenuItemLinkSC to="/#about" onClick={handleClose}>
+                    <Trans i18nKey={"nav-about"}>О нас</Trans>
                 </MenuItemLinkSC>
                 <MenuItemLinkSC to="/news" onClick={handleClose}>
                     <Trans i18nKey={"nav-news"}>Новости</Trans>

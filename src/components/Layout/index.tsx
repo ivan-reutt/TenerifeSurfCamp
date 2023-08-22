@@ -13,7 +13,7 @@ const Layout: React.FC<Props> = ({ children }) => {
         <>
             <GlobalStyle />
             <Header />
-            <MainSC id="top">{children}</MainSC>
+            <MainSC>{children}</MainSC>
             <Footer />
         </>
     );

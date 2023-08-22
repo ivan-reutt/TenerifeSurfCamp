@@ -5,21 +5,32 @@ export const MainSectionSC = styled.section`
     position: relative;
     max-width: 100%;
     text-align: center;
+    height: 100vh;
+    padding-top: 180px;
+    align-items: center;
+
+    @media ${devices.lg} {
+        padding-top: 160px;
+    }
+
+    @media ${devices.sm} {
+        padding-top: 140px;
+    }
 `;
 
 export const WrapperSC = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 60px;
-    padding: 80px 0 40px;
+    height: 100%;
+    justify-content: space-between;
+    padding: 80px 0;
     max-width: 100%;
     @media ${devices.lg} {
-        padding: 40px 0 20px;
+        padding: 40px 0 60px;
     }
     @media ${devices.sm} {
-        padding: 40px 0 0;
-        gap: 20px;
+        padding: 40px 0;
     }
 `;
 

@@ -58,6 +58,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
                             type="text"
                             onChange={handleChangeName}
                             value={formValues.name}
+                            name="name"
                         />
                     </InputWrapperSC>
                     <InputWrapperSC>
@@ -67,6 +68,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
                             type="text"
                             onChange={handleChangePhone}
                             value={formValues.phone}
+                            name="numberPhone"
                         />
                     </InputWrapperSC>
                     <ActionButton

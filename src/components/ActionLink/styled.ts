@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { ColorTypes } from ".";
 import { buttonProps, bigBtn } from "src/layouts/common";
-import { Link } from "gatsby";
+import { Link } from "gatsby-plugin-react-i18next";
 
 export const ActionLinkSC = styled(Link)<{ $colorType: ColorTypes }>`
     ${buttonProps};

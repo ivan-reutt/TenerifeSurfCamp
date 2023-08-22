@@ -52,7 +52,7 @@ export const Card = ({
     ) as IGatsbyImageData;
 
     return (
-        <CardSC>
+        <CardSC to={`/service/${contentful_id}`}>
             <CardPhotoSC>
                 <GatsbyImage image={image} alt="Service Photo" />
             </CardPhotoSC>
@@ -62,7 +62,7 @@ export const Card = ({
                     {salePrice && <OldPriceSC>{price} €</OldPriceSC>}
                 </PricesWrapperSC>
                 <CardNameSC>{usedName}</CardNameSC>
-                <CardLinkSC to={`/service/${contentful_id}`}>
+                <CardLinkSC>
                     <Trans i18nKey={"detailed"}>Подробнее</Trans>
                     <IconWrapperSC>
                         <ArrowRight color="#fff" />

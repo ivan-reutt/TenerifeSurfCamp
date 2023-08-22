@@ -1,4 +1,4 @@
-import { Link } from "gatsby-plugin-react-i18next";
+import { Link } from "gatsby";
 import { devices } from "src/styles/media";
 import styled, { css } from "styled-components";
 
