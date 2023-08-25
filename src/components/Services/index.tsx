@@ -13,21 +13,21 @@ export enum TabsEnum {
 
 interface ITab {
     type: TabsEnum;
-    name: string;
+    name: any;
 }
 
 const tabsItems: ITab[] = [
     {
         type: TabsEnum.SURFING,
-        name: "Серфинг",
+        name: <Trans i18nKey="serviceTabSurfing">Серфинг</Trans>,
     },
     {
         type: TabsEnum.TOUR,
-        name: "Экскурсии на Тенерифе",
+        name: <Trans i18nKey="serviceTabTour">Экскурсии на Тенерифе</Trans>,
     },
     {
         type: TabsEnum.REST,
-        name: "Отдых на Тенерифе",
+        name: <Trans i18nKey="serviceTabRest">Отдых на Тенерифе</Trans>,
     },
 ];
 

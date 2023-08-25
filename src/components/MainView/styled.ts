@@ -9,6 +9,10 @@ export const MainSectionSC = styled.section`
     padding-top: 180px;
     align-items: center;
 
+    @media ${devices.xl} {
+        height: auto;
+    }
+
     @media ${devices.lg} {
         padding-top: 160px;
     }
@@ -27,10 +31,10 @@ export const WrapperSC = styled.div`
     padding: 80px 0;
     max-width: 100%;
     @media ${devices.lg} {
-        padding: 40px 0 60px;
+        padding: 40px 0;
     }
     @media ${devices.sm} {
-        padding: 40px 0;
+        padding: 40px 0 0;
     }
 `;
 

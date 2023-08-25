@@ -21,15 +21,18 @@ export const MainView = () => {
             <HotSaleTooltip />
             <WrapperSC>
                 <TitleSC>
-                    <Trans i18nKey={"title-1"}>Серфинг неделя</Trans>{" "}
+                    <Trans i18nKey={"mainTitlePart1"}>Серфинг неделя</Trans>{" "}
                     <BtnInTitleWrapperSC>
                         <VideoButton />
                     </BtnInTitleWrapperSC>
-                    <Trans i18nKey={"title-2"}>на Канарских островах</Trans>
+                    <Trans i18nKey={"mainTitlePart2"}>
+                        на Канарских островах
+                    </Trans>
                 </TitleSC>
                 <PriceWrapperSC>
                     <PriceSC>
-                        <Trans i18nKey={"from"}>от</Trans> {salePrice || price}€
+                        <Trans i18nKey={"mainFrom"}>от</Trans>{" "}
+                        {salePrice || price}€
                     </PriceSC>
                     <ActionLink to={`/service/${contentful_id}`} />
                 </PriceWrapperSC>

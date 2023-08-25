@@ -1,12 +1,11 @@
 import React from "react";
 import { TabsEnum } from "..";
 import { TabSC } from "./styled";
-import { Trans } from "gatsby-plugin-react-i18next";
 
 type Props = {
     isActive: boolean;
     type: TabsEnum;
-    name: string;
+    name: any;
     onClick: (selectedTab: TabsEnum) => void;
 };
 
@@ -17,7 +16,7 @@ export const MenuTab = ({ isActive, type, onClick, name }: Props) => {
 
     return (
         <TabSC onClick={handleChange} $isActive={isActive}>
-            <Trans>{name}</Trans>
+            {name}
         </TabSC>
     );
 };

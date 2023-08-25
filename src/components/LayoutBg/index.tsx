@@ -21,12 +21,19 @@ const LayoutBg: React.FC = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 1,
+        className: "bgSlider",
     };
-    const { contentfulMainPageContent } = useStaticQuery(graphql`
+    const { contentfulBackgroundImages } = useStaticQuery(graphql`
         query BackgroundImages {
-            contentfulMainPageContent {
+            contentfulBackgroundImages {
                 backgroundImages {
-                    gatsbyImageData(height: 800, quality: 100)
+                    gatsbyImageData(
+                        quality: 100
+                        layout: CONSTRAINED
+                        height: 1000
+                        cropFocus: CENTER
+                        resizingBehavior: FILL
+                    )
                 }
             }
         }
@@ -35,7 +42,7 @@ const LayoutBg: React.FC = () => {
         <LayoutBgSC>
             <MainBgWrapperSC>
                 <Slider {...settings}>
-                    {contentfulMainPageContent.backgroundImages.map(
+                    {contentfulBackgroundImages.backgroundImages.map(
                         (slide: ImageDataLike, index: number) => (
                             <GatsbyImage
                                 key={index}

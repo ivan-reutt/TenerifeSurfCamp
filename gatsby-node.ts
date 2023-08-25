@@ -26,9 +26,9 @@ export const createPages: GatsbyNode["createPages"] = async ({
             }
         }
     `);
-    const data = await graphql(`
-        query TestRu {
-            contentfulTest {
+    const { data: translations } = await graphql(`
+        query AllTranslations {
+            contentfulAllTextContent {
                 translationRu {
                     internal {
                         content
@@ -39,22 +39,31 @@ export const createPages: GatsbyNode["createPages"] = async ({
                         content
                     }
                 }
+                translationUa {
+                    internal {
+                        content
+                    }
+                }
             }
         }
     `);
-    console.log(typeof data.data.contentfulTest.translationRu.internal.content);
-
-    const outputPath = path.resolve("./locales/ru/index.json");
-    const outputPath1 = path.resolve("./locales/en/index.json");
+    const outputPathRu = path.resolve("./locales/ru/index.json");
+    const outputPathEn = path.resolve("./locales/en/index.json");
+    const outputPathUa = path.resolve("./locales/uk/index.json");
 
     fs.writeFileSync(
-        outputPath,
-        data.data.contentfulTest.translationRu.internal.content,
+        outputPathRu,
+        translations.contentfulAllTextContent.translationRu.internal.content,
     );
 
     fs.writeFileSync(
-        outputPath1,
-        data.data.contentfulTest.translationEn.internal.content,
+        outputPathEn,
+        translations.contentfulAllTextContent.translationEn.internal.content,
+    );
+
+    fs.writeFileSync(
+        outputPathUa,
+        translations.contentfulAllTextContent.translationUa.internal.content,
     );
 
     const NewsItemPage = path.resolve("./src/templates/news-item.tsx");
