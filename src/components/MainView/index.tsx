@@ -11,22 +11,11 @@ import {
     PriceWrapperSC,
 } from "./styled";
 import { Trans } from "gatsby-plugin-react-i18next";
-import { graphql, useStaticQuery } from "gatsby";
 import { HotSaleTooltip } from "./HotSaleTooltip";
+import { useContentfulSurfServices } from "src/hooks/useContentfulSurfServices";
 
 export const MainView = () => {
-    const { contentfulServices } = useStaticQuery(graphql`
-        query SurfService {
-            contentfulServices(nameEn: { ne: "Surfcamp" }) {
-                nameEn
-                nameRu
-                nameUk
-                price
-                salePrice
-                contentful_id
-            }
-        }
-    `);
+    const { salePrice, price, contentful_id } = useContentfulSurfServices();
     return (
         <MainSectionSC>
             <HotSaleTooltip />
@@ -40,14 +29,9 @@ export const MainView = () => {
                 </TitleSC>
                 <PriceWrapperSC>
                     <PriceSC>
-                        <Trans i18nKey={"from"}>от</Trans>{" "}
-                        {contentfulServices.salePrice ||
-                            contentfulServices.price}
-                        €
+                        <Trans i18nKey={"from"}>от</Trans> {salePrice || price}€
                     </PriceSC>
-                    <ActionLink
-                        to={`/service/${contentfulServices.contentful_id}`}
-                    />
+                    <ActionLink to={`/service/${contentful_id}`} />
                 </PriceWrapperSC>
                 <BtnWrapperSC>
                     <VideoButton />

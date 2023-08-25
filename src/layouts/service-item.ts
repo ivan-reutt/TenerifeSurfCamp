@@ -6,6 +6,15 @@ import { devices } from "src/styles/media";
 export const ServiceItemSC = styled.section`
     width: 100%;
     position: relative;
+    padding-top: 160px;
+
+    @media ${devices.lg} {
+        padding-top: 140px;
+    }
+
+    @media ${devices.sm} {
+        padding-top: 120px;
+    }
 `;
 
 export const TopInfoWrapperSC = styled.div`

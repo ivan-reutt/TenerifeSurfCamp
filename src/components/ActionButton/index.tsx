@@ -16,7 +16,7 @@ export const ActionButton: React.FC<Props> = ({
     href,
 }) => {
     return (
-        <ActionButtonSC onClick={onClick} href={href} style={style}>
+        <ActionButtonSC onClick={onClick} style={style}>
             {children || (
                 <Trans i18nKey={"actionBtn"}>Записаться в лагерь</Trans>
             )}

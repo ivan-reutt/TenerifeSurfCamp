@@ -1,5 +1,6 @@
 import { GatsbyNode } from "gatsby";
 import path from "path";
+import fs from "fs";
 
 export const createPages: GatsbyNode["createPages"] = async ({
     actions,
@@ -25,6 +26,36 @@ export const createPages: GatsbyNode["createPages"] = async ({
             }
         }
     `);
+    const data = await graphql(`
+        query TestRu {
+            contentfulTest {
+                translationRu {
+                    internal {
+                        content
+                    }
+                }
+                translationEn {
+                    internal {
+                        content
+                    }
+                }
+            }
+        }
+    `);
+    console.log(typeof data.data.contentfulTest.translationRu.internal.content);
+
+    const outputPath = path.resolve("./locales/ru/index.json");
+    const outputPath1 = path.resolve("./locales/en/index.json");
+
+    fs.writeFileSync(
+        outputPath,
+        data.data.contentfulTest.translationRu.internal.content,
+    );
+
+    fs.writeFileSync(
+        outputPath1,
+        data.data.contentfulTest.translationEn.internal.content,
+    );
 
     const NewsItemPage = path.resolve("./src/templates/news-item.tsx");
 

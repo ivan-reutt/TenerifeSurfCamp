@@ -1,5 +1,5 @@
 import React from "react";
-import { IOption } from "..";
+import { IOption } from "../../constants";
 import { IconContainerSC } from "../styled";
 import { OptionSC, OptionTextSC, OptionTextGreySC } from "./styled";
 

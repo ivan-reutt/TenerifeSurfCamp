@@ -37,6 +37,7 @@ export const WrapperSC = styled.div`
 export const TitleSC = styled.h1`
     text-align: center;
     max-width: 100%;
+    color: #000;
 
     @media ${devices.sm} {
         margin-bottom: 20px;

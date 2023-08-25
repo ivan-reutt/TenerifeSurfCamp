@@ -1,18 +1,50 @@
 import React from "react";
-import { StaticImage } from "gatsby-plugin-image";
+import {
+    StaticImage,
+    GatsbyImage,
+    getImage,
+    IGatsbyImageData,
+    ImageDataLike,
+} from "gatsby-plugin-image";
 import { LayoutBgSC, MainBgWrapperSC } from "./styled";
+import Slider, { Settings } from "react-slick";
+import { useStaticQuery, graphql } from "gatsby";
 
 const LayoutBg: React.FC = () => {
+    const settings: Settings = {
+        autoplay: true,
+        autoplaySpeed: 10000,
+        swipe: false,
+        touchMove: false,
+        draggable: false,
+        arrows: false,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+    };
+    const { contentfulMainPageContent } = useStaticQuery(graphql`
+        query BackgroundImages {
+            contentfulMainPageContent {
+                backgroundImages {
+                    gatsbyImageData(height: 800, quality: 100)
+                }
+            }
+        }
+    `);
     return (
         <LayoutBgSC>
             <MainBgWrapperSC>
-                <StaticImage
-                    src="../../images/IMG_2217.jpeg"
-                    alt=""
-                    formats={["auto", "webp", "avif"]}
-                    placeholder="blurred"
-                    style={{ height: "100%" }}
-                />
+                <Slider {...settings}>
+                    {contentfulMainPageContent.backgroundImages.map(
+                        (slide: ImageDataLike, index: number) => (
+                            <GatsbyImage
+                                key={index}
+                                image={getImage(slide) as IGatsbyImageData}
+                                alt=""
+                            />
+                        ),
+                    )}
+                </Slider>
             </MainBgWrapperSC>
             <StaticImage
                 src="../../images/vector-bg-1.png"

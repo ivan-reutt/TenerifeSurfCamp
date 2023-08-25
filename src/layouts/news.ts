@@ -6,7 +6,14 @@ export const NewsSC = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 60px;
+    padding-top: 160px;
+
+    @media ${devices.lg} {
+        padding-top: 140px;
+    }
+
     @media ${devices.sm} {
+        padding-top: 120px;
         gap: 40px;
     }
 `;

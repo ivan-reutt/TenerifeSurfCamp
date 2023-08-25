@@ -12,4 +12,5 @@ export const LayoutBgSC = styled.div`
 export const MainBgWrapperSC = styled.div`
     height: 100vh;
     box-shadow: 0 60px 100px 100px rgba(107, 139, 161, 1);
+    overflow: hidden;
 `;

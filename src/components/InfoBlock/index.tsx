@@ -17,7 +17,7 @@ import {
 } from "./styled";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { ModalContent } from "./ModalContent";
-import { meteoDataUrl } from "./constants";
+import { marineDataUrl, weatherDataUrl } from "./constants";
 
 export enum ModalType {
     PRICE = "Price",
@@ -25,9 +25,10 @@ export enum ModalType {
 }
 
 interface IMeteo {
-    temperature: string;
-    conditionIconPath: string;
-    waterTemp: string;
+    temperature?: string;
+    conditionIconPath?: string;
+    waterTemp?: string;
+    waveHeight?: string;
 }
 
 export const InfoBlock: React.FC = () => {
@@ -49,16 +50,27 @@ export const InfoBlock: React.FC = () => {
     };
 
     useEffect(() => {
-        fetch(meteoDataUrl)
+        fetch(weatherDataUrl)
             .then((response) => response.json())
             .then((resultData) => {
-                const temperature =
-                    resultData.forecast.forecastday[0].day.avgtemp_c;
-                const conditionIconPath =
-                    resultData.forecast.forecastday[0].day.condition.icon;
-                const waterTemp =
-                    resultData.forecast.forecastday[0].hour[12].water_temp_c;
-                setMeteoData({ temperature, conditionIconPath, waterTemp });
+                const temperature = resultData.current.temp_c;
+                const conditionIconPath = resultData.current.condition.icon;
+                setMeteoData((prev) => ({
+                    ...prev,
+                    temperature,
+                    conditionIconPath,
+                }));
+            });
+        fetch(marineDataUrl)
+            .then((response) => response.json())
+            .then((resultData) => {
+                const date = new Date();
+                const hours = date.getHours();
+                const waveHeight = resultData.hourly.wave_height[hours];
+                setMeteoData((prev) => ({
+                    ...prev,
+                    waveHeight,
+                }));
             });
     }, []);
 
@@ -82,14 +94,20 @@ export const InfoBlock: React.FC = () => {
                         <TemparatureSC>{meteoData?.temperature}</TemparatureSC>
                         <BigCelsiusSC>C</BigCelsiusSC>
                     </WeatherItemSC>
-                    <WeatherItemSC>
+                    {/* <WeatherItemSC>
                         <WeatherTextSC>
                             <Trans i18nKey={"waterTemp"}>
                                 Температура воды на Тенерифе
                             </Trans>
                         </WeatherTextSC>
-                        <p>{meteoData?.waterTemp}C</p>
+                        <p>{meteoData?.waterTemp}</p>
                         <SmallCelsiusSC>C</SmallCelsiusSC>
+                    </WeatherItemSC> */}
+                    <WeatherItemSC>
+                        <WeatherTextSC>
+                            <Trans i18nKey={"waveHeight"}>Высота волн</Trans>
+                        </WeatherTextSC>
+                        <p>🌊 ⇧{meteoData?.waveHeight}m</p>
                     </WeatherItemSC>
                 </WeatherItemWrapperSC>
                 <InfoItemsWrapperSC>

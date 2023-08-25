@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { ActionButton } from "components/ActionButton";
-import { countries, SelectCountryCode } from "./SelectCountryCode";
+import { SelectCountryCode } from "./SelectCountryCode";
 import {
     FormSC,
     InputSC,
@@ -9,6 +9,7 @@ import {
     AgreementTextSC,
 } from "./styled";
 import { useTranslation } from "gatsby-plugin-react-i18next";
+import { countries } from "./constants";
 
 interface IProps {
     isOrder?: boolean;
@@ -30,7 +31,9 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
         code: countries[0].code,
     });
     const handleSubmit = () => {
-        setIsSubmited(true);
+        if (formValues.phone && formValues.name) {
+            setIsSubmited(true);
+        }
     };
 
     const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -47,7 +50,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
         setFormValues((prev) => ({ ...prev, code }));
     };
     return (
-        <FormSC>
+        <FormSC method="post">
             {isSubmited ? (
                 <SubmitTextSC $isOrder={isOrder}>{t("isReady")}</SubmitTextSC>
             ) : (
@@ -59,6 +62,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
                             onChange={handleChangeName}
                             value={formValues.name}
                             name="name"
+                            required
                         />
                     </InputWrapperSC>
                     <InputWrapperSC>
@@ -69,6 +73,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
                             onChange={handleChangePhone}
                             value={formValues.phone}
                             name="numberPhone"
+                            required
                         />
                     </InputWrapperSC>
                     <ActionButton

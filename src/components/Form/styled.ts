@@ -1,7 +1,7 @@
 import { devices } from "src/styles/media";
 import styled, { css } from "styled-components";
 
-export const FormSC = styled.div`
+export const FormSC = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;

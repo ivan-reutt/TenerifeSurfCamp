@@ -47,5 +47,7 @@ export const PRICE_TEXT = [
     </Trans>,
 ];
 
-export const meteoDataUrl =
-    "https://api.weatherapi.com/v1/marine.json?key=1466b248355f4c7b8fb91022231008&q=los cristianos&days=1&aqi=no";
+export const marineDataUrl =
+    "https://marine-api.open-meteo.com/v1/marine?latitude=28.064&longitude=-16.7301&hourly=wave_height&timezone=auto&start_date=2023-08-24&end_date=2023-08-24";
+export const weatherDataUrl =
+    "https://api.weatherapi.com/v1/current.json?key=f1208fc58678476ebe072935232408&q=costa%20adeje&aqi=no";

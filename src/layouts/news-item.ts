@@ -1,3 +1,4 @@
+import { devices } from "src/styles/media";
 import styled from "styled-components";
 
 export const NewsItemSC = styled.section`
@@ -6,6 +7,15 @@ export const NewsItemSC = styled.section`
     align-items: center;
     gap: 64px;
     width: 100%;
+    padding-top: 160px;
+
+    @media ${devices.lg} {
+        padding-top: 140px;
+    }
+
+    @media ${devices.sm} {
+        padding-top: 120px;
+    }
 `;
 
 export const TitleSC = styled.h2`

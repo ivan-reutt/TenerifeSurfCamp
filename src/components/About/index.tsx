@@ -11,21 +11,10 @@ import {
 } from "./styled";
 import { SectionTitleSC } from "src/layouts/common";
 import { Trans } from "gatsby-plugin-react-i18next";
-import { graphql, useStaticQuery } from "gatsby";
+import { useContentfulSurfServices } from "src/hooks/useContentfulSurfServices";
 
 export const About = () => {
-    const { contentfulServices } = useStaticQuery(graphql`
-        query SurfService {
-            contentfulServices(nameEn: { ne: "Surfcamp" }) {
-                nameEn
-                nameRu
-                nameUk
-                price
-                salePrice
-                contentful_id
-            }
-        }
-    `);
+    const { contentful_id } = useContentfulSurfServices();
     return (
         <AboutSC id="about">
             <SectionTitleSC>
@@ -42,7 +31,7 @@ export const About = () => {
                     </CardTitleSC>
                     <BigCardTextSC>2000+</BigCardTextSC>
                     <ActionLink
-                        to={`/service/${contentfulServices.contentful_id}`}
+                        to={`/service/${contentful_id}`}
                         colorType={ColorTypes.WHITE}
                     />
                 </AboutCardBlueSC>
