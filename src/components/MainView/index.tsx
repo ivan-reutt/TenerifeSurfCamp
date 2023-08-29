@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ActionLink } from "components/ActionLink";
 import { VideoButton } from "components/VideoButton";
 import {
@@ -19,7 +19,10 @@ import { devices } from "src/styles/media";
 
 export const MainView = () => {
     const { salePrice, price, contentful_id } = useContentfulSurfServices();
-    const isMobile = window.matchMedia(devices.lg).matches;
+    const [isMobile, setIsMobile] = useState(false);
+    useEffect(() => {
+        setIsMobile(window.matchMedia(devices.lg).matches);
+    }, []);
     return (
         <MainSectionSC>
             <HotSaleTooltip />

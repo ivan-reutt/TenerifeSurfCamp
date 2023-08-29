@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
     StaticImage,
     GatsbyImage,
@@ -12,7 +12,12 @@ import { useStaticQuery, graphql } from "gatsby";
 import { devices } from "src/styles/media";
 
 const LayoutBg: React.FC = () => {
-    const isDesktop = !window.matchMedia(devices.lg).matches;
+    const [isDesktop, setIsDesktop] = useState(false);
+    useEffect(() => {
+        setIsDesktop(!window.matchMedia(devices.lg).matches);
+    }, []);
+    console.log(isDesktop);
+
     const settings: Settings = {
         autoplay: true,
         autoplaySpeed: 10000,
