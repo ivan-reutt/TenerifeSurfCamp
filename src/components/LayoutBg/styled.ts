@@ -20,8 +20,7 @@ export const MainBgWrapperSC = styled.div`
     }
 
     @media ${devices.lg} {
-        .bgSlider {
-            display: none;
-        }
+        box-shadow: none;
+        height: 800px;
     }
 `;

@@ -34,7 +34,7 @@ export const WrapperSC = styled.div`
         padding: 40px 0;
     }
     @media ${devices.sm} {
-        padding: 40px 0 0;
+        padding: 40px 0 20px;
     }
 `;
 
@@ -68,3 +68,13 @@ export const PriceWrapperSC = styled.div`
 `;
 
 export const PriceSC = styled.h3``;
+
+export const BgWrapperSC = styled.div`
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -20px;
+    right: -20px;
+    z-index: -1;
+    box-shadow: 0 30px 50px 50px rgba(107, 139, 161, 1);
+`;

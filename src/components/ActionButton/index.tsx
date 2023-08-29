@@ -6,15 +6,9 @@ type Props = {
     children?: React.ReactNode;
     onClick?: (event: React.MouseEvent<HTMLElement>) => void;
     style?: React.CSSProperties;
-    href?: string;
 };
 
-export const ActionButton: React.FC<Props> = ({
-    children,
-    onClick,
-    style,
-    href,
-}) => {
+export const ActionButton: React.FC<Props> = ({ children, onClick, style }) => {
     return (
         <ActionButtonSC onClick={onClick} style={style}>
             {children || (

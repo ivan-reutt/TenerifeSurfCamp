@@ -2,6 +2,7 @@ import { devices } from "src/styles/media";
 import styled, { css } from "styled-components";
 
 export const FormSC = styled.form`
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -54,4 +55,13 @@ export const AgreementTextSC = styled.p`
     opacity: 0.5;
     margin-top: 20px;
     text-align: center;
+`;
+
+export const ErrorMsgSC = styled.div`
+    font-size: 16px;
+    font-weight: 500;
+    color: red;
+    position: absolute;
+    top: calc(100% - 5px);
+    left: 20px;
 `;

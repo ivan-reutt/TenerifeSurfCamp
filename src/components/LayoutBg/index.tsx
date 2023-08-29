@@ -9,8 +9,10 @@ import {
 import { LayoutBgSC, MainBgWrapperSC } from "./styled";
 import Slider, { Settings } from "react-slick";
 import { useStaticQuery, graphql } from "gatsby";
+import { devices } from "src/styles/media";
 
 const LayoutBg: React.FC = () => {
+    const isDesktop = !window.matchMedia(devices.lg).matches;
     const settings: Settings = {
         autoplay: true,
         autoplaySpeed: 10000,
@@ -21,7 +23,6 @@ const LayoutBg: React.FC = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 1,
-        className: "bgSlider",
     };
     const { contentfulBackgroundImages } = useStaticQuery(graphql`
         query BackgroundImages {
@@ -41,17 +42,19 @@ const LayoutBg: React.FC = () => {
     return (
         <LayoutBgSC>
             <MainBgWrapperSC>
-                <Slider {...settings}>
-                    {contentfulBackgroundImages.backgroundImages.map(
-                        (slide: ImageDataLike, index: number) => (
-                            <GatsbyImage
-                                key={index}
-                                image={getImage(slide) as IGatsbyImageData}
-                                alt=""
-                            />
-                        ),
-                    )}
-                </Slider>
+                {isDesktop && (
+                    <Slider {...settings}>
+                        {contentfulBackgroundImages.backgroundImages.map(
+                            (slide: ImageDataLike, index: number) => (
+                                <GatsbyImage
+                                    key={index}
+                                    image={getImage(slide) as IGatsbyImageData}
+                                    alt=""
+                                />
+                            ),
+                        )}
+                    </Slider>
+                )}
             </MainBgWrapperSC>
             <StaticImage
                 src="../../images/vector-bg-1.png"

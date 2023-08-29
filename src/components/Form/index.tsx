@@ -7,6 +7,7 @@ import {
     SubmitTextSC,
     InputWrapperSC,
     AgreementTextSC,
+    ErrorMsgSC,
 } from "./styled";
 import { useTranslation } from "gatsby-plugin-react-i18next";
 import { countries } from "./constants";
@@ -20,19 +21,46 @@ interface IFormValues {
     phone: string;
     code: string;
 }
+const tgToken = process.env.TELEGRAM_BOT_TOKEN;
+const tgId = process.env.TELEGRAM_ID;
 
 export const Form: React.FC<IProps> = ({ isOrder }) => {
     const { t } = useTranslation();
     const [isSubmited, setIsSubmited] = useState<boolean>(false);
+    const [errorMsg, setErrorMsg] = useState<string>("");
 
     const [formValues, setFormValues] = useState<IFormValues>({
         name: "",
         phone: "",
         code: countries[0].code,
     });
-    const handleSubmit = () => {
-        if (formValues.phone && formValues.name) {
-            setIsSubmited(true);
+    const { phone, name, code } = formValues;
+
+    const handleSubmit = async (event: React.FormEvent) => {
+        event.preventDefault();
+        if (!(phone && name)) {
+            setErrorMsg("All fields must be filled!");
+            return;
+        }
+        const body = {
+            chat_id: tgId,
+            text: `Name: ${name}. Phone: ${code}${phone}`,
+        };
+        const url = `https://api.telegram.org/bot${tgToken}/sendMessage`;
+        try {
+            const response = await fetch(url, {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(body),
+            });
+            if (response.ok) {
+                setIsSubmited(true);
+                setErrorMsg("");
+            } else {
+                setErrorMsg("Error sending message. Please try again");
+            }
+        } catch (error) {
+            console.error("Error sending message:", error);
         }
     };
 
@@ -50,7 +78,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
         setFormValues((prev) => ({ ...prev, code }));
     };
     return (
-        <FormSC method="post">
+        <FormSC method="post" onSubmit={handleSubmit}>
             {isSubmited ? (
                 <SubmitTextSC $isOrder={isOrder}>{t("isReady")}</SubmitTextSC>
             ) : (
@@ -60,7 +88,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
                             placeholder={t("name")}
                             type="text"
                             onChange={handleChangeName}
-                            value={formValues.name}
+                            value={name}
                             name="name"
                             required
                         />
@@ -71,10 +99,11 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
                             placeholder={t("numberPhone")}
                             type="text"
                             onChange={handleChangePhone}
-                            value={formValues.phone}
+                            value={phone}
                             name="numberPhone"
                             required
                         />
+                        {errorMsg && <ErrorMsgSC>{errorMsg}</ErrorMsgSC>}
                     </InputWrapperSC>
                     <ActionButton
                         onClick={handleSubmit}
