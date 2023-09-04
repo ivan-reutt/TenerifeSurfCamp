@@ -22,8 +22,8 @@ interface IFormValues {
     code: string;
     insta: string;
 }
-const tgToken = process.env.TELEGRAM_BOT_TOKEN;
-const tgId = process.env.TELEGRAM_ID;
+const tgToken = process.env.GATSBY_TELEGRAM_BOT_TOKEN;
+const tgId = process.env.GATSBY_TELEGRAM_ID;
 
 export const Form: React.FC<IProps> = ({ isOrder }) => {
     const { t } = useTranslation();
