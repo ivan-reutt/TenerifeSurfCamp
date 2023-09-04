@@ -72,8 +72,8 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
     };
 
     const handleChangeInsta = (event: React.ChangeEvent<HTMLInputElement>) => {
-        const name = event.target.value;
-        setFormValues((prev) => ({ ...prev, name }));
+        const insta = event.target.value;
+        setFormValues((prev) => ({ ...prev, insta }));
     };
 
     const handleChangePhone = (event: React.ChangeEvent<HTMLInputElement>) => {
