@@ -52,7 +52,11 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
         try {
             const response = await fetch(url, {
                 method: "POST",
-                headers: { "Content-Type": "application/json" },
+                headers: {
+                    "Content-Type": "application/json",
+                    "Access-Control-Allow-Origin": "https://funvibe.me",
+                    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
+                },
                 body: JSON.stringify(body),
             });
             if (response.ok) {
