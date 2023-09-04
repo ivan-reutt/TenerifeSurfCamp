@@ -56,21 +56,16 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
         const handleScrollEvent = () => {
             setIsBtnShowed(window.pageYOffset > 300 ? true : false);
         };
-        const handleMediaEvent = (event: MediaQueryListEvent) => {
-            setIsMobile(event.matches);
-        };
 
         window.addEventListener("scroll", handleScrollEvent);
-        window
-            .matchMedia(devices.lg)
-            .addEventListener("change", handleMediaEvent);
 
         return () => {
             window.removeEventListener("scroll", handleScrollEvent);
-            window.removeEventListener("change", handleScrollEvent);
         };
     }, []);
-
+    useEffect(() => {
+        setIsMobile(window.matchMedia(devices.lg).matches);
+    }, []);
     return (
         <Layout>
             <ServiceItemSC>
@@ -105,16 +100,23 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
                 <Modal
                     onClose={handleClose}
                     withPadding={true}
-                    style={{
-                        width: "780px",
-                        paddingLeft: "100px",
-                        paddingRight: "100px",
-                    }}
+                    style={
+                        isMobile
+                            ? undefined
+                            : {
+                                  width: "780px",
+                                  paddingLeft: "100px",
+                                  paddingRight: "100px",
+                              }
+                    }
                 >
                     <ModalTitleSC>
                         {data.contentfulServices?.[usedName]}
                     </ModalTitleSC>
-                    <Form isOrder />
+                    <Form
+                        isOrder
+                        serviceToOrder={data.contentfulServices?.nameUk}
+                    />
                 </Modal>
             )}
             {isBtnShowed && isMobile && (

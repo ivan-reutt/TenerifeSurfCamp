@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
                             Записаться <br /> в лагерь
                         </Trans>
                     </TitleSC>
-                    <Form />
+                    <Form serviceToOrder="Серфкемп Канари(главный товар)" />
                     <LinksSC>
                         <IconLinkSC
                             href="https://www.instagram.com/alex.croot/"

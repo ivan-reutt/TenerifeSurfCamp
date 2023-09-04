@@ -14,6 +14,7 @@ import { countries } from "./constants";
 
 interface IProps {
     isOrder?: boolean;
+    serviceToOrder?: string | null;
 }
 
 interface IFormValues {
@@ -25,7 +26,7 @@ interface IFormValues {
 const tgToken = process.env.GATSBY_TELEGRAM_BOT_TOKEN;
 const tgId = process.env.GATSBY_TELEGRAM_ID;
 
-export const Form: React.FC<IProps> = ({ isOrder }) => {
+export const Form: React.FC<IProps> = ({ isOrder, serviceToOrder }) => {
     const { t } = useTranslation();
     const [isSubmited, setIsSubmited] = useState<boolean>(false);
     const [errorMsg, setErrorMsg] = useState<string>("");
@@ -46,7 +47,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
         }
         const body = {
             chat_id: tgId,
-            text: `Name: ${name}. Phone: ${code}${phone}. Instagram:${insta}`,
+            text: `Name: ${name}. Phone: ${code}${phone}. Instagram:${insta}. Order:${serviceToOrder}`,
         };
         const url = `https://api.telegram.org/bot${tgToken}/sendMessage`;
         try {
@@ -129,6 +130,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
                         onClick={handleSubmit}
                         style={{
                             alignSelf: isOrder ? "center" : "flex-start",
+                            whiteSpace: "normal",
                         }}
                     >
                         {isOrder ? t("orderText") : ""}
