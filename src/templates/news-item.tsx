@@ -20,7 +20,7 @@ import Layout from "components/Layout";
 import { useCurrentLang } from "src/hooks/useCurrentLang";
 import { SEO } from "components/Seo";
 
-const NewsItem = ({ data }) => {
+const NewsItem = ({ data }: PageProps<Queries.NewsItemQuery>) => {
     const currentLang = useCurrentLang();
     const options: Options = {
         renderNode: {
@@ -78,7 +78,7 @@ export const query = graphql`
                 references {
                     ... on ContentfulAsset {
                         contentful_id
-                        gatsbyImageData
+                        gatsbyImageData(width: 760)
                         __typename
                     }
                 }
@@ -88,7 +88,7 @@ export const query = graphql`
                 references {
                     ... on ContentfulAsset {
                         contentful_id
-                        gatsbyImageData
+                        gatsbyImageData(width: 760)
                         __typename
                     }
                 }
@@ -98,13 +98,13 @@ export const query = graphql`
                 references {
                     ... on ContentfulAsset {
                         contentful_id
-                        gatsbyImageData
+                        gatsbyImageData(width: 760)
                         __typename
                     }
                 }
             }
             preview {
-                gatsbyImageData(layout: FULL_WIDTH)
+                gatsbyImageData(width: 1140)
             }
         }
         locales: allLocale(
