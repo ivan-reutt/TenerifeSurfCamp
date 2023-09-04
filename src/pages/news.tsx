@@ -10,7 +10,7 @@ import { SEO } from "components/Seo";
 
 type TitleInt = "titleEn" | "titleRu" | "titleUk";
 
-const News: React.FC<PageProps<Queries.AllNewsPageQuery>> = ({ data }) => {
+const News: React.FC = ({ data }) => {
     const [isShowAll, setIsShowAll] = React.useState<boolean>(false);
 
     const currentLang = useCurrentLang();

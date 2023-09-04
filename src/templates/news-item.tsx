@@ -20,7 +20,7 @@ import Layout from "components/Layout";
 import { useCurrentLang } from "src/hooks/useCurrentLang";
 import { SEO } from "components/Seo";
 
-const NewsItem = ({ data }: PageProps<Queries.NewsItemQuery>) => {
+const NewsItem = ({ data }) => {
     const currentLang = useCurrentLang();
     const options: Options = {
         renderNode: {
