@@ -20,6 +20,7 @@ interface IFormValues {
     name: string;
     phone: string;
     code: string;
+    insta: string;
 }
 const tgToken = process.env.TELEGRAM_BOT_TOKEN;
 const tgId = process.env.TELEGRAM_ID;
@@ -32,9 +33,10 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
     const [formValues, setFormValues] = useState<IFormValues>({
         name: "",
         phone: "",
+        insta: "",
         code: countries[0].code,
     });
-    const { phone, name, code } = formValues;
+    const { phone, name, code, insta } = formValues;
 
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
@@ -44,7 +46,7 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
         }
         const body = {
             chat_id: tgId,
-            text: `Name: ${name}. Phone: ${code}${phone}`,
+            text: `Name: ${name}. Phone: ${code}${phone}. Instagram:${insta}`,
         };
         const url = `https://api.telegram.org/bot${tgToken}/sendMessage`;
         try {
@@ -66,6 +68,11 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
 
     const handleChangeName = (event: React.ChangeEvent<HTMLInputElement>) => {
         const name = event.target.value.replace(/[^a-zA-Zа-яА-Я]/gi, "");
+        setFormValues((prev) => ({ ...prev, name }));
+    };
+
+    const handleChangeInsta = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const name = event.target.value;
         setFormValues((prev) => ({ ...prev, name }));
     };
 
@@ -104,6 +111,15 @@ export const Form: React.FC<IProps> = ({ isOrder }) => {
                             required
                         />
                         {errorMsg && <ErrorMsgSC>{errorMsg}</ErrorMsgSC>}
+                    </InputWrapperSC>
+                    <InputWrapperSC>
+                        <InputSC
+                            placeholder={t("Instagram")}
+                            type="text"
+                            onChange={handleChangeInsta}
+                            value={insta}
+                            name="insta"
+                        />
                     </InputWrapperSC>
                     <ActionButton
                         onClick={handleSubmit}

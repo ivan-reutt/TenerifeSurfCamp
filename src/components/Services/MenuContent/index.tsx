@@ -40,12 +40,8 @@ export const MenuContent = ({ activeTab }: IProps) => {
             }
         `);
 
-    const filtredServices = useMemo(
-        () =>
-            allContentfulServices.nodes.filter(
-                (node) => node.type === activeTab,
-            ),
-        [activeTab],
+    const filtredServices = allContentfulServices.nodes.filter(
+        (node) => node.type === activeTab,
     );
 
     const renderedServices = isShowAll

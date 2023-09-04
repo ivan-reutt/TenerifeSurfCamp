@@ -16,7 +16,6 @@ const LayoutBg: React.FC = () => {
     useEffect(() => {
         setIsDesktop(!window.matchMedia(devices.lg).matches);
     }, []);
-    console.log(isDesktop);
 
     const settings: Settings = {
         autoplay: true,
