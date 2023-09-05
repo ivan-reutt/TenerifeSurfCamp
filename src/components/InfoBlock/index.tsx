@@ -12,7 +12,6 @@ import {
     WeatherItemWrapperSC,
     WeatherTextSC,
     BigCelsiusSC,
-    SmallCelsiusSC,
     WeatherIconWrapperSC,
 } from "./styled";
 import { Trans } from "gatsby-plugin-react-i18next";
@@ -94,15 +93,6 @@ export const InfoBlock: React.FC = () => {
                         <TemparatureSC>{meteoData?.temperature}</TemparatureSC>
                         <BigCelsiusSC>C</BigCelsiusSC>
                     </WeatherItemSC>
-                    {/* <WeatherItemSC>
-                        <WeatherTextSC>
-                            <Trans i18nKey={"waterTemp"}>
-                                Температура воды на Тенерифе
-                            </Trans>
-                        </WeatherTextSC>
-                        <p>{meteoData?.waterTemp}</p>
-                        <SmallCelsiusSC>C</SmallCelsiusSC>
-                    </WeatherItemSC> */}
                     <WeatherItemSC>
                         <WeatherTextSC>
                             <Trans i18nKey={"waveHeight"}>Высота волн</Trans>

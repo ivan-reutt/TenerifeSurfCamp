@@ -10,8 +10,6 @@ import {
     PriceSC,
     OldPriceSC,
     ModalTitleSC,
-    StickyOrderBtnSC,
-    TooltipOrderBtnSC,
     OrderTooltipSC,
 } from "src/layouts/service-item";
 import { renderRichText } from "gatsby-source-contentful/rich-text";
@@ -72,14 +70,17 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
                 {isBtnShowed && (
                     <OrderTooltipSC>
                         {data.contentfulServices?.[usedName]}
-                        <TooltipOrderBtnSC onClick={handleClickOrder}>
+                        <ActionButton
+                            onClick={handleClickOrder}
+                            style={{ padding: "4px 16px" }}
+                            isSmall
+                        >
                             <Trans i18nKey={"orderTextMin"}>
                                 Оформить заявку
                             </Trans>
-                        </TooltipOrderBtnSC>
+                        </ActionButton>
                     </OrderTooltipSC>
                 )}
-
                 <TopInfoWrapperSC>
                     <PricesWrapperSC>
                         {salePrice && <HotSaleTag />}
@@ -97,19 +98,7 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
                 </DescriptionWrapperSC>
             </ServiceItemSC>
             {isOpen && (
-                <Modal
-                    onClose={handleClose}
-                    withPadding={true}
-                    style={
-                        isMobile
-                            ? undefined
-                            : {
-                                  width: "780px",
-                                  paddingLeft: "100px",
-                                  paddingRight: "100px",
-                              }
-                    }
-                >
+                <Modal onClose={handleClose} isOrderModal>
                     <ModalTitleSC>
                         {data.contentfulServices?.[usedName]}
                     </ModalTitleSC>
@@ -120,9 +109,18 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
                 </Modal>
             )}
             {isBtnShowed && isMobile && (
-                <StickyOrderBtnSC onClick={handleClickOrder}>
+                <ActionButton
+                    onClick={handleClickOrder}
+                    style={{
+                        padding: "16px 24px",
+                        position: "fixed",
+                        bottom: "20px",
+                        left: "12px",
+                    }}
+                    isSmall
+                >
                     <Trans i18nKey={"orderTextMin"}>Оформить заявку</Trans>
-                </StickyOrderBtnSC>
+                </ActionButton>
             )}
         </Layout>
     );

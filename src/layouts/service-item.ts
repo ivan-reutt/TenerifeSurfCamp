@@ -1,6 +1,5 @@
 import styled from "styled-components";
-import { smallBtn, tooltipStyles } from "src/layouts/common";
-import { ActionButtonSC } from "components/ActionButton/styled";
+import { tooltipStyles } from "src/layouts/common";
 import { devices } from "src/styles/media";
 
 export const ServiceItemSC = styled.section`
@@ -64,19 +63,6 @@ export const OldPriceSC = styled.div`
 export const ModalTitleSC = styled.h4`
     text-align: center;
     margin-bottom: 40px;
-`;
-
-export const StickyOrderBtnSC = styled(ActionButtonSC)`
-    ${smallBtn};
-    position: fixed;
-    bottom: 20px;
-    left: 12px;
-    padding: 16px 24px;
-`;
-
-export const TooltipOrderBtnSC = styled(ActionButtonSC)`
-    ${smallBtn};
-    padding: 4px 16px;
 `;
 
 export const OrderTooltipSC = styled.div`

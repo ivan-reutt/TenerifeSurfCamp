@@ -19,9 +19,24 @@ import {
     LogoLinkSC,
     ContainerSC,
 } from "./styled";
+import { useStaticQuery, graphql } from "gatsby";
 
 export const Footer: React.FC = () => {
     const { t } = useTranslation();
+    const { contentfulLinks } = useStaticQuery(graphql`
+        query MediaLinks {
+            contentfulLinks {
+                instagram
+                telegram
+                whatsapp
+                phone
+                mail
+                facebook
+            }
+        }
+    `);
+    const { instagram, telegram, whatsapp, phone, mail, facebook } =
+        contentfulLinks;
     return (
         <FooterSC id="footer">
             <ContainerSC>
@@ -37,21 +52,21 @@ export const Footer: React.FC = () => {
                     <Form serviceToOrder="Серфкемп Канари(главный товар)" />
                     <LinksSC>
                         <IconLinkSC
-                            href="https://www.instagram.com/alex.croot/"
+                            href={instagram}
                             target="_blank"
                             aria-label="instagram"
                         >
                             <Instagram />
                         </IconLinkSC>
                         <IconLinkSC
-                            href="https://t.me/AlexCroot"
+                            href={telegram}
                             target="_blank"
                             aria-label="telegram"
                         >
                             <Telegram />
                         </IconLinkSC>
                         <IconLinkSC
-                            href="https://www.facebook.com/alexandr.dodul/"
+                            href={facebook}
                             target="_blank"
                             aria-label="facebook"
                         >
@@ -60,7 +75,7 @@ export const Footer: React.FC = () => {
                         <IconLinkSC
                             target="_blank"
                             aria-label="whatsapp"
-                            href="https://api.whatsapp.com/send/?phone=34655354404&text&type=phone_number&app_absent=0"
+                            href={whatsapp}
                         >
                             <Whatsapp />
                         </IconLinkSC>
@@ -69,14 +84,14 @@ export const Footer: React.FC = () => {
                 <ContactsSC>
                     <ContactItemSC>
                         <BlankTextSC>{t("phone")}</BlankTextSC>
-                        <ContactTextSC href="tel:+34-655-35-44-04">
-                            +34 655 35 44 04
+                        <ContactTextSC href={`tel:${phone}`}>
+                            {phone}
                         </ContactTextSC>
                     </ContactItemSC>
                     <ContactItemSC>
                         <BlankTextSC>{t("mail")}</BlankTextSC>
-                        <ContactTextSC href="mailto:videokeepcalm@gmail.com">
-                            videokeepcalm@gmail.com
+                        <ContactTextSC href={`mailto:${mail}`}>
+                            {mail}
                         </ContactTextSC>
                     </ContactItemSC>
                 </ContactsSC>

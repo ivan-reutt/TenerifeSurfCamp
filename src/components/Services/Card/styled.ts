@@ -91,5 +91,5 @@ export const CardNameSC = styled.h4`
 export const SaleIconSC = styled.div`
     position: absolute;
     top: 41%;
-    left: 38%;
+    left: 40%;
 `;

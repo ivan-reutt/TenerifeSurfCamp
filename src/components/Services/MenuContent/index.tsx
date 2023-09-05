@@ -29,11 +29,7 @@ export const MenuContent = ({ activeTab }: IProps) => {
                         type
                         contentful_id
                         serviceCardPhoto {
-                            gatsbyImageData(
-                                resizingBehavior: FILL
-                                width: 560
-                                height: 260
-                            )
+                            gatsbyImageData(resizingBehavior: FILL, width: 560)
                         }
                     }
                 }

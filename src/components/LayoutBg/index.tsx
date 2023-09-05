@@ -33,7 +33,6 @@ const LayoutBg: React.FC = () => {
             contentfulBackgroundImages {
                 backgroundImages {
                     gatsbyImageData(
-                        quality: 100
                         layout: CONSTRAINED
                         height: 1000
                         cropFocus: CENTER

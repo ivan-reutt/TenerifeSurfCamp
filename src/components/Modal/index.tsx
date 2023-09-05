@@ -6,6 +6,7 @@ type Props = {
     children?: React.ReactNode;
     onClose: () => void;
     withPadding?: boolean;
+    isOrderModal?: boolean;
     style?: React.CSSProperties;
 };
 
@@ -14,6 +15,7 @@ export const Modal: React.FC<Props> = ({
     onClose,
     style,
     withPadding,
+    isOrderModal,
 }) => {
     const handleClose = () => {
         document.body.classList.remove("modal-open");
@@ -26,7 +28,11 @@ export const Modal: React.FC<Props> = ({
     };
     return (
         <OverlaySC onClick={handleClickOutside}>
-            <ModalSC style={style} $withPadding={withPadding}>
+            <ModalSC
+                style={style}
+                $withPadding={withPadding}
+                $isOrderModal={isOrderModal}
+            >
                 <CloseSC onClick={handleClose}>
                     <Close />
                 </CloseSC>

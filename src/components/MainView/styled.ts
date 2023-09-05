@@ -58,6 +58,7 @@ export const BtnWrapperSC = styled.span`
     display: none;
     @media ${devices.sm} {
         display: block;
+        margin-top: 10px;
     }
 `;
 

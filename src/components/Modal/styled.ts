@@ -19,7 +19,10 @@ export const OverlaySC = styled.div`
     }
 `;
 
-export const ModalSC = styled.div<{ $withPadding?: boolean }>`
+export const ModalSC = styled.div<{
+    $withPadding?: boolean;
+    $isOrderModal?: boolean;
+}>`
     position: relative;
     max-width: 1180px;
     width: 100%;
@@ -33,6 +36,20 @@ export const ModalSC = styled.div<{ $withPadding?: boolean }>`
             padding: 80px 40px 40px 40px;
             background-color: #fff;
 
+            @media ${devices.sm} {
+                padding: 40px 20px 20px;
+            }
+        `}
+
+    ${({ $isOrderModal }) =>
+        $isOrderModal &&
+        css`
+            width: 780px;
+            padding: 80px 100px 40px 100px;
+            background-color: #fff;
+            @media ${devices.lg} {
+                padding: 80px 40px 40px 40px;
+            }
             @media ${devices.sm} {
                 padding: 40px 20px 20px;
             }
