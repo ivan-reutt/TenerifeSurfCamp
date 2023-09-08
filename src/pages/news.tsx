@@ -33,11 +33,11 @@ const News: React.FC<PageProps<Queries.AllNewsPageQuery>> = ({ data }) => {
                 <NewsWrapperSC>
                     {newsList.map((news) => (
                         <NewsCard
-                            key={news.contentful_id}
+                            key={news.link}
                             preview={news.preview}
                             date={news.date}
                             title={news[titleField]}
-                            contentful_id={news.contentful_id}
+                            link={news.link}
                         />
                     ))}
                 </NewsWrapperSC>
@@ -60,10 +60,10 @@ export const pageQuery = graphql`
         allContentfulNews {
             nodes {
                 date(formatString: "MMMM DD,YYYY")
-                contentful_id
                 titleEn
                 titleUk
                 titleRu
+                link
                 preview {
                     gatsbyImageData(width: 360)
                 }

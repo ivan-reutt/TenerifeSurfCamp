@@ -13,6 +13,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             allContentfulNews {
                 nodes {
                     contentful_id
+                    link
                 }
             }
         }
@@ -22,6 +23,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             allContentfulServices {
                 nodes {
                     contentful_id
+                    link
                 }
             }
         }
@@ -71,14 +73,14 @@ export const createPages: GatsbyNode["createPages"] = async ({
     const ServiceItemPage = path.resolve("./src/templates/service-item.tsx");
     allNews.allContentfulNews.nodes.forEach((news) => {
         createPage({
-            path: "/news/" + news.contentful_id,
+            path: "/news/" + news.link,
             component: NewsItemPage,
             context: { id: news.contentful_id },
         });
     });
     allServices.allContentfulServices.nodes.forEach((service) => {
         createPage({
-            path: "/service/" + service.contentful_id,
+            path: "/service/" + service.link,
             component: ServiceItemPage,
             context: { id: service.contentful_id },
         });

@@ -27,7 +27,7 @@ type Props = {
     nameRu: string | null;
     nameUk: string | null;
     nameEn: string | null;
-    contentful_id: string;
+    link: string | null;
     serviceCardPhoto: any;
 };
 
@@ -37,7 +37,7 @@ export const Card = ({
     nameRu,
     nameUk,
     nameEn,
-    contentful_id,
+    link,
     serviceCardPhoto,
 }: Props) => {
     const { i18n } = React.useContext(I18nContext);
@@ -52,7 +52,7 @@ export const Card = ({
     ) as IGatsbyImageData;
 
     return (
-        <CardSC to={`/service/${contentful_id}`}>
+        <CardSC to={`/service/${link}`}>
             <CardPhotoSC>
                 <GatsbyImage image={image} alt="Service Photo" />
             </CardPhotoSC>

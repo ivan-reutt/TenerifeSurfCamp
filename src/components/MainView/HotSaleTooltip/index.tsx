@@ -16,13 +16,13 @@ export const HotSaleTooltip = () => {
                 nameEn
                 nameRu
                 nameUk
-                contentful_id
+                link
             }
         }
     `);
     const nameField = `name${currentLang}` as keyof typeof contentfulServices;
     return (
-        <HotSaleTooltipSC to={`/service/${contentfulServices.contentful_id}`}>
+        <HotSaleTooltipSC to={`/service/${contentfulServices.link}`}>
             <HotSaleTag />
             <Trans i18nKey={"hot-btn"}>{contentfulServices?.[nameField]}</Trans>
             <IconSC>

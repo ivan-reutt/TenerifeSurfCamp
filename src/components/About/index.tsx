@@ -14,7 +14,7 @@ import { Trans } from "gatsby-plugin-react-i18next";
 import { useContentfulSurfServices } from "src/hooks/useContentfulSurfServices";
 
 export const About = () => {
-    const { contentful_id } = useContentfulSurfServices();
+    const { link } = useContentfulSurfServices();
     return (
         <AboutSC id="about">
             <SectionTitleSC>
@@ -31,7 +31,7 @@ export const About = () => {
                     </CardTitleSC>
                     <BigCardTextSC>2000+</BigCardTextSC>
                     <ActionLink
-                        to={`/service/${contentful_id}`}
+                        to={`/service/${link}`}
                         colorType={ColorTypes.WHITE}
                     />
                 </AboutCardBlueSC>

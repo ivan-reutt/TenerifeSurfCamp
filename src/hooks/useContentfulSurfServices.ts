@@ -6,7 +6,7 @@ export const useContentfulSurfServices = () => {
             contentfulServices(isMainService: { eq: true }) {
                 price
                 salePrice
-                contentful_id
+                link
             }
         }
     `);

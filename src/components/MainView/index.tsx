@@ -18,7 +18,7 @@ import { StaticImage } from "gatsby-plugin-image";
 import { devices } from "src/styles/media";
 
 export const MainView = () => {
-    const { salePrice, price, contentful_id } = useContentfulSurfServices();
+    const { salePrice, price, link } = useContentfulSurfServices();
     const [isMobile, setIsMobile] = useState(false);
     useEffect(() => {
         setIsMobile(window.matchMedia(devices.lg).matches);
@@ -41,7 +41,7 @@ export const MainView = () => {
                         <Trans i18nKey={"mainFrom"}>от</Trans>{" "}
                         {salePrice || price}€
                     </PriceSC>
-                    <ActionLink to={`/service/${contentful_id}`} />
+                    <ActionLink to={`/service/${link}`} />
                 </PriceWrapperSC>
                 <BtnWrapperSC>
                     <VideoButton />

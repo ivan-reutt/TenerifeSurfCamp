@@ -52,7 +52,7 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
 
     useEffect(() => {
         const handleScrollEvent = () => {
-            setIsBtnShowed(window.pageYOffset > 300 ? true : false);
+            setIsBtnShowed(window.pageYOffset > 500 ? true : false);
         };
 
         window.addEventListener("scroll", handleScrollEvent);

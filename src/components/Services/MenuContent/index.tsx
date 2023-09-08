@@ -27,7 +27,7 @@ export const MenuContent = ({ activeTab }: IProps) => {
                         nameRu
                         nameUk
                         type
-                        contentful_id
+                        link
                         serviceCardPhoto {
                             gatsbyImageData(resizingBehavior: FILL, width: 560)
                         }
@@ -52,7 +52,7 @@ export const MenuContent = ({ activeTab }: IProps) => {
         <MenuContentSC>
             <CardsWrapperSC>
                 {renderedServices.map((item) => (
-                    <Card key={item.contentful_id} {...item} />
+                    <Card key={item.link} {...item} />
                 ))}
             </CardsWrapperSC>
             {filtredServices.length > 4 && !isShowAll && (

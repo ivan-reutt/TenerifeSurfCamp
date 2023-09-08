@@ -12,19 +12,14 @@ import {
 interface IProps {
     preview: any;
     date: string | null;
-    contentful_id: string;
+    link: string | null;
     title: string | null;
 }
 
-const NewsCard: React.FC<IProps> = ({
-    preview,
-    date,
-    title,
-    contentful_id,
-}) => {
+const NewsCard: React.FC<IProps> = ({ preview, date, title, link }) => {
     const image = getImage(preview) as IGatsbyImageData;
     return (
-        <NewsCardSC to={`/news/${contentful_id}`}>
+        <NewsCardSC to={`/news/${link}`}>
             <CardPhotoSC>
                 <GatsbyImage image={image} alt={title || "Photo"} />
             </CardPhotoSC>
