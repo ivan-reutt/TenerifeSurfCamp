@@ -23,6 +23,9 @@ import HotSaleTag from "components/HotSaleTag";
 import { devices } from "src/styles/media";
 import { useCurrentLang } from "src/hooks/useCurrentLang";
 import { SEO } from "components/Seo";
+import { Options } from "@contentful/rich-text-react-renderer";
+import { BLOCKS } from "@contentful/rich-text-types";
+import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
 
 const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
@@ -34,10 +37,24 @@ const ServiceItem = ({ data }: PageProps<Queries.ServiceItemQuery>) => {
         `description${currentLang}` as keyof typeof data.contentfulServices;
     const usedName =
         `name${currentLang}` as keyof typeof data.contentfulServices;
+    const options: Options = {
+        renderNode: {
+            [BLOCKS.EMBEDDED_ASSET]: (node) => {
+                const { gatsbyImageData } = node.data.target;
+                return (
+                    <GatsbyImage
+                        image={getImage(gatsbyImageData) as IGatsbyImageData}
+                        alt={"news photo"}
+                    />
+                );
+            },
+        },
+    };
 
     const richText =
         data.contentfulServices?.[usedDescription] &&
-        renderRichText(data.contentfulServices[usedDescription]);
+        renderRichText(data.contentfulServices[usedDescription], options);
+
     const salePrice = data.contentfulServices?.salePrice;
     const price = data.contentfulServices?.price;
 
@@ -139,12 +156,33 @@ export const query = graphql`
             nameUk
             descriptionEn {
                 raw
+                references {
+                    ... on ContentfulAsset {
+                        contentful_id
+                        gatsbyImageData(width: 760)
+                        __typename
+                    }
+                }
             }
             descriptionRu {
                 raw
+                references {
+                    ... on ContentfulAsset {
+                        contentful_id
+                        gatsbyImageData(width: 760)
+                        __typename
+                    }
+                }
             }
             descriptionUk {
                 raw
+                references {
+                    ... on ContentfulAsset {
+                        contentful_id
+                        gatsbyImageData(width: 760)
+                        __typename
+                    }
+                }
             }
             sliderPhoto {
                 gatsbyImageData(height: 420)
