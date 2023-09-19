@@ -19,7 +19,7 @@ export const MenuContent = ({ activeTab }: IProps) => {
     const { allContentfulServices } =
         useStaticQuery<Queries.ServicesQuery>(graphql`
             query Services {
-                allContentfulServices {
+                allContentfulServices(sort: { orderNumber: ASC }) {
                     nodes {
                         price
                         salePrice
