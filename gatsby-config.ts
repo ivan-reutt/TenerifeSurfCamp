@@ -20,6 +20,7 @@ const config: GatsbyConfig = {
     graphqlTypegen: true,
     plugins: [
         "gatsby-plugin-robots-txt",
+        "gatsby-plugin-netlify",
         {
             resolve: "gatsby-source-contentful",
             options: {
