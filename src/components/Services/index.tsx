@@ -18,12 +18,12 @@ interface ITab {
 
 const tabsItems: ITab[] = [
     {
-        type: TabsEnum.SURFING,
-        name: <Trans i18nKey="serviceTabSurfing">Серфинг</Trans>,
-    },
-    {
         type: TabsEnum.TOUR,
         name: <Trans i18nKey="serviceTabTour">Экскурсии на Тенерифе</Trans>,
+    },
+    {
+        type: TabsEnum.SURFING,
+        name: <Trans i18nKey="serviceTabSurfing">Серфинг</Trans>,
     },
     {
         type: TabsEnum.REST,
@@ -32,7 +32,7 @@ const tabsItems: ITab[] = [
 ];
 
 export const Services = () => {
-    const [activeTab, setActiveTab] = useState<TabsEnum>(TabsEnum.SURFING);
+    const [activeTab, setActiveTab] = useState<TabsEnum>(TabsEnum.TOUR);
 
     const handleChange = (selectedTab: TabsEnum) => {
         setActiveTab(selectedTab);

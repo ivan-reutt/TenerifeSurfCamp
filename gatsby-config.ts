@@ -39,12 +39,12 @@ const config: GatsbyConfig = {
             resolve: "gatsby-plugin-react-i18next",
             options: {
                 languages: ["uk", "ru", "en"],
-                defaultLanguage: "uk",
+                defaultLanguage: "en",
                 redirect: false,
                 siteUrl: `https://www.yourdomain.tld`,
                 i18nextOptions: {
                     // debug: true,
-                    fallbackLng: "uk",
+                    fallbackLng: "en",
                     supportedLngs: ["uk", "ru", "en"],
                     defaultNS: "common",
                     interpolation: {
