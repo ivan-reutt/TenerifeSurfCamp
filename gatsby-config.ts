@@ -41,7 +41,7 @@ const config: GatsbyConfig = {
                 languages: ["uk", "ru", "en"],
                 defaultLanguage: "en",
                 redirect: false,
-                siteUrl: `https://www.yourdomain.tld`,
+                siteUrl: `https://funvibe.me/`,
                 i18nextOptions: {
                     // debug: true,
                     fallbackLng: "en",
