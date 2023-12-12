@@ -11,10 +11,17 @@ export const ArrowWrapperSC = styled.button<{ $alignLeft?: boolean }>`
     border-radius: 50%;
     z-index: 1;
     box-shadow: 0 0 0 4px rgba(0, 0, 0, 0.02);
+    opacity: 0.2;
+
+    &:hover {
+        opacity: 0.8;
+        box-shadow: 0 0 5px 3px rgba(0, 0, 0, 0.1);
+    }
+
     ${({ $alignLeft }) =>
         $alignLeft
             ? css`
-                  right: 0;
+                  right: 40px;
                   transform: translate(50%, -50%);
                   @media ${devices.lg} {
                       transform: translate(0, -50%);
@@ -24,7 +31,7 @@ export const ArrowWrapperSC = styled.button<{ $alignLeft?: boolean }>`
                   }
               `
             : css`
-                  left: 0;
+                  left: 40px;
                   transform: scale(-1, 1) translate(50%, -50%);
                   @media ${devices.lg} {
                       transform: scale(-1, 1) translate(0, -50%);

@@ -12,7 +12,7 @@ import { Trans } from "gatsby-plugin-react-i18next";
 import { useStaticQuery, graphql } from "gatsby";
 import { SliderArrow } from "components/SliderArrow";
 
-const Gallery: React.FC = () => {
+const PhotoGallery: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [indexPhoto, setIndexPhoto] = useState(0);
     const { contentfulPhotoGallery } = useStaticQuery(graphql`
@@ -82,7 +82,7 @@ const Gallery: React.FC = () => {
         document.body.classList.remove("modal-open");
     };
     return (
-        <section id="gallery">
+        <section id="photoGallery">
             <SectionTitleSC>
                 <Trans i18nKey={"aboutTitle"}>
                     Классные люди собираются вместе
@@ -128,4 +128,4 @@ const Gallery: React.FC = () => {
     );
 };
 
-export default Gallery;
+export default PhotoGallery;

@@ -18,11 +18,17 @@ export const Navigation: React.FC = () => {
                 <MenuItemLinkSC to="/#entertainment" onClick={handleClose}>
                     <Trans i18nKey={"navRest"}>Развлечения</Trans>
                 </MenuItemLinkSC>
+                <MenuItemLinkSC to="/#aboutUs" onClick={handleClose}>
+                    <Trans i18nKey={"navAbout"}>О нас</Trans>
+                </MenuItemLinkSC>
+                <MenuItemLinkSC to="/#reviews" onClick={handleClose}>
+                    <Trans i18nKey={"review"}>Отзывы</Trans>
+                </MenuItemLinkSC>
+                <MenuItemLinkSC to="/#photoGallery" onClick={handleClose}>
+                    <Trans i18nKey={"navPhotos"}>Фото</Trans>
+                </MenuItemLinkSC>
                 <MenuItemLinkSC to="/#vibe" onClick={handleClose}>
                     <Trans i18nKey={"navVibe"}>Вайб</Trans>
-                </MenuItemLinkSC>
-                <MenuItemLinkSC to="/#about" onClick={handleClose}>
-                    <Trans i18nKey={"navAbout"}>О нас</Trans>
                 </MenuItemLinkSC>
                 <MenuItemLinkSC to="/news" onClick={handleClose}>
                     <Trans i18nKey={"navNews"}>Новости</Trans>

@@ -30,7 +30,7 @@ export const AboutUs = () => {
         }
     `);
     return (
-        <AboutUsSC id="about">
+        <AboutUsSC id="aboutUs">
             <SectionTitleSC>
                 <Trans i18nKey={"navAbout"}>О Нас</Trans>
             </SectionTitleSC>
