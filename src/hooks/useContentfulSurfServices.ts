@@ -7,6 +7,7 @@ export const useContentfulSurfServices = () => {
                 price
                 salePrice
                 link
+                nameEn
             }
         }
     `);

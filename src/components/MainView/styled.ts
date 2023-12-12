@@ -27,7 +27,7 @@ export const WrapperSC = styled.div`
     flex-direction: column;
     align-items: center;
     height: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
     padding: 80px 0;
     max-width: 100%;
     @media ${devices.lg} {
@@ -45,20 +45,6 @@ export const TitleSC = styled.h1`
 
     @media ${devices.sm} {
         margin-bottom: 20px;
-    }
-`;
-
-export const BtnInTitleWrapperSC = styled.span`
-    @media ${devices.sm} {
-        display: none;
-    }
-`;
-
-export const BtnWrapperSC = styled.span`
-    display: none;
-    @media ${devices.sm} {
-        display: block;
-        margin-top: 10px;
     }
 `;
 

@@ -51,7 +51,6 @@ export const MenuItemLinkSC = styled(Link)`
 
 export const BurgerWrapperSC = styled.div`
     display: none;
-    order: 3;
 
     @media ${devices.lg} {
         display: block;

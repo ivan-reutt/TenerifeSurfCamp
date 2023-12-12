@@ -6,7 +6,7 @@ export const LanguageSwitcherSC = styled.div`
     display: flex;
     position: relative;
     @media ${devices.lg} {
-        order: 1;
+        order: 2;
     }
 `;
 
