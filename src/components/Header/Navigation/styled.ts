@@ -25,7 +25,7 @@ export const NavWrapperSC = styled.nav<{ $isOpen: boolean }>`
                 width: 100%;
                 border-radius: 32px 0px 0px 32px;
                 box-shadow: 0px 0px 100px 500px rgba(0, 0, 0, 0.5);
-                padding: 120px 40px 40px 40px;
+                padding: 60px 40px 40px 40px;
                 height: 667px;
                 gap: 60px;
                 z-index: 1;
@@ -58,11 +58,11 @@ export const BurgerWrapperSC = styled.div`
 `;
 
 export const CloseBtnSC = styled.button`
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     border: 1px solid #000;
-    padding: 24px;
+    padding: 14px;
     align-self: center;
     margin-top: auto;
 `;
