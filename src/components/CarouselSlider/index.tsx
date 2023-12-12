@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import Slider, { Settings } from "react-slick";
 import { SliderWrapperSC } from "./styled";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
-import { SliderArrow } from "./SliderArrow";
+import { SliderArrow } from "components/SliderArrow";
 
 interface ISlideProps {
     slides?:

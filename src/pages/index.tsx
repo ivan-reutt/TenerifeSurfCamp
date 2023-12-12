@@ -1,23 +1,27 @@
 import React from "react";
 import { graphql, HeadFC, PageProps } from "gatsby";
-import { InfoBlock } from "components/InfoBlock";
-import { About } from "components/About";
 import { Services } from "components/Services";
 import { Vibe } from "components/Vibe";
 import { MainView } from "components/MainView";
 import Layout from "components/Layout";
 import LayoutBg from "components/LayoutBg";
 import { SEO } from "components/Seo";
+import { AboutUs } from "components/AboutUs";
+import { Reviews } from "components/Reviews";
+import { ActionForm } from "components/ActionForm";
+import Gallery from "components/Gallery";
 
 const IndexPage: React.FC<PageProps> = () => {
     return (
         <Layout>
             <LayoutBg />
             <MainView />
-            <InfoBlock />
             <Services />
+            <AboutUs />
+            <Reviews />
+            <ActionForm />
+            <Gallery />
             <Vibe />
-            <About />
         </Layout>
     );
 };

@@ -9,7 +9,7 @@ export const LogoLinkSC = styled(Link)`
     max-height: 24px;
     width: 100%;
     @media ${devices.lg} {
-        order: 2;
+        order: 1;
     }
 `;
 

@@ -1,4 +1,3 @@
-import React from "react";
 import { IconSC, HotSaleTooltipSC } from "./styled";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { ArrowRight } from "components/icons/ArrowRight";

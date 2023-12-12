@@ -73,6 +73,27 @@ const LayoutBg: React.FC = () => {
                 formats={["auto", "webp", "avif"]}
                 placeholder="none"
             />
+            <StaticImage
+                src="../../images/vector-bg-1.png"
+                alt=""
+                layout="fullWidth"
+                formats={["auto", "webp", "avif"]}
+                placeholder="blurred"
+            />
+            <StaticImage
+                src="../../images/vector-bg-2.png"
+                alt=""
+                layout="fullWidth"
+                formats={["auto", "webp", "avif"]}
+                placeholder="none"
+            />
+            <StaticImage
+                src="../../images/vector-bg-1.png"
+                alt=""
+                layout="fullWidth"
+                formats={["auto", "webp", "avif"]}
+                placeholder="blurred"
+            />
         </LayoutBgSC>
     );
 };
