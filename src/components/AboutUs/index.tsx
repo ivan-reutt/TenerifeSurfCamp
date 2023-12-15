@@ -11,24 +11,40 @@ import { SectionTitleSC } from "src/layouts/common";
 import { Trans } from "gatsby-plugin-react-i18next";
 import { useStaticQuery, graphql } from "gatsby";
 import { GatsbyImage, getImage, IGatsbyImageData } from "gatsby-plugin-image";
+import { useCurrentLang } from "src/hooks/useCurrentLang";
 
 export const AboutUs = () => {
+    const currentLang = useCurrentLang();
     const { allContentfulAboutUs } = useStaticQuery(graphql`
         query AboutUsCards {
             allContentfulAboutUs {
                 nodes {
-                    role
+                    roleRu
+                    roleEn
+                    roleUk
                     photo {
                         gatsbyImageData(cropFocus: CENTER, aspectRatio: 0.7)
                     }
-                    name
-                    description {
-                        description
+                    nameRu
+                    nameEn
+                    nameUk
+                    descriptionRu {
+                        descriptionRu
+                    }
+                    descriptionEn {
+                        descriptionEn
+                    }
+                    descriptionUk {
+                        descriptionUk
                     }
                 }
             }
         }
     `);
+    const roleField = `role${currentLang}` as keyof typeof allContentfulAboutUs;
+    const nameField = `name${currentLang}` as keyof typeof allContentfulAboutUs;
+    const descriptionField =
+        `description${currentLang}` as keyof typeof allContentfulAboutUs;
     return (
         <AboutUsSC id="about">
             <SectionTitleSC>
@@ -43,12 +59,12 @@ export const AboutUs = () => {
                             style={{ borderRadius: "12px" }}
                         />
                         <NameSC>
-                            {node.name}
-                            <RoleSC> ({node.role})</RoleSC>
+                            {node[nameField]}
+                            <RoleSC> ({node[roleField]})</RoleSC>
                         </NameSC>
 
                         <DescriptionSC>
-                            {node.description.description}
+                            {node[descriptionField][descriptionField]}
                         </DescriptionSC>
                     </AboutCardSC>
                 ))}

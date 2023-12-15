@@ -14,7 +14,7 @@ export const ArrowWrapperSC = styled.button<{ $alignLeft?: boolean }>`
     ${({ $alignLeft }) =>
         $alignLeft
             ? css`
-                  right: 0;
+                  right: 40px;
                   transform: translate(50%, -50%);
                   @media ${devices.lg} {
                       transform: translate(0, -50%);
@@ -24,7 +24,7 @@ export const ArrowWrapperSC = styled.button<{ $alignLeft?: boolean }>`
                   }
               `
             : css`
-                  left: 0;
+                  left: 40px;
                   transform: scale(-1, 1) translate(50%, -50%);
                   @media ${devices.lg} {
                       transform: scale(-1, 1) translate(0, -50%);
