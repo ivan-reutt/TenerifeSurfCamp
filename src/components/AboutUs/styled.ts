@@ -4,10 +4,14 @@ import { devices } from "src/styles/media";
 export const AboutUsSC = styled.section``;
 
 export const WrapperSC = styled.div`
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
     @media ${devices.md} {
-        flex-direction: column;
+        grid-template-columns: repeat(2, 1fr);
+    }
+    @media ${devices.sm} {
+        grid-template-columns: 1fr;
     }
 `;
 
