@@ -9,7 +9,7 @@ import { SEO } from "components/Seo";
 import { AboutUs } from "components/AboutUs";
 import { Reviews } from "components/Reviews";
 import { ActionForm } from "components/ActionForm";
-import Gallery from "components/Gallery";
+import PhotoGallery from "components/PhotoGallery";
 
 const IndexPage: React.FC<PageProps> = () => {
     return (
@@ -20,7 +20,7 @@ const IndexPage: React.FC<PageProps> = () => {
             <AboutUs />
             <Reviews />
             <ActionForm />
-            <Gallery />
+            <PhotoGallery />
             <Vibe />
         </Layout>
     );

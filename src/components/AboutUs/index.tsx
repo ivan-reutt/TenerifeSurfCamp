@@ -46,7 +46,7 @@ export const AboutUs = () => {
     const descriptionField =
         `description${currentLang}` as keyof typeof allContentfulAboutUs;
     return (
-        <AboutUsSC id="about">
+        <AboutUsSC id="aboutUs">
             <SectionTitleSC>
                 <Trans i18nKey={"navAbout"}>О Нас</Trans>
             </SectionTitleSC>
