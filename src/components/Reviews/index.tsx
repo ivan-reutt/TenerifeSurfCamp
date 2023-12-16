@@ -34,7 +34,7 @@ export const Reviews = () => {
     return (
         <ReviewsSC id="reviews">
             <SectionTitleSC>
-                <Trans i18nKey={"reviews"}>Reviews</Trans>
+                <Trans i18nKey={"reviews"}>Отзывы</Trans>
             </SectionTitleSC>
             <WrapperSC>
                 {allContentfulReviews.nodes.map((node, index) => (
