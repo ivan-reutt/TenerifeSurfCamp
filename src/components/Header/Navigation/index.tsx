@@ -22,7 +22,7 @@ export const Navigation: React.FC = () => {
                     <Trans i18nKey={"navAbout"}>О нас</Trans>
                 </MenuItemLinkSC>
                 <MenuItemLinkSC to="/#reviews" onClick={handleClose}>
-                    <Trans i18nKey={"review"}>Отзывы</Trans>
+                    <Trans i18nKey={"navReviews"}>Отзывы</Trans>
                 </MenuItemLinkSC>
                 <MenuItemLinkSC to="/#photoGallery" onClick={handleClose}>
                     <Trans i18nKey={"navPhotos"}>Фото</Trans>
