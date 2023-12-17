@@ -17,7 +17,7 @@ export const AboutUs = () => {
     const currentLang = useCurrentLang();
     const { allContentfulAboutUs } = useStaticQuery(graphql`
         query AboutUsCards {
-            allContentfulAboutUs {
+            allContentfulAboutUs(sort: { nameRu: ASC }) {
                 nodes {
                     roleRu
                     roleEn

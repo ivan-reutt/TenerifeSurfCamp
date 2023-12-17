@@ -27,7 +27,15 @@ export const scrollStyles = css`
     }
     &::-webkit-scrollbar-thumb {
         border-radius: 2px;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(0, 0, 0, 0.1);
+    }
+    &:hover {
+        &::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.035);
+        }
+        &::-webkit-scrollbar-thumb {
+            background: rgba(0, 0, 0, 0.5);
+        }
     }
 `;
 
