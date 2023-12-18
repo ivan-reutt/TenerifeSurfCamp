@@ -55,7 +55,7 @@ export const Form: React.FC<IProps> = ({ isOrder, serviceToOrder }) => {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Access-Control-Allow-Origin": "https://funvibe.me",
+                    "Access-Control-Allow-Origin": "https://localclub.me",
                     "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE",
                 },
                 body: JSON.stringify(body),

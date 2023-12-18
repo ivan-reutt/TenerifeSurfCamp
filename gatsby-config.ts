@@ -8,7 +8,7 @@ dotenv.config({
 const config: GatsbyConfig = {
     siteMetadata: {
         title: `Серфкемп Тенерифе - полный курс серфинга в лагере на Канарских островах `,
-        siteUrl: `https://funvibe.me/`,
+        siteUrl: `https://localclub.me/`,
         keywords:
             "Серфинг, Серф кемп, серфинг лагерь, серфкемп, Тенерифе, остров тенерифе, тенерифе канарские острова, де тенерифе, уроки серфинга, Серф, Канарские острова,купить экскурсию, лучшие экскурсии, обзорная экскурсия, сайт экскурсии, цены +на экскурсии, экскурсии",
         description:
@@ -41,7 +41,7 @@ const config: GatsbyConfig = {
                 languages: ["uk", "ru", "en"],
                 defaultLanguage: "en",
                 redirect: false,
-                siteUrl: `https://funvibe.me/`,
+                siteUrl: `https://localclub.me/`,
                 i18nextOptions: {
                     // debug: true,
                     fallbackLng: "en",
