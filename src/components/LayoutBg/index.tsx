@@ -27,6 +27,7 @@ const LayoutBg: React.FC = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 1,
+        lazyLoad: "progressive",
     };
     const { contentfulBackgroundImages } = useStaticQuery(graphql`
         query BackgroundImages {
@@ -52,6 +53,7 @@ const LayoutBg: React.FC = () => {
                                 <GatsbyImage
                                     key={index}
                                     image={getImage(slide) as IGatsbyImageData}
+                                    loading="eager"
                                     alt=""
                                 />
                             ),
