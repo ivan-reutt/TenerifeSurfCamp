@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Navigation } from "./Navigation";
 import { HeaderSC, LogoLinkSC } from "./styled";
-import { Logo } from "components/icons/Logo";
 import LanguageSwitcher from "components/LanguageSwitcher";
 
 export const Header: React.FC = () => {
@@ -20,9 +19,7 @@ export const Header: React.FC = () => {
     }, []);
     return (
         <HeaderSC $isFixed={isFixedHeader}>
-            <LogoLinkSC to="/" aria-label="logo">
-                <Logo color="#000" />
-            </LogoLinkSC>
+            <LogoLinkSC to="/" aria-label="logo"></LogoLinkSC>
             <Navigation />
             <LanguageSwitcher />
         </HeaderSC>

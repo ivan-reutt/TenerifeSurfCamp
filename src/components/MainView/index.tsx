@@ -41,10 +41,6 @@ export const MainView = () => {
                     </Trans>
                 </TitleSC>
                 <PriceWrapperSC>
-                    <PriceSC>
-                        <Trans i18nKey={"mainFrom"}>от</Trans>{" "}
-                        {salePrice || price}€
-                    </PriceSC>
                     <ActionButton onClick={handleClickSignUp}></ActionButton>
                 </PriceWrapperSC>
             </WrapperSC>

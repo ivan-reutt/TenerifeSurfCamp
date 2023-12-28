@@ -28,13 +28,14 @@ export const WrapperSC = styled.div`
     align-items: center;
     height: 100%;
     justify-content: space-around;
-    padding: 80px 0;
+    padding: 80px 0 100px;
     max-width: 100%;
+    gap: 20px;
     @media ${devices.lg} {
-        padding: 40px 0;
+        padding: 40px 0 60px;
     }
     @media ${devices.sm} {
-        padding: 40px 0 20px;
+        padding: 40px;
     }
 `;
 

@@ -1,6 +1,5 @@
 import React from "react";
 import { Form } from "components/Form";
-import { Logo } from "components/icons/Logo";
 import { Trans, useTranslation } from "gatsby-plugin-react-i18next";
 import Instagram from "src/icons/Instagram.svg";
 import Telegram from "src/icons/Telegram.svg";
@@ -40,9 +39,7 @@ export const Footer: React.FC = () => {
     return (
         <FooterSC id="footer">
             <ContainerSC>
-                <LogoLinkSC to="/" aria-label="logo">
-                    <Logo color="#fff" />
-                </LogoLinkSC>
+                <LogoLinkSC to="/" aria-label="logo"></LogoLinkSC>
                 <WrapperSC>
                     <TitleSC>
                         <Trans i18nKey={"actionBtn"}>
