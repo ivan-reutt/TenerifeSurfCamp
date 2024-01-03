@@ -19,13 +19,13 @@ const LayoutBg: React.FC = () => {
 
     const settings: Settings = {
         autoplay: true,
-        autoplaySpeed: 10000,
+        autoplaySpeed: 5000,
         swipe: false,
         touchMove: false,
         draggable: false,
         arrows: false,
         infinite: true,
-        speed: 500,
+        speed: 800,
         slidesToShow: 1,
     };
     const { contentfulBackgroundImages } = useStaticQuery(graphql`
