@@ -156,33 +156,33 @@ export const query = graphql`
             nameUk
             descriptionEn {
                 raw
-                # references {
-                #     ... on ContentfulAsset {
-                #         contentful_id
-                #         gatsbyImageData(width: 760)
-                #         __typename
-                #     }
-                # }
+                references {
+                    ... on ContentfulAsset {
+                        contentful_id
+                        gatsbyImageData(width: 760)
+                        __typename
+                    }
+                }
             }
             descriptionRu {
                 raw
-                # references {
-                #     ... on ContentfulAsset {
-                #         contentful_id
-                #         gatsbyImageData(width: 760)
-                #         __typename
-                #     }
-                # }
+                references {
+                    ... on ContentfulAsset {
+                        contentful_id
+                        gatsbyImageData(width: 760)
+                        __typename
+                    }
+                }
             }
             descriptionUk {
                 raw
-                # references {
-                #     ... on ContentfulAsset {
-                #         contentful_id
-                #         gatsbyImageData(width: 760)
-                #         __typename
-                #     }
-                # }
+                references {
+                    ... on ContentfulAsset {
+                        contentful_id
+                        gatsbyImageData(width: 760)
+                        __typename
+                    }
+                }
             }
             sliderPhoto {
                 gatsbyImageData(height: 420)
