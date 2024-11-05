@@ -2,13 +2,33 @@ import { GatsbyNode } from "gatsby";
 import path from "path";
 import fs from "fs";
 
+interface TranslationData {
+    contentfulAllTextContent: {
+        translationRu: { internal: { content: string } };
+        translationEn: { internal: { content: string } };
+        translationUa: { internal: { content: string } };
+    };
+}
+
+interface NewsData {
+    allContentfulNews: {
+        nodes: Array<{ contentful_id: string; link: string }>;
+    };
+}
+
+interface ServicesData {
+    allContentfulServices: {
+        nodes: Array<{ contentful_id: string; link: string }>;
+    };
+}
+
 export const createPages: GatsbyNode["createPages"] = async ({
     actions,
     graphql,
 }) => {
     const { createPage } = actions;
 
-    const { data: allNews } = await graphql(`
+    const { data: allNews } = await graphql<NewsData>(`
         query AllNews {
             allContentfulNews {
                 nodes {
@@ -18,7 +38,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             }
         }
     `);
-    const { data: allServices } = await graphql(`
+    const { data: allServices } = await graphql<ServicesData>(`
         query AllServices {
             allContentfulServices {
                 nodes {
@@ -28,7 +48,7 @@ export const createPages: GatsbyNode["createPages"] = async ({
             }
         }
     `);
-    const { data: translations } = await graphql(`
+    const { data: translations } = await graphql<TranslationData>(`
         query AllTranslations {
             contentfulAllTextContent {
                 translationRu {
@@ -53,32 +73,37 @@ export const createPages: GatsbyNode["createPages"] = async ({
     const outputPathEn = path.resolve("./locales/en/index.json");
     const outputPathUa = path.resolve("./locales/uk/index.json");
 
-    fs.writeFileSync(
-        outputPathRu,
-        translations.contentfulAllTextContent.translationRu.internal.content,
-    );
+    if (translations?.contentfulAllTextContent) {
+        fs.writeFileSync(
+            outputPathRu,
+            translations.contentfulAllTextContent.translationRu.internal
+                .content,
+        );
 
-    fs.writeFileSync(
-        outputPathEn,
-        translations.contentfulAllTextContent.translationEn.internal.content,
-    );
+        fs.writeFileSync(
+            outputPathEn,
+            translations.contentfulAllTextContent.translationEn.internal
+                .content,
+        );
 
-    fs.writeFileSync(
-        outputPathUa,
-        translations.contentfulAllTextContent.translationUa.internal.content,
-    );
+        fs.writeFileSync(
+            outputPathUa,
+            translations.contentfulAllTextContent.translationUa.internal
+                .content,
+        );
+    }
 
     const NewsItemPage = path.resolve("./src/templates/news-item.tsx");
 
     const ServiceItemPage = path.resolve("./src/templates/service-item.tsx");
-    allNews.allContentfulNews.nodes.forEach((news) => {
+    allNews?.allContentfulNews.nodes.forEach((news) => {
         createPage({
             path: "/news/" + news.link,
             component: NewsItemPage,
             context: { id: news.contentful_id },
         });
     });
-    allServices.allContentfulServices.nodes.forEach((service) => {
+    allServices?.allContentfulServices.nodes.forEach((service) => {
         createPage({
             path: "/service/" + service.link,
             component: ServiceItemPage,
@@ -100,3 +125,19 @@ export const onCreateWebpackConfig: GatsbyNode["onCreateWebpackConfig"] = ({
         },
     });
 };
+
+export const createSchemaCustomization: GatsbyNode["createSchemaCustomization"] =
+    ({ actions }) => {
+        const { createTypes } = actions;
+        createTypes(`
+        type ContentfulServicesDescriptionEn implements Node {
+            references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
+        }
+        type ContentfulServicesDescriptionRu implements Node {
+            references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
+        }
+        type ContentfulServicesDescriptionUk implements Node {
+            references: [ContentfulAsset] @link(by: "id", from: "references___NODE")
+        }
+    `);
+    };
