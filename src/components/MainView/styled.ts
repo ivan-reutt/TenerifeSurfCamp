@@ -43,6 +43,8 @@ export const TitleSC = styled.h1`
     text-align: center;
     max-width: 100%;
     color: #000;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 40px;
 
     @media ${devices.sm} {
         margin-bottom: 20px;
@@ -55,7 +57,10 @@ export const PriceWrapperSC = styled.div`
     gap: 10px;
 `;
 
-export const PriceSC = styled.h3``;
+export const PriceSC = styled.h3`
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 40px;
+`;
 
 export const BgWrapperSC = styled.div`
     position: absolute;
