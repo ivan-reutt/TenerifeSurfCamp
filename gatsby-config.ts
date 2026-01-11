@@ -78,6 +78,12 @@ const config: GatsbyConfig = {
                 pixelId: "642630721362046",
             },
         },
+        {
+            resolve: `gatsby-plugin-canonical-urls`,
+            options: {
+                siteUrl: `https://localclub.me/`,
+            },
+        },
     ],
 };
 
