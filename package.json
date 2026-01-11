@@ -19,6 +19,7 @@
         "@contentful/rich-text-react-renderer": "15.17.0",
         "@contentful/rich-text-types": "16.2.0",
         "gatsby": "^5.11.0",
+        "gatsby-plugin-canonical-urls": "5.15.0",
         "gatsby-plugin-facebook-pixel": "1.0.8",
         "gatsby-plugin-google-tagmanager": "5.12.3",
         "gatsby-plugin-image": "3.11.0",
