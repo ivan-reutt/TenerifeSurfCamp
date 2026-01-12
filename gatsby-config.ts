@@ -98,7 +98,7 @@ const config: GatsbyConfig = {
         {
             resolve: `gatsby-plugin-canonical-urls`,
             options: {
-                siteUrl: `https://localclub.me/`,
+                siteUrl: `https://funvibe.me/`,
             },
         },
     ],
